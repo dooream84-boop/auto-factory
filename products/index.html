@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Google Search Console 인증 -->
+  <meta name="google-site-verification" content="OyvdhFUwC-wAD4ZSdgejG5A1ch3hPGNN6Tt0UUsyzqk" />
+
+  <!-- SEO 메타태그 -->
+  <title>모두의 계산기 - 무료 온라인 계산기 모음</title>
+  <meta name="description" content="퇴직금, 실수령액, 대출이자, 연말정산 등 생활에 꼭 필요한 계산기를 무료로 제공합니다. 복잡한 계산을 간단하게.">
+  <meta name="keywords" content="계산기 모음, 무료 계산기, 퇴직금 계산기, 실수령액 계산기, 대출이자 계산기, 연말정산 계산기">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="모두의 계산기 - 무료 온라인 계산기 모음">
+  <meta property="og:description" content="생활에 꼭 필요한 계산기를 무료로 제공합니다. 퇴직금, 실수령액, 대출이자, 연말정산.">
+  <meta property="og:type" content="website">
+  <link rel="canonical" href="https://dooream84-boop.github.io/auto-factory/products/">
+
+  <!-- 구조화 데이터 -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "모두의 계산기",
+    "description": "생활에 꼭 필요한 무료 온라인 계산기 모음",
+    "url": "https://dooream84-boop.github.io/auto-factory/products/"
+  }
+  </script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans KR', sans-serif; background: #f5f7fa; color: #333; line-height: 1.6; }
+
+    /* 헤더 */
+    header { background: linear-gradient(135deg, #1a237e, #283593); color: #fff; text-align: center; padding: 48px 16px 40px; }
+    .site-name { font-size: clamp(1.8rem, 5vw, 2.8rem); font-weight: 800; letter-spacing: -0.5px; }
+    .site-tagline { margin-top: 10px; font-size: clamp(0.95rem, 2.5vw, 1.1rem); opacity: 0.85; }
+    .site-desc { margin-top: 16px; font-size: 0.9rem; opacity: 0.75; max-width: 480px; margin-left: auto; margin-right: auto; }
+
+    /* 광고 */
+    .ad-banner { background: #fff; border: 1px dashed #ccc; text-align: center; color: #999; font-size: 0.8rem; display: flex; align-items: center; justify-content: center; }
+    .ad-top    { min-height: 90px; }
+    .ad-bottom { min-height: 250px; }
+
+    /* 메인 */
+    main { max-width: 860px; margin: 32px auto; padding: 0 16px 48px; }
+
+    .section-heading { font-size: 1.1rem; font-weight: 700; color: #1a237e; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid #e8eaf6; }
+
+    /* 계산기 카드 그리드 */
+    .calc-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; margin-bottom: 40px; }
+
+    .calc-card {
+      background: #fff;
+      border-radius: 14px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+      padding: 24px 20px;
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      border: 1.5px solid transparent;
+      transition: border-color 0.2s, box-shadow 0.2s, transform 0.15s;
+    }
+    .calc-card:hover { border-color: var(--accent); box-shadow: 0 6px 24px rgba(0,0,0,0.12); transform: translateY(-2px); }
+
+    .calc-card .icon { font-size: 2rem; line-height: 1; }
+    .calc-card .name { font-size: 1.05rem; font-weight: 700; color: #1a237e; }
+    .calc-card .desc { font-size: 0.85rem; color: #666; flex: 1; }
+    .calc-card .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag { font-size: 0.72rem; padding: 2px 8px; border-radius: 20px; font-weight: 600; }
+    .calc-card .cta { font-size: 0.82rem; font-weight: 700; color: var(--accent); margin-top: 4px; }
+
+    /* 카드별 색상 */
+    .card-severance  { --accent: #1a73e8; }
+    .card-salary     { --accent: #00897b; }
+    .card-loan       { --accent: #1565c0; }
+    .card-taxrefund  { --accent: #6a1b9a; }
+
+    .card-severance  .name { color: #1a73e8; }
+    .card-severance  .tag  { background: #e8f0fe; color: #1a73e8; }
+    .card-salary     .name { color: #00897b; }
+    .card-salary     .tag  { background: #e0f2f1; color: #00695c; }
+    .card-loan       .name { color: #1565c0; }
+    .card-loan       .tag  { background: #e3f2fd; color: #1565c0; }
+    .card-taxrefund  .name { color: #6a1b9a; }
+    .card-taxrefund  .tag  { background: #f3e5f5; color: #6a1b9a; }
+
+    /* 소개 섹션 */
+    .intro-card { background: #fff; border-radius: 14px; box-shadow: 0 2px 12px rgba(0,0,0,0.07); padding: 28px 24px; margin-bottom: 40px; }
+    .intro-card p { font-size: 0.92rem; color: #555; margin-bottom: 10px; }
+    .intro-card p:last-child { margin-bottom: 0; }
+    .intro-card strong { color: #1a237e; }
+
+    /* 푸터 */
+    footer { text-align: center; font-size: 0.78rem; color: #aaa; padding: 20px 16px 32px; }
+    footer a { color: #888; text-decoration: underline; margin: 0 8px; }
+    footer a:hover { color: #1a237e; }
+
+    @media (max-width: 520px) {
+      .calc-grid { grid-template-columns: 1fr; }
+      header { padding: 36px 16px 28px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="site-name">🧮 모두의 계산기</div>
+  <div class="site-tagline">생활 속 복잡한 계산, 간단하게</div>
+  <div class="site-desc">퇴직금·실수령액·대출이자·연말정산 등 꼭 필요한 계산기를 무료로 제공합니다</div>
+</header>
+
+<!-- 상단 광고 -->
+<div class="ad-banner ad-top">
+  <!-- Google AdSense 상단 배너 삽입 위치 -->
+  [광고 영역 - AdSense 상단 배너]
+</div>
+
+<main>
+  <h2 class="section-heading">계산기 목록</h2>
+
+  <div class="calc-grid">
+
+    <a class="calc-card card-severance" href="./severance-calculator/">
+      <div class="icon">💼</div>
+      <div class="name">퇴직금 계산기</div>
+      <div class="desc">입사일·퇴직일·평균임금으로 근로기준법 기준 퇴직금을 즉시 계산합니다.</div>
+      <div class="tags">
+        <span class="tag">근로기준법</span>
+        <span class="tag">평균임금</span>
+      </div>
+      <div class="cta">계산하기 →</div>
+    </a>
+
+    <a class="calc-card card-salary" href="./salary-calculator/">
+      <div class="icon">💰</div>
+      <div class="name">실수령액 계산기</div>
+      <div class="desc">연봉을 입력하면 4대보험·소득세 공제 후 월 실수령액을 즉시 계산합니다.</div>
+      <div class="tags">
+        <span class="tag">4대보험</span>
+        <span class="tag">소득세</span>
+      </div>
+      <div class="cta">계산하기 →</div>
+    </a>
+
+    <a class="calc-card card-loan" href="./loan-calculator/">
+      <div class="icon">🏦</div>
+      <div class="name">대출이자 계산기</div>
+      <div class="desc">대출금액·금리·기간으로 월 상환액과 총 이자를 계산합니다. 원리금균등·원금균등 모두 지원.</div>
+      <div class="tags">
+        <span class="tag">원리금균등</span>
+        <span class="tag">원금균등</span>
+      </div>
+      <div class="cta">계산하기 →</div>
+    </a>
+
+    <a class="calc-card card-taxrefund" href="./tax-refund-calculator/">
+      <div class="icon">📋</div>
+      <div class="name">연말정산 환급액 계산기</div>
+      <div class="desc">총급여와 공제항목을 입력하면 예상 환급액 또는 추가납부액을 계산합니다.</div>
+      <div class="tags">
+        <span class="tag">소득공제</span>
+        <span class="tag">세액공제</span>
+      </div>
+      <div class="cta">계산하기 →</div>
+    </a>
+
+  </div>
+
+  <h2 class="section-heading">사이트 소개</h2>
+  <div class="intro-card">
+    <p><strong>모두의 계산기</strong>는 직장인이 자주 필요로 하는 금융·세금 계산을 무료로 제공하는 사이트입니다.</p>
+    <p>모든 계산기는 <strong>최신 법령 기준</strong>을 반영하며, 별도 설치 없이 브라우저에서 바로 사용할 수 있습니다. PC와 모바일 모두 최적화되어 있습니다.</p>
+    <p>※ 본 사이트의 계산 결과는 참고용입니다. 정확한 금액은 관련 기관이나 전문가에게 문의하세요.</p>
+  </div>
+
+</main>
+
+<!-- 하단 광고 -->
+<div class="ad-banner ad-bottom">
+  <!-- Google AdSense 하단 사각형 삽입 위치 -->
+  [광고 영역 - AdSense 하단]
+</div>
+
+<footer>
+  <p>© 2026 모두의 계산기. All rights reserved.</p>
+  <p style="margin-top:6px;">
+    <a href="./privacy-policy.html">개인정보처리방침</a>
+  </p>
+</footer>
+
+</body>
+</html>
