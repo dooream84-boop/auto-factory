@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Google Search Console 인증 -->
+  <meta name="google-site-verification" content="OyvdhFUwC-wAD4ZSdgejG5A1ch3hPGNN6Tt0UUsyzqk" />
+
+  <!-- SEO 메타태그 -->
+  <title>연말정산 환급액 계산기 2026 - 예상 환급액 무료 계산</title>
+  <meta name="description" content="총급여와 공제항목을 입력하면 연말정산 예상 환급액을 즉시 계산합니다. 인적공제, 신용카드, 의료비, 교육비 등 주요 항목 반영.">
+  <meta name="keywords" content="연말정산 계산기, 환급액 계산, 연말정산 환급, 소득공제 계산, 세액공제 계산, 연말정산 미리보기">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="연말정산 환급액 계산기 - 예상 환급액 무료 계산">
+  <meta property="og:description" content="총급여와 공제항목 입력으로 연말정산 예상 환급액을 즉시 계산합니다.">
+  <meta property="og:type" content="website">
+  <!-- TODO: 도메인 확정 후 아래 두 줄 주석 해제 및 URL 교체 -->
+  <!-- <meta property="og:image" content="https://YOUR-DOMAIN/og-tax-refund-calculator.png"> -->
+  <!-- <link rel="canonical" href="https://YOUR-DOMAIN/tax-refund-calculator"> -->
+
+  <!-- 구조화 데이터 (Schema.org) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "연말정산 환급액 계산기",
+    "description": "총급여·공제항목 입력으로 연말정산 예상 환급액을 계산하는 무료 웹 도구",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "All",
+    "offers": { "@type": "Offer", "price": "0" }
+  }
+  </script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans KR', sans-serif; background: #f5f7fa; color: #333; line-height: 1.6; }
+
+    header { background: linear-gradient(135deg, #6a1b9a, #4a148c); color: #fff; text-align: center; padding: 28px 16px 24px; }
+    header h1 { font-size: clamp(1.4rem, 4vw, 2rem); font-weight: 700; }
+    header p  { margin-top: 6px; font-size: 0.95rem; opacity: 0.88; }
+
+    .ad-banner { background: #fff; border: 1px dashed #ccc; text-align: center; padding: 12px; color: #999; font-size: 0.8rem; }
+    .ad-banner-top    { min-height: 90px;  display: flex; align-items: center; justify-content: center; }
+    .ad-banner-bottom { min-height: 250px; display: flex; align-items: center; justify-content: center; }
+
+    main { max-width: 680px; margin: 24px auto; padding: 0 16px 40px; }
+
+    .card { background: #fff; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); padding: 28px 24px; margin-bottom: 20px; }
+    .card h2 { font-size: 1.05rem; font-weight: 600; color: #6a1b9a; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid #f3e5f5; }
+
+    .section-title { font-size: 0.82rem; font-weight: 700; color: #6a1b9a; background: #f3e5f5; padding: 6px 10px; border-radius: 6px; margin-bottom: 14px; margin-top: 6px; }
+
+    .form-group { margin-bottom: 16px; }
+    .form-group label { display: block; font-size: 0.88rem; font-weight: 600; color: #555; margin-bottom: 6px; }
+    .form-group .hint { font-size: 0.78rem; color: #888; margin-top: 4px; }
+
+    .input-wrap { position: relative; }
+    .input-wrap input {
+      width: 100%; padding: 11px 44px 11px 14px; border: 1.5px solid #ddd;
+      border-radius: 8px; font-size: 1rem; transition: border-color 0.2s; outline: none;
+    }
+    .input-wrap input:focus { border-color: #6a1b9a; }
+    .input-wrap .unit { position: absolute; right: 14px; top: 50%; transform: translateY(-50%); font-size: 0.85rem; color: #888; pointer-events: none; }
+
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+    .btn-calc { width: 100%; padding: 14px; background: linear-gradient(135deg, #6a1b9a, #4a148c); color: #fff; font-size: 1.05rem; font-weight: 700; border: none; border-radius: 8px; cursor: pointer; transition: opacity 0.2s, transform 0.1s; margin-top: 8px; }
+    .btn-calc:hover { opacity: 0.92; } .btn-calc:active { transform: scale(0.98); }
+
+    .result-card { display: none; border-radius: 12px; padding: 24px; margin-bottom: 20px; }
+    .result-card.show { display: block; }
+    .result-card.refund  { background: linear-gradient(135deg, #e8f5e9, #f1fff3); border: 1.5px solid #388e3c; }
+    .result-card.payment { background: linear-gradient(135deg, #fce4ec, #fff0f4); border: 1.5px solid #c62828; }
+
+    .result-card h2 { font-size: 1rem; margin-bottom: 16px; }
+    .result-card.refund  h2 { color: #388e3c; }
+    .result-card.payment h2 { color: #c62828; }
+
+    .result-badge { display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 0.82rem; font-weight: 700; margin-bottom: 10px; }
+    .badge-refund  { background: #388e3c; color: #fff; }
+    .badge-payment { background: #c62828; color: #fff; }
+
+    .result-amount { font-size: clamp(1.6rem, 5vw, 2.4rem); font-weight: 800; text-align: center; margin: 8px 0 4px; }
+    .result-amount.refund  { color: #2e7d32; }
+    .result-amount.payment { color: #b71c1c; }
+    .result-amount span { font-size: 1rem; font-weight: 500; }
+
+    .result-detail { margin-top: 16px; border-top: 1px solid #e0e0e0; padding-top: 14px; }
+    .result-row { display: flex; justify-content: space-between; font-size: 0.88rem; padding: 5px 0; color: #444; border-bottom: 1px dotted #eee; }
+    .result-row:last-child { border-bottom: none; }
+    .result-row .label { color: #666; }
+    .result-row .value { font-weight: 600; }
+
+    .notice { background: #fff8e1; border-left: 4px solid #ffa000; border-radius: 0 8px 8px 0; padding: 12px 14px; font-size: 0.82rem; color: #555; margin-top: 16px; }
+    .notice strong { color: #e65100; }
+
+    .faq-item { margin-bottom: 14px; }
+    .faq-q { font-weight: 600; font-size: 0.92rem; color: #333; margin-bottom: 4px; }
+    .faq-a { font-size: 0.88rem; color: #555; }
+
+    footer { text-align: center; font-size: 0.78rem; color: #aaa; padding: 20px 16px 32px; }
+
+    @media (max-width: 480px) {
+      .card { padding: 20px 16px; }
+      .two-col { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>연말정산 환급액 계산기</h1>
+  <p>총급여·공제항목 입력 → 예상 환급액 즉시 계산</p>
+</header>
+
+<!-- 상단 애드센스 광고 -->
+<div class="ad-banner ad-banner-top">
+  [광고 영역 - AdSense 상단 배너]
+</div>
+
+<main>
+
+  <div class="card">
+    <h2>소득 및 공제 입력</h2>
+
+    <div class="section-title">① 기본 정보</div>
+
+    <div class="form-group">
+      <label for="grossSalary">총급여 (연간)</label>
+      <div class="input-wrap">
+        <input type="number" id="grossSalary" placeholder="예: 50000000" min="0">
+        <span class="unit">원</span>
+      </div>
+      <p class="hint">원천징수영수증의 총급여액</p>
+    </div>
+
+    <div class="two-col">
+      <div class="form-group">
+        <label for="withheld">기납부 세액 (원천징수)</label>
+        <div class="input-wrap">
+          <input type="number" id="withheld" placeholder="예: 1500000" min="0">
+          <span class="unit">원</span>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="dependentsCount">인적공제 인원 (본인 포함)</label>
+        <div class="input-wrap">
+          <input type="number" id="dependentsCount" placeholder="예: 1" min="1" max="10" value="1">
+          <span class="unit">명</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-title">② 소득공제 항목</div>
+
+    <div class="two-col">
+      <div class="form-group">
+        <label for="creditCard">신용카드 등 사용액</label>
+        <div class="input-wrap">
+          <input type="number" id="creditCard" placeholder="예: 10000000" min="0">
+          <span class="unit">원</span>
+        </div>
+        <p class="hint">신용+체크+현금영수증 합계</p>
+      </div>
+      <div class="form-group">
+        <label for="pension">연금보험료 (개인연금)</label>
+        <div class="input-wrap">
+          <input type="number" id="pension" placeholder="예: 1800000" min="0">
+          <span class="unit">원</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-title">③ 세액공제 항목</div>
+
+    <div class="two-col">
+      <div class="form-group">
+        <label for="medical">의료비</label>
+        <div class="input-wrap">
+          <input type="number" id="medical" placeholder="예: 2000000" min="0">
+          <span class="unit">원</span>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="education">교육비</label>
+        <div class="input-wrap">
+          <input type="number" id="education" placeholder="예: 3000000" min="0">
+          <span class="unit">원</span>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="donation">기부금</label>
+        <div class="input-wrap">
+          <input type="number" id="donation" placeholder="예: 500000" min="0">
+          <span class="unit">원</span>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="ira">IRP/연금저축 납입액</label>
+        <div class="input-wrap">
+          <input type="number" id="ira" placeholder="예: 7000000" min="0">
+          <span class="unit">원</span>
+        </div>
+        <p class="hint">세액공제 한도 900만원</p>
+      </div>
+    </div>
+
+    <button class="btn-calc" onclick="calculate()">환급액 계산하기</button>
+  </div>
+
+  <div class="result-card" id="resultCard">
+    <h2 id="resultTitle">계산 결과</h2>
+    <div id="resultBadge"></div>
+    <div class="result-amount" id="resultAmount"></div>
+    <div class="result-detail">
+      <div class="result-row"><span class="label">총급여</span><span class="value" id="rGross">-</span></div>
+      <div class="result-row"><span class="label">근로소득공제</span><span class="value" id="rEarnDeduct">-</span></div>
+      <div class="result-row"><span class="label">각종 소득공제</span><span class="value" id="rDeduct">-</span></div>
+      <div class="result-row"><span class="label">과세표준</span><span class="value" id="rTaxBase">-</span></div>
+      <div class="result-row"><span class="label">산출세액</span><span class="value" id="rCalcTax">-</span></div>
+      <div class="result-row"><span class="label">세액공제 합계</span><span class="value" id="rTaxCredit">-</span></div>
+      <div class="result-row"><span class="label">결정세액</span><span class="value" id="rFinalTax">-</span></div>
+      <div class="result-row"><span class="label">기납부 세액</span><span class="value" id="rWithheld">-</span></div>
+    </div>
+    <div class="notice">
+      <strong>※ 참고사항:</strong> 이 계산기는 주요 항목만 반영한 근사값입니다. 주택자금공제, 월세공제 등 미반영 항목이 있으며, 정확한 결과는 국세청 홈택스 연말정산 미리보기를 이용하세요.
+    </div>
+  </div>
+
+  <!-- 중간 애드센스 광고 -->
+  <div class="ad-banner" style="min-height:100px; margin-bottom:20px; border-radius:8px;">
+    [광고 영역 - AdSense 중간 반응형]
+  </div>
+
+  <div class="card">
+    <h2>자주 묻는 질문</h2>
+    <div class="faq-item">
+      <div class="faq-q">Q. 기납부 세액은 어디서 확인하나요?</div>
+      <div class="faq-a">회사에서 발급하는 근로소득 원천징수영수증의 '결정세액' 또는 매월 급여명세서의 소득세 합계금액을 확인하세요.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Q. 신용카드 공제는 어떻게 계산되나요?</div>
+      <div class="faq-a">총급여의 25%를 초과 사용한 금액에 대해 공제됩니다. 신용카드 15%, 체크카드·현금영수증 30% 공제율이 적용됩니다. 이 계산기는 평균 공제율로 단순화합니다.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Q. IRP/연금저축으로 얼마나 공제받나요?</div>
+      <div class="faq-a">연금저축은 연 600만원, IRP 포함 시 최대 900만원까지 납입액의 13.2%(총급여 5,500만원 이하는 16.5%) 세액공제를 받을 수 있습니다.</div>
+    </div>
+  </div>
+
+</main>
+
+<!-- 하단 애드센스 광고 -->
+<div class="ad-banner ad-banner-bottom">
+  [광고 영역 - AdSense 하단 사각형]
+</div>
+
+<footer>
+  <p>본 계산기는 참고용이며, 정확한 연말정산은 국세청 홈택스를 이용하세요.</p>
+  <p style="margin-top:4px;">© 2026 Auto-Factory. All rights reserved.</p>
+</footer>
+
+<script>
+  function calculate() {
+    const gross       = parseFloat(document.getElementById('grossSalary').value) || 0;
+    const withheld    = parseFloat(document.getElementById('withheld').value) || 0;
+    const deps        = parseInt(document.getElementById('dependentsCount').value) || 1;
+    const creditCard  = parseFloat(document.getElementById('creditCard').value) || 0;
+    const pensionAmt  = parseFloat(document.getElementById('pension').value) || 0;
+    const medical     = parseFloat(document.getElementById('medical').value) || 0;
+    const education   = parseFloat(document.getElementById('education').value) || 0;
+    const donation    = parseFloat(document.getElementById('donation').value) || 0;
+    const ira         = parseFloat(document.getElementById('ira').value) || 0;
+
+    if (!gross || gross <= 0) { alert('총급여를 올바르게 입력해주세요.'); return; }
+
+    // 1. 근로소득공제
+    let earnDeduct = 0;
+    if (gross <= 5000000)        earnDeduct = gross * 0.7;
+    else if (gross <= 15000000)  earnDeduct = 3500000 + (gross - 5000000) * 0.4;
+    else if (gross <= 45000000)  earnDeduct = 7500000 + (gross - 15000000) * 0.15;
+    else if (gross <= 100000000) earnDeduct = 12000000 + (gross - 45000000) * 0.05;
+    else                          earnDeduct = 14750000;
+
+    // 2. 인적공제: 1인당 150만원
+    const personalDeduct = deps * 1500000;
+
+    // 3. 신용카드 소득공제 (25% 초과분의 15%)
+    const ccThreshold = gross * 0.25;
+    const ccDeduct = creditCard > ccThreshold
+      ? Math.min((creditCard - ccThreshold) * 0.15, 3000000)
+      : 0;
+
+    // 4. 개인연금 소득공제 (납입액 × 40%, 연 72만원 한도)
+    const pensionDeduct = Math.min(pensionAmt * 0.4, 720000);
+
+    const totalIncomeDeduct = personalDeduct + ccDeduct + pensionDeduct;
+
+    // 5. 과세표준
+    const taxBase = Math.max(0, gross - earnDeduct - totalIncomeDeduct);
+
+    // 6. 산출세액
+    let calcTax = 0;
+    if (taxBase <= 14000000)       calcTax = taxBase * 0.06;
+    else if (taxBase <= 50000000)  calcTax = 840000  + (taxBase - 14000000) * 0.15;
+    else if (taxBase <= 88000000)  calcTax = 6240000 + (taxBase - 50000000) * 0.24;
+    else if (taxBase <= 150000000) calcTax = 15360000 + (taxBase - 88000000) * 0.35;
+    else if (taxBase <= 300000000) calcTax = 37060000 + (taxBase - 150000000) * 0.38;
+    else if (taxBase <= 500000000) calcTax = 94060000 + (taxBase - 300000000) * 0.40;
+    else                           calcTax = 174060000 + (taxBase - 500000000) * 0.42;
+
+    // 7. 세액공제
+    // 근로소득세액공제
+    let earnTaxCredit = calcTax <= 1300000 ? calcTax * 0.55 : 715000 + (calcTax - 1300000) * 0.3;
+    let creditLimit = gross <= 33000000 ? 740000 : gross <= 70000000 ? Math.max(660000, 740000 - (gross - 33000000) * 0.008) : 660000;
+    earnTaxCredit = Math.min(earnTaxCredit, creditLimit);
+
+    // 의료비 세액공제 (총급여 3% 초과분 × 15%)
+    const medicalThreshold = gross * 0.03;
+    const medicalCredit = medical > medicalThreshold ? (medical - medicalThreshold) * 0.15 : 0;
+
+    // 교육비 세액공제 (15%)
+    const educationCredit = education * 0.15;
+
+    // 기부금 세액공제 (15%, 3천만원 초과분 30%)
+    const donationCredit = donation <= 30000000 ? donation * 0.15 : 4500000 + (donation - 30000000) * 0.3;
+
+    // IRP/연금저축 세액공제 (한도 900만원, 공제율 13.2% / 5,500만원 이하 16.5%)
+    const iraLimit = Math.min(ira, 9000000);
+    const iraRate  = gross <= 55000000 ? 0.165 : 0.132;
+    const iraCredit = iraLimit * iraRate;
+
+    const totalTaxCredit = earnTaxCredit + medicalCredit + educationCredit + donationCredit + iraCredit;
+
+    // 8. 결정세액 (지방소득세 포함: × 1.1)
+    const finalTax    = Math.max(0, Math.round((calcTax - totalTaxCredit) * 1.1));
+    const withheldAdj = Math.round(withheld); // 기납부 세액도 지방소득세 포함 가정
+
+    // 9. 환급 / 추가납부
+    const diff = withheldAdj - finalTax;
+
+    // 결과 표시
+    const card = document.getElementById('resultCard');
+    card.className = 'result-card show ' + (diff >= 0 ? 'refund' : 'payment');
+    document.getElementById('resultTitle').textContent = diff >= 0 ? '환급 예상' : '추가납부 예상';
+    document.getElementById('resultBadge').innerHTML =
+      `<span class="result-badge ${diff >= 0 ? 'badge-refund' : 'badge-payment'}">${diff >= 0 ? '환급' : '추가납부'}</span>`;
+    const amountEl = document.getElementById('resultAmount');
+    amountEl.className = 'result-amount ' + (diff >= 0 ? 'refund' : 'payment');
+    amountEl.innerHTML = fmt(Math.abs(diff)) + ' <span>원</span>';
+
+    document.getElementById('rGross').textContent       = fmt(Math.round(gross)) + '원';
+    document.getElementById('rEarnDeduct').textContent  = '- ' + fmt(Math.round(earnDeduct)) + '원';
+    document.getElementById('rDeduct').textContent      = '- ' + fmt(Math.round(totalIncomeDeduct)) + '원';
+    document.getElementById('rTaxBase').textContent     = fmt(Math.round(taxBase)) + '원';
+    document.getElementById('rCalcTax').textContent     = fmt(Math.round(calcTax)) + '원';
+    document.getElementById('rTaxCredit').textContent   = '- ' + fmt(Math.round(totalTaxCredit)) + '원';
+    document.getElementById('rFinalTax').textContent    = fmt(finalTax) + '원 (지방소득세 포함)';
+    document.getElementById('rWithheld').textContent    = fmt(withheldAdj) + '원';
+
+    card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  function fmt(n) { return n.toLocaleString('ko-KR'); }
+</script>
+
+</body>
+</html>

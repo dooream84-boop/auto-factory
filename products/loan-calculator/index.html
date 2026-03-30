@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Google Search Console 인증 -->
+  <meta name="google-site-verification" content="OyvdhFUwC-wAD4ZSdgejG5A1ch3hPGNN6Tt0UUsyzqk" />
+
+  <!-- SEO 메타태그 -->
+  <title>대출이자 계산기 2026 - 월 상환액·총 이자 무료 계산</title>
+  <meta name="description" content="대출금액, 금리, 기간을 입력하면 월 상환액과 총 이자를 즉시 계산합니다. 원리금균등·원금균등 방식 모두 지원.">
+  <meta name="keywords" content="대출이자 계산기, 월 상환액 계산, 대출 총이자, 원리금균등, 원금균등, 대출 계산기">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="대출이자 계산기 - 월 상환액·총이자 무료 계산">
+  <meta property="og:description" content="대출금액, 금리, 기간 입력으로 월 상환액과 총 이자를 즉시 계산합니다.">
+  <meta property="og:type" content="website">
+  <!-- TODO: 도메인 확정 후 아래 두 줄 주석 해제 및 URL 교체 -->
+  <!-- <meta property="og:image" content="https://YOUR-DOMAIN/og-loan-calculator.png"> -->
+  <!-- <link rel="canonical" href="https://YOUR-DOMAIN/loan-calculator"> -->
+
+  <!-- 구조화 데이터 (Schema.org) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "대출이자 계산기",
+    "description": "대출금액·금리·기간으로 월 상환액과 총 이자를 계산하는 무료 웹 도구",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "All",
+    "offers": { "@type": "Offer", "price": "0" }
+  }
+  </script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans KR', sans-serif; background: #f5f7fa; color: #333; line-height: 1.6; }
+
+    header { background: linear-gradient(135deg, #1565c0, #0d47a1); color: #fff; text-align: center; padding: 28px 16px 24px; }
+    header h1 { font-size: clamp(1.4rem, 4vw, 2rem); font-weight: 700; }
+    header p  { margin-top: 6px; font-size: 0.95rem; opacity: 0.88; }
+
+    .ad-banner { background: #fff; border: 1px dashed #ccc; text-align: center; padding: 12px; color: #999; font-size: 0.8rem; }
+    .ad-banner-top    { min-height: 90px;  display: flex; align-items: center; justify-content: center; }
+    .ad-banner-bottom { min-height: 250px; display: flex; align-items: center; justify-content: center; }
+
+    main { max-width: 680px; margin: 24px auto; padding: 0 16px 40px; }
+
+    .card { background: #fff; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); padding: 28px 24px; margin-bottom: 20px; }
+    .card h2 { font-size: 1.05rem; font-weight: 600; color: #1565c0; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid #e3f2fd; }
+
+    .form-group { margin-bottom: 18px; }
+    .form-group label { display: block; font-size: 0.88rem; font-weight: 600; color: #555; margin-bottom: 6px; }
+    .form-group .hint { font-size: 0.78rem; color: #888; margin-top: 4px; }
+
+    .input-wrap { position: relative; }
+    .input-wrap input, .input-wrap select {
+      width: 100%; padding: 11px 44px 11px 14px; border: 1.5px solid #ddd;
+      border-radius: 8px; font-size: 1rem; transition: border-color 0.2s; outline: none; background: #fff;
+    }
+    .input-wrap input:focus, .input-wrap select:focus { border-color: #1565c0; }
+    .input-wrap .unit { position: absolute; right: 14px; top: 50%; transform: translateY(-50%); font-size: 0.85rem; color: #888; pointer-events: none; }
+
+    .method-tabs { display: flex; gap: 8px; margin-bottom: 18px; }
+    .method-tab { flex: 1; padding: 10px; border: 1.5px solid #ddd; border-radius: 8px; background: #fff; font-size: 0.88rem; font-weight: 600; cursor: pointer; text-align: center; color: #666; transition: all 0.2s; }
+    .method-tab.active { border-color: #1565c0; background: #e3f2fd; color: #1565c0; }
+
+    .btn-calc { width: 100%; padding: 14px; background: linear-gradient(135deg, #1565c0, #0d47a1); color: #fff; font-size: 1.05rem; font-weight: 700; border: none; border-radius: 8px; cursor: pointer; transition: opacity 0.2s, transform 0.1s; margin-top: 8px; }
+    .btn-calc:hover { opacity: 0.92; } .btn-calc:active { transform: scale(0.98); }
+
+    .result-card { display: none; background: linear-gradient(135deg, #e3f2fd, #f0f7ff); border: 1.5px solid #1565c0; border-radius: 12px; padding: 24px; margin-bottom: 20px; }
+    .result-card.show { display: block; }
+    .result-card h2 { font-size: 1rem; color: #1565c0; margin-bottom: 16px; }
+
+    .result-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 16px; }
+    .result-box { background: #fff; border-radius: 10px; padding: 16px; text-align: center; border: 1px solid #bbdefb; }
+    .result-box .label { font-size: 0.78rem; color: #666; margin-bottom: 6px; }
+    .result-box .value { font-size: clamp(1.1rem, 3vw, 1.5rem); font-weight: 800; color: #0d47a1; }
+    .result-box .unit  { font-size: 0.8rem; font-weight: 500; color: #555; }
+
+    .result-detail { border-top: 1px solid #bbdefb; padding-top: 14px; }
+    .result-row { display: flex; justify-content: space-between; font-size: 0.88rem; padding: 5px 0; color: #444; }
+    .result-row .label { color: #666; }
+    .result-row .value { font-weight: 600; }
+
+    .notice { background: #fff8e1; border-left: 4px solid #ffa000; border-radius: 0 8px 8px 0; padding: 12px 14px; font-size: 0.82rem; color: #555; margin-top: 16px; }
+    .notice strong { color: #e65100; }
+
+    .faq-item { margin-bottom: 14px; }
+    .faq-q { font-weight: 600; font-size: 0.92rem; color: #333; margin-bottom: 4px; }
+    .faq-a { font-size: 0.88rem; color: #555; }
+
+    footer { text-align: center; font-size: 0.78rem; color: #aaa; padding: 20px 16px 32px; }
+
+    @media (max-width: 480px) {
+      .card { padding: 20px 16px; }
+      .result-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>대출이자 계산기</h1>
+  <p>대출금액·금리·기간 입력 → 월 상환액·총 이자 즉시 계산</p>
+</header>
+
+<!-- 상단 애드센스 광고 -->
+<div class="ad-banner ad-banner-top">
+  [광고 영역 - AdSense 상단 배너]
+</div>
+
+<main>
+
+  <div class="card">
+    <h2>대출 정보 입력</h2>
+
+    <div class="form-group">
+      <label>상환 방식</label>
+      <div class="method-tabs">
+        <button class="method-tab active" id="tab-equal" onclick="selectMethod('equal')">원리금균등상환</button>
+        <button class="method-tab" id="tab-principal" onclick="selectMethod('principal')">원금균등상환</button>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="principal">대출금액</label>
+      <div class="input-wrap">
+        <input type="number" id="principal" placeholder="예: 100000000" min="0">
+        <span class="unit">원</span>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="rate">연 금리</label>
+      <div class="input-wrap">
+        <input type="number" id="rate" placeholder="예: 4.5" min="0" max="100" step="0.01">
+        <span class="unit">%</span>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="term">대출 기간</label>
+      <div class="input-wrap">
+        <select id="term">
+          <option value="12">1년 (12개월)</option>
+          <option value="24">2년 (24개월)</option>
+          <option value="36">3년 (36개월)</option>
+          <option value="60">5년 (60개월)</option>
+          <option value="120" selected>10년 (120개월)</option>
+          <option value="180">15년 (180개월)</option>
+          <option value="240">20년 (240개월)</option>
+          <option value="300">25년 (300개월)</option>
+          <option value="360">30년 (360개월)</option>
+        </select>
+      </div>
+    </div>
+
+    <button class="btn-calc" onclick="calculate()">이자 계산하기</button>
+  </div>
+
+  <div class="result-card" id="resultCard">
+    <h2 id="resultTitle">계산 결과</h2>
+    <div class="result-grid">
+      <div class="result-box">
+        <div class="label" id="monthlyLabel">월 상환액 (첫 달)</div>
+        <div class="value" id="rMonthly">-</div>
+        <div class="unit">원</div>
+      </div>
+      <div class="result-box">
+        <div class="label">총 이자</div>
+        <div class="value" id="rTotalInterest">-</div>
+        <div class="unit">원</div>
+      </div>
+    </div>
+    <div class="result-detail">
+      <div class="result-row"><span class="label">대출원금</span><span class="value" id="rPrincipal">-</span></div>
+      <div class="result-row"><span class="label">총 상환액</span><span class="value" id="rTotalPayment">-</span></div>
+      <div class="result-row"><span class="label">대출기간</span><span class="value" id="rTerm">-</span></div>
+      <div class="result-row"><span class="label">적용 금리</span><span class="value" id="rRate">-</span></div>
+    </div>
+    <div class="notice">
+      <strong>※ 참고사항:</strong> 실제 대출은 중도상환수수료, 보증료, 취급수수료 등이 추가될 수 있습니다. 정확한 조건은 금융기관에 문의하세요.
+    </div>
+  </div>
+
+  <!-- 중간 애드센스 광고 -->
+  <div class="ad-banner" style="min-height:100px; margin-bottom:20px; border-radius:8px;">
+    [광고 영역 - AdSense 중간 반응형]
+  </div>
+
+  <div class="card">
+    <h2>자주 묻는 질문</h2>
+    <div class="faq-item">
+      <div class="faq-q">Q. 원리금균등과 원금균등의 차이는?</div>
+      <div class="faq-a">원리금균등은 매달 동일한 금액을 납부합니다. 원금균등은 원금을 균등하게 나눠 갚으므로 초기 상환액이 크지만 총 이자가 더 적습니다.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Q. 같은 금액이라도 금리가 1% 차이나면 얼마나 다른가요?</div>
+      <div class="faq-a">1억원 30년 대출 기준, 금리 4%→5% 차이 시 총 이자 약 2,200만원 차이가 납니다. 금리 비교가 중요한 이유입니다.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Q. 중도상환하면 이자가 줄어드나요?</div>
+      <div class="faq-a">네, 중도상환 시 남은 원금에 대한 이자만 내면 되므로 총 이자가 크게 줄어듭니다. 다만 중도상환수수료(보통 1~2%) 여부를 먼저 확인하세요.</div>
+    </div>
+  </div>
+
+</main>
+
+<!-- 하단 애드센스 광고 -->
+<div class="ad-banner ad-banner-bottom">
+  [광고 영역 - AdSense 하단 사각형]
+</div>
+
+<footer>
+  <p>본 계산기는 참고용이며, 정확한 대출 조건은 금융기관에 문의하세요.</p>
+  <p style="margin-top:4px;">© 2026 Auto-Factory. All rights reserved.</p>
+</footer>
+
+<script>
+  let method = 'equal'; // 'equal': 원리금균등, 'principal': 원금균등
+
+  function selectMethod(m) {
+    method = m;
+    document.getElementById('tab-equal').classList.toggle('active', m === 'equal');
+    document.getElementById('tab-principal').classList.toggle('active', m === 'principal');
+  }
+
+  function calculate() {
+    const P = parseFloat(document.getElementById('principal').value);
+    const annualRate = parseFloat(document.getElementById('rate').value);
+    const n = parseInt(document.getElementById('term').value);
+
+    if (!P || P <= 0) { alert('대출금액을 올바르게 입력해주세요.'); return; }
+    if (!annualRate || annualRate <= 0) { alert('금리를 올바르게 입력해주세요.'); return; }
+
+    const r = annualRate / 100 / 12; // 월 금리
+
+    let firstMonthly, totalPayment, totalInterest;
+
+    if (method === 'equal') {
+      // 원리금균등: M = P * r(1+r)^n / ((1+r)^n - 1)
+      if (r === 0) {
+        firstMonthly = P / n;
+      } else {
+        const pow = Math.pow(1 + r, n);
+        firstMonthly = P * r * pow / (pow - 1);
+      }
+      totalPayment = firstMonthly * n;
+      totalInterest = totalPayment - P;
+    } else {
+      // 원금균등: 매달 원금 = P/n, 첫 달 이자 = P * r
+      const monthlyPrincipal = P / n;
+      firstMonthly = monthlyPrincipal + P * r;
+      // 총 이자 = Σ 잔금 × r = r × P × (n+1)/2
+      totalInterest = r * P * (n + 1) / 2;
+      totalPayment = P + totalInterest;
+    }
+
+    const termYears = Math.floor(n / 12);
+    const termMonths = n % 12;
+    const termStr = termYears > 0
+      ? (termYears + '년' + (termMonths > 0 ? ' ' + termMonths + '개월' : ''))
+      : n + '개월';
+
+    document.getElementById('resultTitle').textContent =
+      (method === 'equal' ? '원리금균등' : '원금균등') + ' 계산 결과';
+    document.getElementById('monthlyLabel').textContent =
+      method === 'equal' ? '월 상환액' : '월 상환액 (첫 달)';
+
+    document.getElementById('rMonthly').textContent       = fmt(Math.round(firstMonthly));
+    document.getElementById('rTotalInterest').textContent = fmt(Math.round(totalInterest));
+    document.getElementById('rPrincipal').textContent     = fmt(Math.round(P)) + '원';
+    document.getElementById('rTotalPayment').textContent  = fmt(Math.round(totalPayment)) + '원';
+    document.getElementById('rTerm').textContent          = termStr + ' (' + n + '개월)';
+    document.getElementById('rRate').textContent          = annualRate + '%';
+
+    const card = document.getElementById('resultCard');
+    card.classList.add('show');
+    card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  function fmt(n) { return n.toLocaleString('ko-KR'); }
+</script>
+
+</body>
+</html>
