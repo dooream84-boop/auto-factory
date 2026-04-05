@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="google-site-verification" content="OyvdhFUwC-wAD4ZSdgejG5A1ch3hPGNN6Tt0UUsyzqk" />
+  <title>출산예정일 계산기 2026 - 임신 주수 출산일 무료 계산</title>
+  <meta name="description" content="마지막 생리일 또는 수정일을 입력하면 출산예정일, 임신 주수, 남은 일수를 즉시 계산합니다. 임신 마일스톤 일정표 포함.">
+  <meta name="keywords" content="출산예정일 계산기, 임신 주수 계산, 분만예정일, 임신 계산기, 출산일 계산">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="출산예정일 계산기 - 임신 주수 출산일 무료 계산">
+  <meta property="og:description" content="마지막 생리일 또는 수정일 입력으로 출산예정일과 임신 주수를 즉시 계산합니다.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://cocoflow.xyz/og-due-date-calculator.png">
+  <link rel="canonical" href="https://cocoflow.xyz/due-date-calculator/">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "출산예정일 계산기",
+    "description": "마지막 생리일 또는 수정일로 출산예정일과 임신 주수를 계산하는 무료 웹 도구",
+    "applicationCategory": "HealthApplication",
+    "operatingSystem": "All",
+    "offers": { "@type": "Offer", "price": "0" }
+  }
+  </script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8616886611208474" crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Noto Sans KR', sans-serif; background: #f0f4f8; color: #1e293b; line-height: 1.6; }
+
+    header { background: linear-gradient(135deg, #2563eb, #1d4ed8); color: #fff; text-align: center; padding: 28px 16px 24px; }
+    .header-brand { font-size: 0.85rem; font-weight: 600; opacity: 0.8; letter-spacing: 1px; margin-bottom: 8px; }
+    header h1 { font-size: clamp(1.4rem, 4vw, 2rem); font-weight: 800; }
+    header p { margin-top: 6px; font-size: 0.95rem; opacity: 0.88; }
+
+    .ad-banner { background: #fff; border: 1px dashed #cbd5e1; text-align: center; color: #94a3b8; font-size: 0.8rem; display: flex; align-items: center; justify-content: center; }
+    .ad-top    { min-height: 90px; }
+    .ad-bottom { min-height: 250px; }
+
+    main { max-width: 680px; margin: 24px auto; padding: 0 16px 40px; }
+
+    .card { background: #fff; border-radius: 14px; box-shadow: 0 2px 12px rgba(0,0,0,0.07); padding: 28px 24px; margin-bottom: 20px; }
+    .card h2 { font-size: 1.05rem; font-weight: 700; color: #2563eb; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid #dbeafe; }
+
+    .mode-tabs { display: flex; gap: 8px; margin-bottom: 18px; }
+    .mode-tab { flex: 1; padding: 10px; border: 1.5px solid #e2e8f0; border-radius: 8px; background: #fff; font-size: 0.88rem; font-weight: 600; font-family: 'Noto Sans KR', sans-serif; cursor: pointer; text-align: center; color: #64748b; transition: all 0.2s; }
+    .mode-tab.active { border-color: #2563eb; background: #dbeafe; color: #2563eb; }
+
+    .form-group { margin-bottom: 18px; }
+    .form-group label { display: block; font-size: 0.88rem; font-weight: 600; color: #475569; margin-bottom: 6px; }
+    .form-group .hint { font-size: 0.78rem; color: #94a3b8; margin-top: 4px; }
+    .form-group input[type="date"] { width: 100%; padding: 11px 14px; border: 1.5px solid #e2e8f0; border-radius: 8px; font-size: 1rem; font-family: 'Noto Sans KR', sans-serif; outline: none; transition: border-color 0.2s; }
+    .form-group input[type="date"]:focus { border-color: #2563eb; }
+
+    .btn-calc { width: 100%; padding: 14px; background: linear-gradient(135deg, #2563eb, #1d4ed8); color: #fff; font-size: 1.05rem; font-weight: 700; font-family: 'Noto Sans KR', sans-serif; border: none; border-radius: 8px; cursor: pointer; transition: opacity 0.2s, transform 0.1s; }
+    .btn-calc:hover { opacity: 0.92; } .btn-calc:active { transform: scale(0.98); }
+
+    .result-card { display: none; background: linear-gradient(135deg, #dbeafe, #eff6ff); border: 1.5px solid #93c5fd; border-radius: 14px; padding: 24px; margin-bottom: 20px; }
+    .result-card.show { display: block; }
+    .result-card h2 { font-size: 1rem; font-weight: 700; color: #2563eb; margin-bottom: 16px; }
+
+    .due-date-big { font-size: clamp(1.4rem, 4vw, 1.9rem); font-weight: 800; color: #1d4ed8; text-align: center; margin: 8px 0 4px; }
+    .result-detail { margin-top: 16px; border-top: 1px solid #bfdbfe; padding-top: 14px; }
+    .result-row { display: flex; justify-content: space-between; font-size: 0.88rem; padding: 6px 0; border-bottom: 1px dotted #dbeafe; }
+    .result-row:last-child { border-bottom: none; }
+    .result-row .lbl { color: #64748b; }
+    .result-row .val { font-weight: 700; color: #1e293b; }
+
+    /* 진행률 바 */
+    .progress-wrap { margin: 16px 0 8px; }
+    .progress-label { display: flex; justify-content: space-between; font-size: 0.8rem; color: #64748b; margin-bottom: 6px; }
+    .progress-track { height: 14px; background: #e2e8f0; border-radius: 7px; overflow: hidden; }
+    .progress-fill  { height: 100%; background: linear-gradient(90deg, #2563eb, #7c3aed); border-radius: 7px; transition: width 0.6s ease; }
+
+    /* 마일스톤 테이블 */
+    .milestone-table { width: 100%; border-collapse: collapse; font-size: 0.83rem; margin-top: 4px; }
+    .milestone-table th { background: #dbeafe; color: #1d4ed8; padding: 8px 10px; text-align: left; font-weight: 700; }
+    .milestone-table td { padding: 7px 10px; border-bottom: 1px solid #f1f5f9; color: #334155; }
+    .milestone-table tr.passed td { color: #94a3b8; text-decoration: line-through; }
+    .milestone-table tr.current td { background: #eff6ff; font-weight: 700; color: #1d4ed8; }
+
+    .notice { background: #fffbeb; border-left: 4px solid #f59e0b; border-radius: 0 8px 8px 0; padding: 12px 14px; font-size: 0.82rem; color: #78350f; margin-top: 16px; }
+
+    .faq-item { margin-bottom: 14px; }
+    .faq-q { font-weight: 700; font-size: 0.92rem; color: #1e293b; margin-bottom: 4px; }
+    .faq-a { font-size: 0.88rem; color: #475569; }
+
+    footer { text-align: center; font-size: 0.78rem; color: #94a3b8; padding: 20px 16px 32px; }
+    footer a { color: #94a3b8; text-decoration: underline; margin: 0 6px; }
+
+    @media (max-width: 480px) { .card { padding: 20px 16px; } }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-brand">COCOFLOW</div>
+  <h1>출산예정일 계산기</h1>
+  <p>생리일·수정일 입력 → 출산예정일·임신 주수 즉시 계산</p>
+</header>
+
+<div class="ad-banner ad-top">[광고 영역 - AdSense 상단 배너]</div>
+
+<main>
+  <div class="card">
+    <h2>입력 방식 선택</h2>
+    <div class="mode-tabs">
+      <button class="mode-tab active" id="tab-lmp" onclick="selectMode('lmp')">마지막 생리일 (LMP)</button>
+      <button class="mode-tab" id="tab-conception" onclick="selectMode('conception')">수정일 기준</button>
+    </div>
+    <div class="form-group">
+      <label for="inputDate" id="dateLabel">마지막 생리 시작일</label>
+      <input type="date" id="inputDate">
+      <p class="hint" id="dateHint">생리 첫날을 입력하세요. 임신 기간 280일(40주) 기준으로 계산합니다.</p>
+    </div>
+    <button class="btn-calc" onclick="calculate()">출산예정일 계산하기</button>
+  </div>
+
+  <div class="result-card" id="resultCard">
+    <h2>출산 예정 정보</h2>
+    <div class="due-date-big" id="rDueDate">-</div>
+    <div class="progress-wrap">
+      <div class="progress-label">
+        <span>임신 시작</span>
+        <span id="rProgress">0%</span>
+        <span>출산예정일</span>
+      </div>
+      <div class="progress-track">
+        <div class="progress-fill" id="progressFill" style="width:0%"></div>
+      </div>
+    </div>
+    <div class="result-detail">
+      <div class="result-row"><span class="lbl">현재 임신 주수</span><span class="val" id="rWeeks">-</span></div>
+      <div class="result-row"><span class="lbl">출산예정일까지 남은 일수</span><span class="val" id="rRemain">-</span></div>
+      <div class="result-row"><span class="lbl">임신 진행률</span><span class="val" id="rPct">-</span></div>
+    </div>
+  </div>
+
+  <div class="card" id="milestoneCard" style="display:none;">
+    <h2>임신 주수별 마일스톤</h2>
+    <table class="milestone-table">
+      <thead><tr><th>주수</th><th>일정</th><th>날짜</th></tr></thead>
+      <tbody id="milestoneBody"></tbody>
+    </table>
+    <div class="notice">※ 임신 주수는 의사의 초음파 측정 결과와 다를 수 있습니다. 정확한 산전 관리는 산부인과 전문의와 상담하세요.</div>
+  </div>
+
+  <div class="ad-banner" style="min-height:100px;margin-bottom:20px;border-radius:8px;">[광고 영역 - AdSense 중간]</div>
+
+  <div class="card">
+    <h2>자주 묻는 질문</h2>
+    <div class="faq-item">
+      <div class="faq-q">Q. 왜 마지막 생리일로 계산하나요?</div>
+      <div class="faq-a">수정일은 정확히 알기 어렵기 때문에 마지막 생리 첫날부터 280일(40주)로 계산하는 Naegele 공식이 표준으로 사용됩니다. 실제 분만은 37~42주 사이에 이루어집니다.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Q. 수정일을 알고 있다면?</div>
+      <div class="faq-a">수정일 기준을 선택하시면 수정일로부터 266일(38주)을 더해 출산예정일을 계산합니다.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Q. 분만 예정일이 꼭 맞나요?</div>
+      <div class="faq-a">아닙니다. 실제 분만일은 예정일 전후 2주 이내가 정상 범위입니다. 예정일보다 3주 이상 이르거나 2주 이상 늦으면 전문의 상담이 필요합니다.</div>
+    </div>
+  </div>
+</main>
+
+<div class="ad-banner ad-bottom">[광고 영역 - AdSense 하단]</div>
+
+<footer>
+  <p>본 계산기는 참고용이며, 정확한 산전 관리는 산부인과 전문의에게 문의하세요.</p>
+  <p style="margin-top:6px;">
+    <a href="../index.html">← 계산기 목록</a> &nbsp;|&nbsp;
+    <a href="../privacy-policy.html">개인정보처리방침</a>
+  </p>
+  <p style="margin-top:4px;">© 2026 CocoFlow. All rights reserved.</p>
+</footer>
+
+<script>
+  let mode = 'lmp'; // lmp: 마지막 생리일, conception: 수정일
+
+  function selectMode(m) {
+    mode = m;
+    document.getElementById('tab-lmp').classList.toggle('active', m === 'lmp');
+    document.getElementById('tab-conception').classList.toggle('active', m === 'conception');
+    document.getElementById('dateLabel').textContent = m === 'lmp' ? '마지막 생리 시작일' : '수정일';
+    document.getElementById('dateHint').textContent  = m === 'lmp'
+      ? '생리 첫날을 입력하세요. 임신 기간 280일(40주) 기준으로 계산합니다.'
+      : '수정이 이루어진 날짜를 입력하세요. 266일(38주)을 더해 계산합니다.';
+  }
+
+  const MILESTONES = [
+    { week: 4,  label: '임신 확인 가능 (혈액검사)' },
+    { week: 8,  label: '심장 박동 초음파 확인' },
+    { week: 10, label: '1차 기형아 검사 가능' },
+    { week: 12, label: '1분기 종료, NT 초음파' },
+    { week: 16, label: '2차 기형아 검사 (쿼드 검사)' },
+    { week: 20, label: '정밀 초음파, 성별 확인 가능' },
+    { week: 24, label: '임신성 당뇨 검사 (GTT)' },
+    { week: 28, label: '3분기 시작, 철분제 복용 권장' },
+    { week: 32, label: '태아 위치 확인 초음파' },
+    { week: 36, label: 'GBS 검사, 출산 준비 시작' },
+    { week: 37, label: '만삭 (조기 분만 가능)' },
+    { week: 40, label: '출산 예정일' },
+  ];
+
+  function addDays(date, days) {
+    const d = new Date(date);
+    d.setDate(d.getDate() + days);
+    return d;
+  }
+
+  function formatDate(d) {
+    return d.getFullYear() + '년 ' + (d.getMonth()+1) + '월 ' + d.getDate() + '일 (' + ['일','월','화','수','목','금','토'][d.getDay()] + ')';
+  }
+
+  function calculate() {
+    const val = document.getElementById('inputDate').value;
+    if (!val) { alert('날짜를 입력해주세요.'); return; }
+
+    const inputDate = new Date(val);
+    const today     = new Date(); today.setHours(0,0,0,0);
+
+    // 출산예정일 계산
+    const gestDays  = mode === 'lmp' ? 280 : 266;
+    const dueDate   = addDays(inputDate, gestDays);
+    const startDate = mode === 'lmp' ? inputDate : addDays(inputDate, -14); // LMP 기준 시작
+
+    // 현재 임신 일수 (LMP 기준)
+    const lmpDate     = mode === 'lmp' ? inputDate : addDays(inputDate, -14);
+    const pregnDays   = Math.floor((today - lmpDate) / 86400000);
+    const totalDays   = 280;
+    const weeks       = Math.floor(pregnDays / 7);
+    const days        = pregnDays % 7;
+    const remain      = Math.max(0, Math.floor((dueDate - today) / 86400000));
+    const pct         = Math.min(100, Math.max(0, Math.round((pregnDays / totalDays) * 100)));
+
+    document.getElementById('rDueDate').textContent  = formatDate(dueDate);
+    document.getElementById('rWeeks').textContent    = pregnDays < 0 ? '아직 임신 전' : weeks + '주 ' + days + '일';
+    document.getElementById('rRemain').textContent   = pregnDays < 0 ? '-' : remain + '일';
+    document.getElementById('rPct').textContent      = pct + '%';
+    document.getElementById('rProgress').textContent = pct + '%';
+    document.getElementById('progressFill').style.width = pct + '%';
+
+    // 마일스톤 생성
+    const tbody = document.getElementById('milestoneBody');
+    tbody.innerHTML = MILESTONES.map(m => {
+      const mDate    = addDays(lmpDate, m.week * 7);
+      const isPassed = mDate < today;
+      const isCur    = weeks === m.week;
+      return `<tr class="${isPassed ? 'passed' : ''} ${isCur ? 'current' : ''}">
+        <td>${m.week}주</td>
+        <td>${m.label}</td>
+        <td>${(mDate.getMonth()+1)}/${mDate.getDate()}</td>
+      </tr>`;
+    }).join('');
+
+    document.getElementById('resultCard').classList.add('show');
+    document.getElementById('milestoneCard').style.display = 'block';
+    document.getElementById('resultCard').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+</script>
+</body>
+</html>

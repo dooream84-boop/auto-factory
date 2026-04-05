@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="google-site-verification" content="OyvdhFUwC-wAD4ZSdgejG5A1ch3hPGNN6Tt0UUsyzqk" />
+  <title>전기요금 계산기 2026 - 한전 누진세 전기세 계산</title>
+  <meta name="description" content="월 전기 사용량을 입력하면 한전 누진 3단계 기준으로 기본요금, 전력량요금, 부가세, 기반기금을 포함한 납부액을 계산합니다.">
+  <meta name="keywords" content="전기요금 계산기, 전기세 계산, 한전 누진세, 전기세 얼마, 전력량요금 계산">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="전기요금 계산기 - 한전 누진세 전기세 계산">
+  <meta property="og:description" content="월 사용량 입력으로 기본요금·전력량요금·부가세 포함 최종 납부액을 계산합니다.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://cocoflow.xyz/og-electricity-calculator.png">
+  <link rel="canonical" href="https://cocoflow.xyz/electricity-calculator/">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "전기요금 계산기",
+    "description": "한전 누진 3단계 기준 전기요금을 계산하는 무료 웹 도구",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "All",
+    "offers": { "@type": "Offer", "price": "0" }
+  }
+  </script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8616886611208474" crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Noto Sans KR', sans-serif; background: #f0f4f8; color: #1e293b; line-height: 1.6; }
+
+    header { background: linear-gradient(135deg, #2563eb, #1d4ed8); color: #fff; text-align: center; padding: 28px 16px 24px; }
+    .header-brand { font-size: 0.85rem; font-weight: 600; opacity: 0.8; letter-spacing: 1px; margin-bottom: 8px; }
+    header h1 { font-size: clamp(1.4rem, 4vw, 2rem); font-weight: 800; }
+    header p { margin-top: 6px; font-size: 0.95rem; opacity: 0.88; }
+
+    .ad-banner { background: #fff; border: 1px dashed #cbd5e1; text-align: center; color: #94a3b8; font-size: 0.8rem; display: flex; align-items: center; justify-content: center; }
+    .ad-top    { min-height: 90px; }
+    .ad-bottom { min-height: 250px; }
+
+    main { max-width: 680px; margin: 24px auto; padding: 0 16px 40px; }
+
+    .card { background: #fff; border-radius: 14px; box-shadow: 0 2px 12px rgba(0,0,0,0.07); padding: 28px 24px; margin-bottom: 20px; }
+    .card h2 { font-size: 1.05rem; font-weight: 700; color: #2563eb; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid #dbeafe; }
+
+    .season-tabs { display: flex; gap: 8px; margin-bottom: 18px; }
+    .season-tab { flex: 1; padding: 10px; border: 1.5px solid #e2e8f0; border-radius: 8px; background: #fff; font-size: 0.88rem; font-weight: 600; font-family: 'Noto Sans KR', sans-serif; cursor: pointer; text-align: center; color: #64748b; transition: all 0.2s; }
+    .season-tab.active { border-color: #2563eb; background: #dbeafe; color: #2563eb; }
+
+    .form-group { margin-bottom: 18px; }
+    .form-group label { display: block; font-size: 0.88rem; font-weight: 600; color: #475569; margin-bottom: 6px; }
+    .form-group .hint { font-size: 0.78rem; color: #94a3b8; margin-top: 4px; }
+    .input-wrap { position: relative; }
+    .input-wrap input { width: 100%; padding: 11px 54px 11px 14px; border: 1.5px solid #e2e8f0; border-radius: 8px; font-size: 1rem; font-family: 'Noto Sans KR', sans-serif; outline: none; transition: border-color 0.2s; }
+    .input-wrap input:focus { border-color: #2563eb; }
+    .input-wrap .unit { position: absolute; right: 14px; top: 50%; transform: translateY(-50%); font-size: 0.85rem; color: #94a3b8; pointer-events: none; }
+
+    .btn-calc { width: 100%; padding: 14px; background: linear-gradient(135deg, #2563eb, #1d4ed8); color: #fff; font-size: 1.05rem; font-weight: 700; font-family: 'Noto Sans KR', sans-serif; border: none; border-radius: 8px; cursor: pointer; transition: opacity 0.2s, transform 0.1s; }
+    .btn-calc:hover { opacity: 0.92; } .btn-calc:active { transform: scale(0.98); }
+
+    .result-card { display: none; background: linear-gradient(135deg, #dbeafe, #eff6ff); border: 1.5px solid #93c5fd; border-radius: 14px; padding: 24px; margin-bottom: 20px; }
+    .result-card.show { display: block; }
+    .result-card h2 { font-size: 1rem; font-weight: 700; color: #2563eb; margin-bottom: 16px; }
+    .result-amount { font-size: clamp(1.8rem, 5vw, 2.6rem); font-weight: 800; color: #1d4ed8; text-align: center; margin: 8px 0 4px; }
+    .result-amount span { font-size: 1rem; font-weight: 500; }
+
+    .result-detail { margin-top: 16px; border-top: 1px solid #bfdbfe; padding-top: 14px; }
+    .result-row { display: flex; justify-content: space-between; font-size: 0.88rem; padding: 6px 0; border-bottom: 1px dotted #dbeafe; color: #334155; }
+    .result-row:last-child { border-bottom: none; font-weight: 700; color: #1d4ed8; font-size: 0.95rem; }
+    .result-row .lbl { color: #64748b; }
+    .result-row .val { font-weight: 600; }
+
+    .tier-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin-top: 12px; }
+    .tier-table th { background: #dbeafe; color: #1d4ed8; padding: 8px 10px; text-align: left; font-weight: 700; }
+    .tier-table td { padding: 7px 10px; border-bottom: 1px solid #f1f5f9; color: #334155; }
+    .tier-table tr.active-tier td { background: #eff6ff; font-weight: 700; color: #1d4ed8; }
+
+    .notice { background: #fffbeb; border-left: 4px solid #f59e0b; border-radius: 0 8px 8px 0; padding: 12px 14px; font-size: 0.82rem; color: #78350f; margin-top: 16px; }
+
+    .faq-item { margin-bottom: 14px; }
+    .faq-q { font-weight: 700; font-size: 0.92rem; color: #1e293b; margin-bottom: 4px; }
+    .faq-a { font-size: 0.88rem; color: #475569; }
+
+    footer { text-align: center; font-size: 0.78rem; color: #94a3b8; padding: 20px 16px 32px; }
+    footer a { color: #94a3b8; text-decoration: underline; margin: 0 6px; }
+
+    @media (max-width: 480px) { .card { padding: 20px 16px; } }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-brand">COCOFLOW</div>
+  <h1>전기요금 계산기</h1>
+  <p>월 사용량 입력 → 한전 누진세 포함 납부액 즉시 계산</p>
+</header>
+
+<div class="ad-banner ad-top">[광고 영역 - AdSense 상단 배너]</div>
+
+<main>
+  <div class="card">
+    <h2>사용 정보 입력</h2>
+
+    <div class="form-group">
+      <label>계절 선택</label>
+      <div class="season-tabs">
+        <button class="season-tab active" id="tab-normal" onclick="selectSeason('normal')">일반 (9월~6월)</button>
+        <button class="season-tab" id="tab-summer" onclick="selectSeason('summer')">여름 (7월~8월)</button>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="usage">월 사용량</label>
+      <div class="input-wrap">
+        <input type="number" id="usage" placeholder="예: 350" min="0">
+        <span class="unit">kWh</span>
+      </div>
+      <p class="hint">고지서의 당월 사용량(kWh)을 입력하세요</p>
+    </div>
+
+    <button class="btn-calc" onclick="calculate()">전기요금 계산하기</button>
+  </div>
+
+  <div class="result-card" id="resultCard">
+    <h2>납부 예상 금액</h2>
+    <div class="result-amount" id="rTotal">0 <span>원</span></div>
+    <div class="result-detail">
+      <div class="result-row"><span class="lbl">기본요금</span><span class="val" id="rBase">-</span></div>
+      <div class="result-row"><span class="lbl">전력량요금</span><span class="val" id="rEnergy">-</span></div>
+      <div class="result-row"><span class="lbl">부가가치세 (10%)</span><span class="val" id="rVat">-</span></div>
+      <div class="result-row"><span class="lbl">전력산업기반기금 (3.7%)</span><span class="val" id="rFund">-</span></div>
+      <div class="result-row"><span class="lbl">최종 납부액</span><span class="val" id="rFinal">-</span></div>
+    </div>
+
+    <table class="tier-table" id="tierTable">
+      <thead>
+        <tr><th>구간</th><th>단가</th><th>적용 kWh</th><th>요금</th></tr>
+      </thead>
+      <tbody id="tierBody"></tbody>
+    </table>
+
+    <div class="notice">※ 2026년 한전 주택용(저압) 기준. 필수사용공제, TV수신료 등은 미반영. 실제 고지서와 차이가 있을 수 있습니다.</div>
+  </div>
+
+  <div class="ad-banner" style="min-height:100px;margin-bottom:20px;border-radius:8px;">[광고 영역 - AdSense 중간]</div>
+
+  <div class="card">
+    <h2>자주 묻는 질문</h2>
+    <div class="faq-item">
+      <div class="faq-q">Q. 누진세란 무엇인가요?</div>
+      <div class="faq-a">사용량이 많을수록 높은 단가를 적용하는 방식입니다. 200kWh 이하는 88.3원/kWh이지만, 400kWh 초과분은 275.6원/kWh로 3배 이상 비싸집니다.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Q. 여름 요금이 따로 있는 이유는?</div>
+      <div class="faq-a">7~8월은 냉방 수요 급증으로 전력 부족이 우려되어 별도 누진 구간을 적용합니다. 일반 기간보다 구간 기준이 달라질 수 있습니다.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Q. 기본요금은 어떻게 결정되나요?</div>
+      <div class="faq-a">월 사용량 구간에 따라 고정 기본요금이 달라집니다. 200kWh 이하 910원, 201~400kWh 1,600원, 400kWh 초과 7,300원입니다.</div>
+    </div>
+  </div>
+</main>
+
+<div class="ad-banner ad-bottom">[광고 영역 - AdSense 하단]</div>
+
+<footer>
+  <p>본 계산기는 참고용이며, 정확한 요금은 한국전력 고지서를 확인하세요.</p>
+  <p style="margin-top:6px;">
+    <a href="../index.html">← 계산기 목록</a> &nbsp;|&nbsp;
+    <a href="../privacy-policy.html">개인정보처리방침</a>
+  </p>
+  <p style="margin-top:4px;">© 2026 CocoFlow. All rights reserved.</p>
+</footer>
+
+<script>
+  let season = 'normal';
+
+  // 2026 한전 주택용 저압 요금표
+  const RATES = {
+    normal: {
+      base:   [910, 1600, 7300],          // 구간별 기본요금
+      energy: [88.3, 182.9, 275.6],       // 구간별 단가
+      limits: [200, 400, Infinity]
+    },
+    summer: {
+      base:   [910, 1600, 7300],
+      energy: [88.3, 182.9, 275.6],       // 여름도 동일 단가 적용 (2026 기준)
+      limits: [200, 400, Infinity]
+    }
+  };
+
+  function selectSeason(s) {
+    season = s;
+    document.getElementById('tab-normal').classList.toggle('active', s === 'normal');
+    document.getElementById('tab-summer').classList.toggle('active', s === 'summer');
+  }
+
+  function calculate() {
+    const usage = parseFloat(document.getElementById('usage').value);
+    if (!usage || usage < 0) { alert('월 사용량을 올바르게 입력해주세요.'); return; }
+
+    const r = RATES[season];
+
+    // 기본요금 결정
+    let baseIdx = usage <= 200 ? 0 : usage <= 400 ? 1 : 2;
+    const baseFee = r.base[baseIdx];
+
+    // 전력량요금 누진 계산
+    let remaining = usage;
+    let energyFee = 0;
+    const tierRows = [];
+    const limits = [200, 200, Infinity]; // 각 구간 최대 kWh
+    const prevLimits = [0, 200, 400];
+
+    for (let i = 0; i < 3; i++) {
+      if (remaining <= 0) break;
+      const tierMax = i === 0 ? 200 : i === 1 ? 200 : Infinity;
+      const applied = Math.min(remaining, tierMax);
+      const fee = applied * r.energy[i];
+      energyFee += fee;
+      tierRows.push({ label: i === 0 ? '1단계 (0~200kWh)' : i === 1 ? '2단계 (201~400kWh)' : '3단계 (401kWh~)', rate: r.energy[i], applied: Math.round(applied), fee: Math.round(fee), active: applied > 0 && applied === Math.min(remaining, tierMax) });
+      remaining -= applied;
+    }
+
+    const subtotal  = baseFee + energyFee;
+    const vat       = Math.round(subtotal * 0.1);
+    const fund      = Math.round(subtotal * 0.037);
+    const total     = Math.round(subtotal + vat + fund);
+
+    document.getElementById('rTotal').innerHTML  = fmt(total) + ' <span>원</span>';
+    document.getElementById('rBase').textContent   = fmt(baseFee) + '원';
+    document.getElementById('rEnergy').textContent = fmt(Math.round(energyFee)) + '원';
+    document.getElementById('rVat').textContent    = fmt(vat) + '원';
+    document.getElementById('rFund').textContent   = fmt(fund) + '원';
+    document.getElementById('rFinal').textContent  = fmt(total) + '원';
+
+    const tbody = document.getElementById('tierBody');
+    tbody.innerHTML = tierRows.filter(t => t.applied > 0).map(t =>
+      `<tr class="${t.applied > 0 ? 'active-tier' : ''}">
+        <td>${t.label}</td><td>${t.rate}원/kWh</td><td>${fmt(t.applied)}kWh</td><td>${fmt(t.fee)}원</td>
+      </tr>`
+    ).join('');
+
+    const card = document.getElementById('resultCard');
+    card.classList.add('show');
+    card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  function fmt(n) { return Math.round(n).toLocaleString('ko-KR'); }
+</script>
+</body>
+</html>
