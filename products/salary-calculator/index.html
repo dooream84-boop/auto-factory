@@ -38,7 +38,7 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans KR', sans-serif; background: #f5f7fa; color: #333; line-height: 1.6; }
 
-    header { background: linear-gradient(135deg, #00897b, #00695c); color: #fff; text-align: center; padding: 28px 16px 24px; }
+    header { background: linear-gradient(135deg, #2563eb, #1d4ed8); color: #fff; text-align: center; padding: 28px 16px 24px; }
     header h1 { font-size: clamp(1.4rem, 4vw, 2rem); font-weight: 700; }
     header p  { margin-top: 6px; font-size: 0.95rem; opacity: 0.88; }
 
@@ -49,7 +49,7 @@
     main { max-width: 680px; margin: 24px auto; padding: 0 16px 40px; }
 
     .card { background: #fff; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); padding: 28px 24px; margin-bottom: 20px; }
-    .card h2 { font-size: 1.05rem; font-weight: 600; color: #00897b; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid #e0f2f1; }
+    .card h2 { font-size: 1.05rem; font-weight: 600; color: #2563eb; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid #eff6ff; }
 
     .form-group { margin-bottom: 18px; }
     .form-group label { display: block; font-size: 0.88rem; font-weight: 600; color: #555; margin-bottom: 6px; }
@@ -60,25 +60,25 @@
       width: 100%; padding: 11px 44px 11px 14px; border: 1.5px solid #ddd;
       border-radius: 8px; font-size: 1rem; transition: border-color 0.2s; outline: none; background: #fff;
     }
-    .input-wrap input:focus, .input-wrap select:focus { border-color: #00897b; }
+    .input-wrap input:focus, .input-wrap select:focus { border-color: #2563eb; }
     .input-wrap .unit { position: absolute; right: 14px; top: 50%; transform: translateY(-50%); font-size: 0.85rem; color: #888; pointer-events: none; }
 
-    .btn-calc { width: 100%; padding: 14px; background: linear-gradient(135deg, #00897b, #00695c); color: #fff; font-size: 1.05rem; font-weight: 700; border: none; border-radius: 8px; cursor: pointer; transition: opacity 0.2s, transform 0.1s; margin-top: 8px; }
+    .btn-calc { width: 100%; padding: 14px; background: linear-gradient(135deg, #2563eb, #1d4ed8); color: #fff; font-size: 1.05rem; font-weight: 700; border: none; border-radius: 8px; cursor: pointer; transition: opacity 0.2s, transform 0.1s; margin-top: 8px; }
     .btn-calc:hover { opacity: 0.92; } .btn-calc:active { transform: scale(0.98); }
 
-    .result-card { display: none; background: linear-gradient(135deg, #e0f2f1, #f0fffe); border: 1.5px solid #00897b; border-radius: 12px; padding: 24px; margin-bottom: 20px; }
+    .result-card { display: none; background: linear-gradient(135deg, #eff6ff, #f0f4ff); border: 1.5px solid #2563eb; border-radius: 12px; padding: 24px; margin-bottom: 20px; }
     .result-card.show { display: block; }
-    .result-card h2 { font-size: 1rem; color: #00897b; margin-bottom: 16px; }
-    .result-amount { font-size: clamp(1.6rem, 5vw, 2.4rem); font-weight: 800; color: #00695c; text-align: center; margin: 12px 0 4px; }
+    .result-card h2 { font-size: 1rem; color: #2563eb; margin-bottom: 16px; }
+    .result-amount { font-size: clamp(1.6rem, 5vw, 2.4rem); font-weight: 800; color: #1d4ed8; text-align: center; margin: 12px 0 4px; }
     .result-amount span { font-size: 1rem; font-weight: 500; }
     .result-sub { text-align: center; font-size: 0.85rem; color: #666; margin-bottom: 12px; }
 
-    .result-detail { margin-top: 16px; border-top: 1px solid #b2dfdb; padding-top: 14px; }
-    .result-row { display: flex; justify-content: space-between; font-size: 0.88rem; padding: 5px 0; color: #444; border-bottom: 1px dotted #e0f2f1; }
-    .result-row:last-child { border-bottom: none; font-weight: 700; color: #00695c; }
+    .result-detail { margin-top: 16px; border-top: 1px solid #bfdbfe; padding-top: 14px; }
+    .result-row { display: flex; justify-content: space-between; font-size: 0.88rem; padding: 5px 0; color: #444; border-bottom: 1px dotted #eff6ff; }
+    .result-row:last-child { border-bottom: none; font-weight: 700; color: #1d4ed8; }
     .result-row .label { color: #666; }
     .result-row .value { font-weight: 600; }
-    .result-row.total .value { color: #00695c; }
+    .result-row.total .value { color: #1d4ed8; }
 
     .notice { background: #fff8e1; border-left: 4px solid #ffa000; border-radius: 0 8px 8px 0; padding: 12px 14px; font-size: 0.82rem; color: #555; margin-top: 16px; }
     .notice strong { color: #e65100; }
