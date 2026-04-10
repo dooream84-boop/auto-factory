@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="google-site-verification" content="OyvdhFUwC-wAD4ZSdgejG5A1ch3hPGNN6Tt0UUsyzqk" />
+  <title>부가세 계산기 2026 - 공급가액·부가세 역산 무료 계산</title>
+  <meta name="description" content="공급가액 입력 시 부가세(10%) 포함 금액 계산, 공급대가 입력 시 부가세 역산. 사업자·개인 모두 무료로 간편 계산.">
+  <meta name="keywords" content="부가세 계산기, 부가가치세 계산, 공급가액 계산, 공급대가 계산, 역산 계산기">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="부가세 계산기 - 공급가액·부가세 무료 계산">
+  <meta property="og:description" content="공급가액으로 부가세를 계산하거나, 공급대가에서 부가세를 역산합니다.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://cocoflow.xyz/products/vat-calculator/">
+  <meta property="og:image" content="https://cocoflow.xyz/og-vat-calculator.png">
+  <link rel="canonical" href="https://cocoflow.xyz/products/vat-calculator/">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "부가세 계산기",
+    "description": "공급가액에서 부가세를 계산하거나 공급대가에서 부가세를 역산하는 무료 웹 도구",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "All",
+    "offers": { "@type": "Offer", "price": "0" }
+  }
+  </script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8616886611208474" crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Noto Sans KR', sans-serif; background: #f0f4f8; color: #1e293b; line-height: 1.6; }
+
+    header { background: linear-gradient(135deg, #2563eb, #1d4ed8); color: #fff; text-align: center; padding: 28px 16px 24px; }
+    .header-brand { font-size: 0.85rem; font-weight: 600; opacity: 0.8; letter-spacing: 1px; margin-bottom: 8px; }
+    header h1 { font-size: clamp(1.4rem, 4vw, 2rem); font-weight: 800; }
+    header p { margin-top: 6px; font-size: 0.95rem; opacity: 0.88; }
+
+    .ad-banner { background: #fff; border: 1px dashed #cbd5e1; text-align: center; color: #94a3b8; font-size: 0.8rem; display: flex; align-items: center; justify-content: center; }
+    .ad-top    { min-height: 90px; }
+    .ad-bottom { min-height: 250px; margin-top: 8px; border-radius: 12px; }
+
+    main { max-width: 680px; margin: 24px auto; padding: 0 16px 48px; }
+
+    .card { background: #fff; border-radius: 12px; box-shadow: 0 2px 12px rgba(37,99,235,0.08); padding: 28px 24px; margin-bottom: 20px; border: 1px solid #e2e8f0; }
+    .card h2 { font-size: 1.05rem; font-weight: 700; color: #2563eb; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid #eff6ff; }
+
+    /* 탭 */
+    .tab-wrap { display: flex; gap: 8px; margin-bottom: 24px; }
+    .tab-btn {
+      flex: 1; padding: 11px 0; border: 2px solid #e2e8f0; border-radius: 8px;
+      background: #f8fafc; color: #64748b; font-size: 0.95rem; font-weight: 600;
+      cursor: pointer; transition: all 0.18s;
+    }
+    .tab-btn.active { background: #2563eb; border-color: #2563eb; color: #fff; }
+    .tab-btn:not(.active):hover { border-color: #2563eb; color: #2563eb; }
+
+    .form-group { margin-bottom: 20px; }
+    .form-group label { display: block; font-size: 0.88rem; font-weight: 600; color: #475569; margin-bottom: 6px; }
+    .form-group .hint { font-size: 0.78rem; color: #94a3b8; margin-top: 5px; }
+
+    .input-wrap { position: relative; }
+    .input-wrap input {
+      width: 100%; padding: 12px 48px 12px 14px;
+      border: 1.5px solid #e2e8f0; border-radius: 8px;
+      font-size: 1rem; font-family: 'Noto Sans KR', sans-serif;
+      outline: none; transition: border-color 0.2s; background: #fff; color: #1e293b;
+    }
+    .input-wrap input:focus { border-color: #2563eb; }
+    .input-wrap .unit { position: absolute; right: 14px; top: 50%; transform: translateY(-50%); font-size: 0.85rem; color: #94a3b8; pointer-events: none; }
+
+    .btn-calc {
+      width: 100%; padding: 14px;
+      background: linear-gradient(135deg, #2563eb, #1d4ed8);
+      color: #fff; font-size: 1.05rem; font-weight: 700;
+      border: none; border-radius: 8px; cursor: pointer;
+      transition: opacity 0.2s, transform 0.1s; margin-top: 4px;
+      font-family: 'Noto Sans KR', sans-serif;
+    }
+    .btn-calc:hover { opacity: 0.92; }
+    .btn-calc:active { transform: scale(0.98); }
+
+    /* 결과 카드 */
+    .result-card { display: none; background: linear-gradient(135deg, #eff6ff, #f0f4ff); border: 1.5px solid #2563eb; border-radius: 12px; padding: 24px; margin-bottom: 20px; }
+    .result-card.show { display: block; }
+    .result-card h2 { font-size: 1rem; font-weight: 700; color: #2563eb; margin-bottom: 16px; }
+
+    .result-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    .result-box { background: #fff; border-radius: 10px; padding: 16px 12px; text-align: center; border: 1px solid #bfdbfe; }
+    .result-box .r-label { font-size: 0.78rem; color: #64748b; margin-bottom: 6px; }
+    .result-box .r-value { font-size: clamp(1rem, 3vw, 1.3rem); font-weight: 800; color: #1d4ed8; word-break: break-all; }
+    .result-box .r-value span { font-size: 0.8rem; font-weight: 500; }
+    .result-box.highlight { background: #eff6ff; border-color: #2563eb; }
+    .result-box.highlight .r-value { color: #2563eb; font-size: clamp(1.1rem, 3.5vw, 1.5rem); }
+
+    /* 설명 박스 */
+    .info-box { background: #f8fafc; border-left: 4px solid #2563eb; border-radius: 0 8px 8px 0; padding: 14px 16px; font-size: 0.85rem; color: #475569; margin-bottom: 20px; line-height: 1.8; }
+    .info-box strong { color: #2563eb; }
+
+    .notice { background: #fff8e1; border-left: 4px solid #f59e0b; border-radius: 0 8px 8px 0; padding: 12px 14px; font-size: 0.82rem; color: #555; margin-top: 16px; }
+
+    /* FAQ */
+    .faq-item { margin-bottom: 14px; }
+    .faq-q { font-weight: 700; font-size: 0.92rem; color: #1e293b; margin-bottom: 4px; }
+    .faq-a { font-size: 0.88rem; color: #475569; line-height: 1.7; }
+
+    footer { text-align: center; font-size: 0.78rem; color: #94a3b8; padding: 20px 16px 32px; }
+    footer a { color: #94a3b8; text-decoration: none; }
+    footer a:hover { color: #2563eb; }
+
+    @media (max-width: 480px) {
+      .card { padding: 20px 16px; }
+      .result-grid { grid-template-columns: 1fr; }
+      .result-box { padding: 14px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-brand">COCOFLOW</div>
+  <h1>부가세 계산기</h1>
+  <p>공급가액·공급대가 입력 → 부가세(10%) 즉시 계산</p>
+</header>
+
+<div class="ad-banner ad-top">
+  <!-- AdSense 상단 배너 -->
+</div>
+
+<main>
+
+  <div class="card">
+    <h2>계산 방식 선택</h2>
+
+    <div class="tab-wrap">
+      <button class="tab-btn active" id="tab-supply" onclick="switchTab('supply')">공급가액 → 부가세 계산</button>
+      <button class="tab-btn" id="tab-total" onclick="switchTab('total')">공급대가 → 부가세 역산</button>
+    </div>
+
+    <!-- 공급가액 입력 -->
+    <div id="section-supply">
+      <div class="form-group">
+        <label for="supplyAmount">공급가액 (VAT 제외 금액)</label>
+        <div class="input-wrap">
+          <input type="number" id="supplyAmount" placeholder="예: 1000000" min="0" oninput="clearResult()">
+          <span class="unit">원</span>
+        </div>
+        <p class="hint">부가세(10%)가 포함되지 않은 순수 공급 금액을 입력하세요.</p>
+      </div>
+    </div>
+
+    <!-- 공급대가 입력 -->
+    <div id="section-total" style="display:none;">
+      <div class="form-group">
+        <label for="totalAmount">공급대가 (VAT 포함 금액)</label>
+        <div class="input-wrap">
+          <input type="number" id="totalAmount" placeholder="예: 1100000" min="0" oninput="clearResult()">
+          <span class="unit">원</span>
+        </div>
+        <p class="hint">부가세(10%)가 이미 포함된 최종 금액을 입력하세요.</p>
+      </div>
+    </div>
+
+    <button class="btn-calc" onclick="calculate()">부가세 계산하기</button>
+  </div>
+
+  <!-- 결과 -->
+  <div class="result-card" id="resultCard">
+    <h2>📊 계산 결과</h2>
+    <div class="result-grid">
+      <div class="result-box">
+        <div class="r-label">공급가액</div>
+        <div class="r-value" id="resSupply">-<span>원</span></div>
+      </div>
+      <div class="result-box">
+        <div class="r-label">부가세 (10%)</div>
+        <div class="r-value" id="resVat">-<span>원</span></div>
+      </div>
+      <div class="result-box highlight">
+        <div class="r-label">공급대가 (합계)</div>
+        <div class="r-value" id="resTotal">-<span>원</span></div>
+      </div>
+    </div>
+    <div class="notice">
+      ※ 부가가치세법 기준 10% 단순 계산입니다. 면세·영세율 품목은 적용되지 않습니다.
+    </div>
+  </div>
+
+  <!-- 설명 -->
+  <div class="info-box">
+    <strong>공급가액</strong>이란 부가세를 제외한 순수 거래 금액입니다.<br>
+    <strong>공급대가</strong>란 부가세가 포함된 최종 결제 금액입니다.<br>
+    부가세율은 <strong>10%</strong>로, 공급가액 × 1.1 = 공급대가입니다.
+  </div>
+
+  <div class="card">
+    <h2>자주 묻는 질문</h2>
+    <div class="faq-item">
+      <div class="faq-q">Q. 공급가액과 공급대가의 차이는 무엇인가요?</div>
+      <div class="faq-a">공급가액은 부가세를 제외한 실제 거래 금액이고, 공급대가는 부가세 10%가 포함된 최종 금액입니다. 세금계산서 발행 시 두 금액이 모두 표기됩니다.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Q. 역산은 어떻게 계산하나요?</div>
+      <div class="faq-a">공급대가에서 부가세를 역산할 때는 공급대가 ÷ 1.1 = 공급가액, 공급대가 - 공급가액 = 부가세로 계산합니다.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Q. 면세 사업자도 이 계산기를 사용할 수 있나요?</div>
+      <div class="faq-a">면세 사업자는 부가세를 부과하지 않으므로 이 계산기는 해당되지 않습니다. 과세 사업자(일반·간이 과세자) 거래에 사용하세요.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Q. 간이과세자도 10%인가요?</div>
+      <div class="faq-a">간이과세자는 업종별 부가가치율(15~40%)을 적용한 낮은 세율이 적용됩니다. 이 계산기는 일반과세자 기준 10% 계산에 적합합니다.</div>
+    </div>
+  </div>
+
+  <div class="ad-banner ad-bottom">
+    <!-- AdSense 하단 광고 -->
+  </div>
+
+</main>
+
+<footer>
+  <p>
+    <a href="/">← 홈으로</a> &nbsp;|&nbsp;
+    <a href="/privacy/">개인정보처리방침</a>
+  </p>
+  <p style="margin-top:8px;">© 2026 CocoFlow. 본 계산기는 참고용이며 법적 효력이 없습니다.</p>
+</footer>
+
+<script>
+  let mode = 'supply'; // 'supply' | 'total'
+
+  function switchTab(tab) {
+    mode = tab;
+    document.getElementById('tab-supply').classList.toggle('active', tab === 'supply');
+    document.getElementById('tab-total').classList.toggle('active', tab === 'total');
+    document.getElementById('section-supply').style.display = tab === 'supply' ? '' : 'none';
+    document.getElementById('section-total').style.display = tab === 'total' ? '' : 'none';
+    clearResult();
+  }
+
+  function clearResult() {
+    document.getElementById('resultCard').classList.remove('show');
+  }
+
+  function fmt(n) {
+    return Math.round(n).toLocaleString('ko-KR');
+  }
+
+  function calculate() {
+    let supply, vat, total;
+
+    if (mode === 'supply') {
+      const raw = parseFloat(document.getElementById('supplyAmount').value);
+      if (!raw || raw <= 0) { alert('공급가액을 올바르게 입력해주세요.'); return; }
+      supply = raw;
+      vat    = supply * 0.1;
+      total  = supply + vat;
+    } else {
+      const raw = parseFloat(document.getElementById('totalAmount').value);
+      if (!raw || raw <= 0) { alert('공급대가를 올바르게 입력해주세요.'); return; }
+      total  = raw;
+      supply = total / 1.1;
+      vat    = total - supply;
+    }
+
+    document.getElementById('resSupply').innerHTML = fmt(supply) + '<span>원</span>';
+    document.getElementById('resVat').innerHTML    = fmt(vat)    + '<span>원</span>';
+    document.getElementById('resTotal').innerHTML  = fmt(total)  + '<span>원</span>';
+    document.getElementById('resultCard').classList.add('show');
+    document.getElementById('resultCard').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+
+  // Enter 키 지원
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') calculate();
+  });
+</script>
+
+</body>
+</html>
