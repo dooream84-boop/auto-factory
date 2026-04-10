@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="google-site-verification" content="OyvdhFUwC-wAD4ZSdgejG5A1ch3hPGNN6Tt0UUsyzqk" />
+  <title>적금이자 계산기 2026 - 만기 수령액 세후이자 무료 계산</title>
+  <meta name="description" content="월 납입액, 연이율, 기간을 입력하면 적금 만기 수령액과 세후 이자를 즉시 계산합니다. 단리·복리 선택 가능.">
+  <meta name="keywords" content="적금이자 계산기, 적금 만기 수령액, 세후이자 계산, 단리 복리 계산기">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="적금이자 계산기 - 만기 수령액 세후이자 계산">
+  <meta property="og:description" content="월 납입액, 연이율, 기간으로 적금 만기 수령액을 즉시 계산합니다.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://cocoflow.xyz/products/savings-calculator/">
+  <link rel="canonical" href="https://cocoflow.xyz/products/savings-calculator/">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "적금이자 계산기",
+    "description": "적금 만기 수령액과 세후 이자를 계산하는 무료 웹 도구",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "All",
+    "offers": { "@type": "Offer", "price": "0" }
+  }
+  </script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8616886611208474" crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Noto Sans KR', sans-serif; background: #f0f4f8; color: #1e293b; line-height: 1.6; }
+    header { background: linear-gradient(135deg, #2563eb, #1d4ed8); color: #fff; text-align: center; padding: 28px 16px 24px; }
+    .header-brand { font-size: 0.85rem; font-weight: 600; opacity: 0.8; letter-spacing: 1px; margin-bottom: 8px; }
+    header h1 { font-size: clamp(1.4rem, 4vw, 2rem); font-weight: 800; }
+    header p { margin-top: 6px; font-size: 0.95rem; opacity: 0.88; }
+    nav { margin-top: 12px; }
+    nav a { color: rgba(255,255,255,0.8); text-decoration: none; font-size: 0.85rem; margin: 0 10px; }
+    nav a:hover { color: #fff; }
+    .ad-banner { background: #fff; border: 1px dashed #cbd5e1; text-align: center; color: #94a3b8; font-size: 0.8rem; display: flex; align-items: center; justify-content: center; }
+    .ad-top { min-height: 90px; }
+    .ad-bottom { min-height: 250px; margin-top: 8px; border-radius: 12px; }
+    main { max-width: 680px; margin: 24px auto; padding: 0 16px 48px; }
+    .card { background: #fff; border-radius: 12px; box-shadow: 0 2px 12px rgba(37,99,235,0.08); padding: 28px 24px; margin-bottom: 20px; border: 1px solid #e2e8f0; }
+    .card h2 { font-size: 1.05rem; font-weight: 700; color: #2563eb; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid #eff6ff; }
+    .form-group { margin-bottom: 18px; }
+    .form-group label { display: block; font-size: 0.88rem; font-weight: 600; color: #475569; margin-bottom: 6px; }
+    .tab-wrap { display: flex; gap: 8px; }
+    .tab-btn { flex: 1; padding: 10px; border: 2px solid #e2e8f0; border-radius: 8px; background: #f8fafc; color: #64748b; font-size: 0.9rem; font-weight: 600; cursor: pointer; transition: all 0.18s; font-family: 'Noto Sans KR', sans-serif; }
+    .tab-btn.active { background: #2563eb; border-color: #2563eb; color: #fff; }
+    .input-wrap { position: relative; }
+    .input-wrap input {
+      width: 100%; padding: 12px 48px 12px 14px;
+      border: 1.5px solid #e2e8f0; border-radius: 8px;
+      font-size: 1rem; font-family: 'Noto Sans KR', sans-serif;
+      outline: none; transition: border-color 0.2s; background: #fff; color: #1e293b;
+    }
+    .input-wrap input:focus { border-color: #2563eb; }
+    .input-wrap .unit { position: absolute; right: 14px; top: 50%; transform: translateY(-50%); font-size: 0.85rem; color: #94a3b8; pointer-events: none; }
+    .btn-calc { width: 100%; padding: 14px; background: linear-gradient(135deg, #2563eb, #1d4ed8); color: #fff; font-size: 1.05rem; font-weight: 700; border: none; border-radius: 8px; cursor: pointer; transition: opacity 0.2s, transform 0.1s; margin-top: 4px; font-family: 'Noto Sans KR', sans-serif; }
+    .btn-calc:hover { opacity: 0.92; }
+    .btn-calc:active { transform: scale(0.98); }
+    .result-card { display: none; background: linear-gradient(135deg, #eff6ff, #f0f4ff); border: 1.5px solid #2563eb; border-radius: 12px; padding: 24px; margin-bottom: 20px; }
+    .result-card.show { display: block; }
+    .result-card h2 { font-size: 1rem; font-weight: 700; color: #2563eb; margin-bottom: 16px; }
+    .result-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-bottom: 16px; }
+    .result-box { background: #fff; border-radius: 10px; padding: 16px 12px; text-align: center; border: 1px solid #bfdbfe; }
+    .result-box .r-label { font-size: 0.78rem; color: #64748b; margin-bottom: 6px; }
+    .result-box .r-value { font-size: clamp(1rem, 3vw, 1.25rem); font-weight: 800; color: #1d4ed8; word-break: break-all; }
+    .result-box .r-value span { font-size: 0.78rem; font-weight: 400; }
+    .result-box.highlight { background: #eff6ff; border-color: #2563eb; grid-column: span 2; }
+    .result-box.highlight .r-value { color: #2563eb; font-size: clamp(1.2rem, 4vw, 1.7rem); }
+    .detail-row { display: flex; justify-content: space-between; font-size: 0.88rem; padding: 6px 0; border-bottom: 1px dotted #e2e8f0; color: #475569; }
+    .detail-row:last-child { border-bottom: none; font-weight: 700; color: #2563eb; }
+    .notice { background: #fff8e1; border-left: 4px solid #f59e0b; border-radius: 0 8px 8px 0; padding: 12px 14px; font-size: 0.82rem; color: #555; margin-top: 12px; }
+    .faq-item { margin-bottom: 14px; }
+    .faq-q { font-weight: 700; font-size: 0.92rem; color: #1e293b; margin-bottom: 4px; }
+    .faq-a { font-size: 0.88rem; color: #475569; line-height: 1.7; }
+    footer { text-align: center; font-size: 0.78rem; color: #94a3b8; padding: 20px 16px 32px; }
+    footer a { color: #94a3b8; text-decoration: none; }
+    footer a:hover { color: #2563eb; }
+    @media (max-width: 480px) { .card { padding: 20px 16px; } .result-box.highlight { grid-column: span 1; } }
+  </style>
+</head>
+<body>
+<header>
+  <div class="header-brand">COCOFLOW</div>
+  <h1>적금이자 계산기</h1>
+  <p>월 납입액 · 연이율 · 기간 입력 → 만기 수령액 즉시 계산</p>
+  <nav>
+    <a href="/privacy/">개인정보처리방침</a>
+    <a href="/contact/">문의하기</a>
+  </nav>
+</header>
+<div class="ad-banner ad-top"></div>
+<main>
+  <div class="card">
+    <h2>적금 정보 입력</h2>
+    <div class="form-group">
+      <label>이자 방식</label>
+      <div class="tab-wrap">
+        <button class="tab-btn active" id="tabSimple"   onclick="setMode('simple')">단리</button>
+        <button class="tab-btn"        id="tabCompound" onclick="setMode('compound')">복리</button>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="monthly">월 납입액</label>
+      <div class="input-wrap">
+        <input type="number" id="monthly" placeholder="예: 500000" min="0">
+        <span class="unit">원</span>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="rate">연이율</label>
+      <div class="input-wrap">
+        <input type="number" id="rate" placeholder="예: 3.5" step="0.01" min="0">
+        <span class="unit">%</span>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="months">납입 기간</label>
+      <div class="input-wrap">
+        <input type="number" id="months" placeholder="예: 12" min="1" max="120">
+        <span class="unit">개월</span>
+      </div>
+    </div>
+    <button class="btn-calc" onclick="calculate()">만기 수령액 계산하기</button>
+  </div>
+
+  <div class="result-card" id="resultCard">
+    <h2>📊 계산 결과</h2>
+    <div class="result-grid">
+      <div class="result-box">
+        <div class="r-label">총 납입액</div>
+        <div class="r-value" id="resPrincipal">-<span>원</span></div>
+      </div>
+      <div class="result-box">
+        <div class="r-label">세전 이자</div>
+        <div class="r-value" id="resGross">-<span>원</span></div>
+      </div>
+      <div class="result-box">
+        <div class="r-label">이자소득세 (15.4%)</div>
+        <div class="r-value" id="resTax">-<span>원</span></div>
+      </div>
+      <div class="result-box">
+        <div class="r-label">세후 이자</div>
+        <div class="r-value" id="resNet">-<span>원</span></div>
+      </div>
+      <div class="result-box highlight">
+        <div class="r-label">최종 수령액 (세후)</div>
+        <div class="r-value" id="resFinal">-<span>원</span></div>
+      </div>
+    </div>
+    <div id="detailSection" style="border-top:1px solid #bfdbfe;padding-top:12px;margin-top:4px;"></div>
+    <div class="notice">※ 이자소득세 15.4% (소득세 14% + 지방소득세 1.4%) 적용. 비과세 적금은 별도 확인 필요.</div>
+  </div>
+
+  <div class="card">
+    <h2>자주 묻는 질문</h2>
+    <div class="faq-item">
+      <div class="faq-q">Q. 적금 단리와 복리의 차이는?</div>
+      <div class="faq-a">단리는 원금에만 이자가 붙고, 복리는 이자에도 이자가 붙습니다. 적금 상품 대부분은 단리 방식을 적용합니다. 복리 적금은 상품 약관을 확인하세요.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Q. 이자소득세는 얼마나 공제되나요?</div>
+      <div class="faq-a">이자소득세는 15.4% (소득세 14% + 지방소득세 1.4%)가 원천징수됩니다. 세금우대·비과세 상품은 별도 혜택이 있습니다.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Q. 단리 이자 공식은?</div>
+      <div class="faq-a">정기적금 단리 이자 = 월납입액 × 연이율/12 × n(n+1)/2 (n = 납입개월 수). 각 납입금마다 남은 기간에 대해 이자가 계산됩니다.</div>
+    </div>
+  </div>
+  <div class="ad-banner ad-bottom"></div>
+</main>
+<footer>
+  <p><a href="/">← 홈으로</a> &nbsp;|&nbsp; <a href="/privacy/">개인정보처리방침</a></p>
+  <p style="margin-top:8px;">© 2026 CocoFlow. 본 계산기는 참고용이며 법적 효력이 없습니다.</p>
+</footer>
+<script>
+  let mode = 'simple';
+  function setMode(m) {
+    mode = m;
+    document.getElementById('tabSimple').classList.toggle('active',   m === 'simple');
+    document.getElementById('tabCompound').classList.toggle('active', m === 'compound');
+  }
+  function fmt(n) { return Math.round(n).toLocaleString('ko-KR'); }
+  function calculate() {
+    const P = parseFloat(document.getElementById('monthly').value);
+    const r = parseFloat(document.getElementById('rate').value) / 100 / 12; // 월이율
+    const n = parseInt(document.getElementById('months').value);
+    if (!P || P <= 0) { alert('월 납입액을 입력해주세요.'); return; }
+    if (isNaN(r) || r < 0) { alert('연이율을 입력해주세요.'); return; }
+    if (!n || n <= 0) { alert('납입 기간을 입력해주세요.'); return; }
+
+    const totalPrincipal = P * n;
+    let grossInterest = 0;
+
+    if (mode === 'simple') {
+      // 단리: 각 납입금의 잔여 기간에 이자
+      for (let i = 1; i <= n; i++) {
+        grossInterest += P * r * (n - i + 1);
+      }
+    } else {
+      // 복리: 각 납입금을 복리로 운용
+      for (let i = 1; i <= n; i++) {
+        grossInterest += P * (Math.pow(1 + r, n - i + 1) - 1);
+      }
+    }
+
+    const tax      = grossInterest * 0.154;
+    const netInt   = grossInterest - tax;
+    const final    = totalPrincipal + netInt;
+
+    document.getElementById('resPrincipal').innerHTML = fmt(totalPrincipal) + '<span>원</span>';
+    document.getElementById('resGross').innerHTML     = fmt(grossInterest)  + '<span>원</span>';
+    document.getElementById('resTax').innerHTML       = fmt(tax)            + '<span>원</span>';
+    document.getElementById('resNet').innerHTML       = fmt(netInt)         + '<span>원</span>';
+    document.getElementById('resFinal').innerHTML     = fmt(final)          + '<span>원</span>';
+    document.getElementById('detailSection').innerHTML =
+      `<div class="detail-row"><span>이자 방식</span><span>${mode === 'simple' ? '단리' : '복리'}</span></div>
+       <div class="detail-row"><span>월이율</span><span>${(r * 100).toFixed(4)}%</span></div>
+       <div class="detail-row"><span>실효 수익률</span><span>${((netInt / totalPrincipal) * 100).toFixed(2)}%</span></div>`;
+    document.getElementById('resultCard').classList.add('show');
+    document.getElementById('resultCard').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+  document.addEventListener('keydown', e => { if (e.key === 'Enter') calculate(); });
+</script>
+</body>
+</html>

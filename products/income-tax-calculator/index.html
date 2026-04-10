@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="google-site-verification" content="OyvdhFUwC-wAD4ZSdgejG5A1ch3hPGNN6Tt0UUsyzqk" />
+  <title>종합소득세 계산기 2026 - 사업소득세 무료 계산</title>
+  <meta name="description" content="연간 소득과 소득공제를 입력하면 종합소득세 과세표준과 납부세액을 즉시 계산합니다. 2026년 기준 세율 적용.">
+  <meta name="keywords" content="종합소득세 계산기, 소득세 계산, 사업소득세, 과세표준 계산, 종소세">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="종합소득세 계산기 - 소득세 무료 계산">
+  <meta property="og:description" content="연간 소득과 소득공제로 종합소득세를 즉시 계산합니다.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://cocoflow.xyz/products/income-tax-calculator/">
+  <link rel="canonical" href="https://cocoflow.xyz/products/income-tax-calculator/">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "종합소득세 계산기",
+    "description": "종합소득세 과세표준과 납부세액을 계산하는 무료 웹 도구",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "All",
+    "offers": { "@type": "Offer", "price": "0" }
+  }
+  </script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8616886611208474" crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Noto Sans KR', sans-serif; background: #f0f4f8; color: #1e293b; line-height: 1.6; }
+    header { background: linear-gradient(135deg, #2563eb, #1d4ed8); color: #fff; text-align: center; padding: 28px 16px 24px; }
+    .header-brand { font-size: 0.85rem; font-weight: 600; opacity: 0.8; letter-spacing: 1px; margin-bottom: 8px; }
+    header h1 { font-size: clamp(1.4rem, 4vw, 2rem); font-weight: 800; }
+    header p { margin-top: 6px; font-size: 0.95rem; opacity: 0.88; }
+    nav { margin-top: 12px; }
+    nav a { color: rgba(255,255,255,0.8); text-decoration: none; font-size: 0.85rem; margin: 0 10px; }
+    nav a:hover { color: #fff; }
+    .ad-banner { background: #fff; border: 1px dashed #cbd5e1; text-align: center; color: #94a3b8; font-size: 0.8rem; display: flex; align-items: center; justify-content: center; }
+    .ad-top { min-height: 90px; }
+    .ad-bottom { min-height: 250px; margin-top: 8px; border-radius: 12px; }
+    main { max-width: 680px; margin: 24px auto; padding: 0 16px 48px; }
+    .card { background: #fff; border-radius: 12px; box-shadow: 0 2px 12px rgba(37,99,235,0.08); padding: 28px 24px; margin-bottom: 20px; border: 1px solid #e2e8f0; }
+    .card h2 { font-size: 1.05rem; font-weight: 700; color: #2563eb; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid #eff6ff; }
+    .form-group { margin-bottom: 18px; }
+    .form-group label { display: block; font-size: 0.88rem; font-weight: 600; color: #475569; margin-bottom: 6px; }
+    .form-group .hint { font-size: 0.78rem; color: #94a3b8; margin-top: 5px; }
+    .input-wrap { position: relative; }
+    .input-wrap input {
+      width: 100%; padding: 12px 48px 12px 14px;
+      border: 1.5px solid #e2e8f0; border-radius: 8px;
+      font-size: 1rem; font-family: 'Noto Sans KR', sans-serif;
+      outline: none; transition: border-color 0.2s; background: #fff; color: #1e293b;
+    }
+    .input-wrap input:focus { border-color: #2563eb; }
+    .input-wrap .unit { position: absolute; right: 14px; top: 50%; transform: translateY(-50%); font-size: 0.85rem; color: #94a3b8; pointer-events: none; }
+    .btn-calc { width: 100%; padding: 14px; background: linear-gradient(135deg, #2563eb, #1d4ed8); color: #fff; font-size: 1.05rem; font-weight: 700; border: none; border-radius: 8px; cursor: pointer; transition: opacity 0.2s, transform 0.1s; margin-top: 4px; font-family: 'Noto Sans KR', sans-serif; }
+    .btn-calc:hover { opacity: 0.92; }
+    .btn-calc:active { transform: scale(0.98); }
+    .result-card { display: none; background: linear-gradient(135deg, #eff6ff, #f0f4ff); border: 1.5px solid #2563eb; border-radius: 12px; padding: 24px; margin-bottom: 20px; }
+    .result-card.show { display: block; }
+    .result-card h2 { font-size: 1rem; font-weight: 700; color: #2563eb; margin-bottom: 16px; }
+    .result-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 16px; }
+    .result-box { background: #fff; border-radius: 10px; padding: 16px 12px; text-align: center; border: 1px solid #bfdbfe; }
+    .result-box .r-label { font-size: 0.78rem; color: #64748b; margin-bottom: 6px; }
+    .result-box .r-value { font-size: clamp(0.95rem, 2.5vw, 1.2rem); font-weight: 800; color: #1d4ed8; word-break: break-all; }
+    .result-box .r-value span { font-size: 0.78rem; font-weight: 500; }
+    .result-box.highlight { background: #eff6ff; border-color: #2563eb; }
+    .result-box.highlight .r-value { color: #2563eb; font-size: clamp(1rem, 3vw, 1.4rem); }
+    .detail-row { display: flex; justify-content: space-between; font-size: 0.88rem; padding: 6px 0; border-bottom: 1px dotted #e2e8f0; color: #475569; }
+    .detail-row:last-child { border-bottom: none; font-weight: 700; color: #2563eb; }
+    .rate-table { width: 100%; border-collapse: collapse; font-size: 0.82rem; margin-top: 4px; }
+    .rate-table th { background: #2563eb; color: #fff; padding: 7px 10px; }
+    .rate-table td { padding: 6px 10px; border-bottom: 1px solid #e2e8f0; text-align: center; }
+    .rate-table tr.active-row td { background: #eff6ff; font-weight: 700; color: #2563eb; }
+    .notice { background: #fff8e1; border-left: 4px solid #f59e0b; border-radius: 0 8px 8px 0; padding: 12px 14px; font-size: 0.82rem; color: #555; margin-top: 16px; }
+    .faq-item { margin-bottom: 14px; }
+    .faq-q { font-weight: 700; font-size: 0.92rem; color: #1e293b; margin-bottom: 4px; }
+    .faq-a { font-size: 0.88rem; color: #475569; line-height: 1.7; }
+    footer { text-align: center; font-size: 0.78rem; color: #94a3b8; padding: 20px 16px 32px; }
+    footer a { color: #94a3b8; text-decoration: none; }
+    footer a:hover { color: #2563eb; }
+    @media (max-width: 480px) { .card { padding: 20px 16px; } .result-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+<header>
+  <div class="header-brand">COCOFLOW</div>
+  <h1>종합소득세 계산기</h1>
+  <p>연간 소득 · 소득공제 입력 → 종합소득세 즉시 계산</p>
+  <nav>
+    <a href="/privacy/">개인정보처리방침</a>
+    <a href="/contact/">문의하기</a>
+  </nav>
+</header>
+<div class="ad-banner ad-top"></div>
+<main>
+  <div class="card">
+    <h2>소득 정보 입력</h2>
+    <div class="form-group">
+      <label for="totalIncome">연간 총소득</label>
+      <div class="input-wrap">
+        <input type="number" id="totalIncome" placeholder="예: 50000000" min="0">
+        <span class="unit">원</span>
+      </div>
+      <p class="hint">사업소득, 근로소득, 기타소득 합산</p>
+    </div>
+    <div class="form-group">
+      <label for="deduction">소득공제 합계</label>
+      <div class="input-wrap">
+        <input type="number" id="deduction" placeholder="예: 10000000" min="0">
+        <span class="unit">원</span>
+      </div>
+      <p class="hint">인적공제, 연금보험료, 특별공제 등 합산</p>
+    </div>
+    <div class="form-group">
+      <label for="taxCredit">세액공제 합계</label>
+      <div class="input-wrap">
+        <input type="number" id="taxCredit" placeholder="0" min="0">
+        <span class="unit">원</span>
+      </div>
+      <p class="hint">근로소득세액공제, 자녀세액공제, IRP 등</p>
+    </div>
+    <button class="btn-calc" onclick="calculate()">종합소득세 계산하기</button>
+  </div>
+
+  <div class="result-card" id="resultCard">
+    <h2>📊 계산 결과</h2>
+    <div class="result-grid">
+      <div class="result-box">
+        <div class="r-label">과세표준</div>
+        <div class="r-value" id="resTaxable">-<span>원</span></div>
+      </div>
+      <div class="result-box">
+        <div class="r-label">산출세액</div>
+        <div class="r-value" id="resCalculated">-<span>원</span></div>
+      </div>
+      <div class="result-box highlight">
+        <div class="r-label">납부세액</div>
+        <div class="r-value" id="resFinal">-<span>원</span></div>
+      </div>
+    </div>
+    <div id="detailSection" style="border-top:1px solid #bfdbfe;padding-top:14px;"></div>
+    <div class="notice">※ 지방소득세(산출세액의 10%)는 별도 납부입니다. 실제 세액은 개인 상황에 따라 달라질 수 있습니다.</div>
+  </div>
+
+  <div class="card">
+    <h2>종합소득세 세율표 (2026)</h2>
+    <table class="rate-table" id="rateTable">
+      <thead><tr><th>과세표준</th><th>세율</th><th>누진공제</th></tr></thead>
+      <tbody>
+        <tr id="br0"><td>1,400만원 이하</td><td>6%</td><td>-</td></tr>
+        <tr id="br1"><td>1,400만 ~ 5,000만원</td><td>15%</td><td>126만원</td></tr>
+        <tr id="br2"><td>5,000만 ~ 8,800만원</td><td>24%</td><td>576만원</td></tr>
+        <tr id="br3"><td>8,800만 ~ 1.5억원</td><td>35%</td><td>1,544만원</td></tr>
+        <tr id="br4"><td>1.5억 ~ 3억원</td><td>38%</td><td>1,994만원</td></tr>
+        <tr id="br5"><td>3억 ~ 5억원</td><td>40%</td><td>2,594만원</td></tr>
+        <tr id="br6"><td>5억 ~ 10억원</td><td>42%</td><td>3,594만원</td></tr>
+        <tr id="br7"><td>10억원 초과</td><td>45%</td><td>6,594만원</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <h2>자주 묻는 질문</h2>
+    <div class="faq-item">
+      <div class="faq-q">Q. 종합소득세 신고 대상은 누구인가요?</div>
+      <div class="faq-a">사업소득자, 프리랜서, 두 곳 이상에서 근로소득을 받는 경우, 금융소득 2천만원 초과 등 다양한 경우 종합소득세 신고 대상입니다.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Q. 신고·납부 기한은 언제인가요?</div>
+      <div class="faq-a">매년 5월 1일 ~ 5월 31일이 종합소득세 정기 신고·납부 기간입니다. 성실신고 확인 대상자는 6월 30일까지입니다.</div>
+    </div>
+  </div>
+  <div class="ad-banner ad-bottom"></div>
+</main>
+<footer>
+  <p><a href="/">← 홈으로</a> &nbsp;|&nbsp; <a href="/privacy/">개인정보처리방침</a></p>
+  <p style="margin-top:8px;">© 2026 CocoFlow. 본 계산기는 참고용이며 법적 효력이 없습니다.</p>
+</footer>
+<script>
+  function fmt(n) { return Math.round(n).toLocaleString('ko-KR'); }
+  const BRACKETS = [
+    { limit: 14000000,   rate: 0.06, deduct: 0,        id: 'br0' },
+    { limit: 50000000,   rate: 0.15, deduct: 1260000,  id: 'br1' },
+    { limit: 88000000,   rate: 0.24, deduct: 5760000,  id: 'br2' },
+    { limit: 150000000,  rate: 0.35, deduct: 15440000, id: 'br3' },
+    { limit: 300000000,  rate: 0.38, deduct: 19940000, id: 'br4' },
+    { limit: 500000000,  rate: 0.40, deduct: 25940000, id: 'br5' },
+    { limit: 1000000000, rate: 0.42, deduct: 35940000, id: 'br6' },
+    { limit: Infinity,   rate: 0.45, deduct: 65940000, id: 'br7' },
+  ];
+
+  function calculate() {
+    const income  = parseFloat(document.getElementById('totalIncome').value) || 0;
+    const ded     = parseFloat(document.getElementById('deduction').value)   || 0;
+    const credit  = parseFloat(document.getElementById('taxCredit').value)   || 0;
+    if (!income || income <= 0) { alert('연간 총소득을 입력해주세요.'); return; }
+    const taxable    = Math.max(income - ded, 0);
+    let calcTax = 0, activeId = 'br0';
+    for (const b of BRACKETS) {
+      if (taxable <= b.limit) { calcTax = taxable * b.rate - b.deduct; activeId = b.id; break; }
+    }
+    calcTax = Math.max(calcTax, 0);
+    const finalTax = Math.max(calcTax - credit, 0);
+
+    document.getElementById('resTaxable').innerHTML    = fmt(taxable)   + '<span>원</span>';
+    document.getElementById('resCalculated').innerHTML = fmt(calcTax)   + '<span>원</span>';
+    document.getElementById('resFinal').innerHTML      = fmt(finalTax)  + '<span>원</span>';
+    document.getElementById('detailSection').innerHTML =
+      `<div class="detail-row"><span>총소득</span><span>${fmt(income)}원</span></div>
+       <div class="detail-row"><span>소득공제</span><span>-${fmt(ded)}원</span></div>
+       <div class="detail-row"><span>과세표준</span><span>${fmt(taxable)}원</span></div>
+       <div class="detail-row"><span>산출세액</span><span>${fmt(calcTax)}원</span></div>
+       <div class="detail-row"><span>세액공제</span><span>-${fmt(credit)}원</span></div>
+       <div class="detail-row"><span>납부세액</span><span>${fmt(finalTax)}원</span></div>`;
+
+    // 활성 구간 표시
+    BRACKETS.forEach(b => document.getElementById(b.id).classList.remove('active-row'));
+    document.getElementById(activeId).classList.add('active-row');
+
+    document.getElementById('resultCard').classList.add('show');
+    document.getElementById('resultCard').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+  document.addEventListener('keydown', e => { if (e.key === 'Enter') calculate(); });
+</script>
+</body>
+</html>

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="google-site-verification" content="OyvdhFUwC-wAD4ZSdgejG5A1ch3hPGNN6Tt0UUsyzqk" />
+  <title>4대보험 계산기 2026 - 국민연금 건강보험 고용보험 무료 계산</title>
+  <meta name="description" content="월 급여를 입력하면 국민연금, 건강보험, 장기요양보험, 고용보험 근로자·사업주 부담액을 즉시 계산합니다. 2026년 기준.">
+  <meta name="keywords" content="4대보험 계산기, 국민연금 계산, 건강보험 계산, 고용보험, 장기요양보험">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="4대보험 계산기 - 근로자 사업주 부담액 무료 계산">
+  <meta property="og:description" content="월 급여로 4대보험 근로자·사업주 부담액을 즉시 계산합니다.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://cocoflow.xyz/products/insurance-calculator/">
+  <link rel="canonical" href="https://cocoflow.xyz/products/insurance-calculator/">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "4대보험 계산기",
+    "description": "4대보험 근로자·사업주 부담액을 계산하는 무료 웹 도구",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "All",
+    "offers": { "@type": "Offer", "price": "0" }
+  }
+  </script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8616886611208474" crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Noto Sans KR', sans-serif; background: #f0f4f8; color: #1e293b; line-height: 1.6; }
+    header { background: linear-gradient(135deg, #2563eb, #1d4ed8); color: #fff; text-align: center; padding: 28px 16px 24px; }
+    .header-brand { font-size: 0.85rem; font-weight: 600; opacity: 0.8; letter-spacing: 1px; margin-bottom: 8px; }
+    header h1 { font-size: clamp(1.4rem, 4vw, 2rem); font-weight: 800; }
+    header p { margin-top: 6px; font-size: 0.95rem; opacity: 0.88; }
+    nav { margin-top: 12px; }
+    nav a { color: rgba(255,255,255,0.8); text-decoration: none; font-size: 0.85rem; margin: 0 10px; }
+    nav a:hover { color: #fff; }
+    .ad-banner { background: #fff; border: 1px dashed #cbd5e1; text-align: center; color: #94a3b8; font-size: 0.8rem; display: flex; align-items: center; justify-content: center; }
+    .ad-top { min-height: 90px; }
+    .ad-bottom { min-height: 250px; margin-top: 8px; border-radius: 12px; }
+    main { max-width: 680px; margin: 24px auto; padding: 0 16px 48px; }
+    .card { background: #fff; border-radius: 12px; box-shadow: 0 2px 12px rgba(37,99,235,0.08); padding: 28px 24px; margin-bottom: 20px; border: 1px solid #e2e8f0; }
+    .card h2 { font-size: 1.05rem; font-weight: 700; color: #2563eb; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid #eff6ff; }
+    .form-group { margin-bottom: 18px; }
+    .form-group label { display: block; font-size: 0.88rem; font-weight: 600; color: #475569; margin-bottom: 6px; }
+    .form-group .hint { font-size: 0.78rem; color: #94a3b8; margin-top: 5px; }
+    .input-wrap { position: relative; }
+    .input-wrap input {
+      width: 100%; padding: 12px 48px 12px 14px;
+      border: 1.5px solid #e2e8f0; border-radius: 8px;
+      font-size: 1rem; font-family: 'Noto Sans KR', sans-serif;
+      outline: none; transition: border-color 0.2s; background: #fff; color: #1e293b;
+    }
+    .input-wrap input:focus { border-color: #2563eb; }
+    .input-wrap .unit { position: absolute; right: 14px; top: 50%; transform: translateY(-50%); font-size: 0.85rem; color: #94a3b8; pointer-events: none; }
+    .btn-calc { width: 100%; padding: 14px; background: linear-gradient(135deg, #2563eb, #1d4ed8); color: #fff; font-size: 1.05rem; font-weight: 700; border: none; border-radius: 8px; cursor: pointer; transition: opacity 0.2s, transform 0.1s; margin-top: 4px; font-family: 'Noto Sans KR', sans-serif; }
+    .btn-calc:hover { opacity: 0.92; }
+    .btn-calc:active { transform: scale(0.98); }
+    .result-card { display: none; background: linear-gradient(135deg, #eff6ff, #f0f4ff); border: 1.5px solid #2563eb; border-radius: 12px; padding: 24px; margin-bottom: 20px; }
+    .result-card.show { display: block; }
+    .result-card h2 { font-size: 1rem; font-weight: 700; color: #2563eb; margin-bottom: 16px; }
+    .ins-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+    .ins-table th { background: #2563eb; color: #fff; padding: 9px 12px; text-align: center; font-weight: 600; }
+    .ins-table td { padding: 8px 12px; border-bottom: 1px solid #e2e8f0; text-align: right; }
+    .ins-table td:first-child { text-align: left; font-weight: 600; color: #1e293b; }
+    .ins-table tr.total-row td { background: #eff6ff; font-weight: 800; color: #2563eb; }
+    .summary-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 16px; }
+    .summary-box { background: #fff; border-radius: 10px; padding: 14px; text-align: center; border: 1px solid #bfdbfe; }
+    .summary-box .s-label { font-size: 0.78rem; color: #64748b; margin-bottom: 4px; }
+    .summary-box .s-value { font-size: clamp(1rem, 3vw, 1.3rem); font-weight: 800; color: #2563eb; }
+    .summary-box .s-value span { font-size: 0.78rem; font-weight: 400; }
+    .rate-info { background: #f8fafc; border-radius: 8px; padding: 14px 16px; font-size: 0.82rem; color: #475569; margin-top: 16px; line-height: 1.9; }
+    .faq-item { margin-bottom: 14px; }
+    .faq-q { font-weight: 700; font-size: 0.92rem; color: #1e293b; margin-bottom: 4px; }
+    .faq-a { font-size: 0.88rem; color: #475569; line-height: 1.7; }
+    footer { text-align: center; font-size: 0.78rem; color: #94a3b8; padding: 20px 16px 32px; }
+    footer a { color: #94a3b8; text-decoration: none; }
+    footer a:hover { color: #2563eb; }
+    @media (max-width: 480px) { .card { padding: 20px 16px; } .ins-table { font-size: 0.78rem; } .summary-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+<header>
+  <div class="header-brand">COCOFLOW</div>
+  <h1>4대보험 계산기</h1>
+  <p>월 급여 입력 → 근로자·사업주 보험료 즉시 계산</p>
+  <nav>
+    <a href="/privacy/">개인정보처리방침</a>
+    <a href="/contact/">문의하기</a>
+  </nav>
+</header>
+<div class="ad-banner ad-top"></div>
+<main>
+  <div class="card">
+    <h2>급여 정보 입력</h2>
+    <div class="form-group">
+      <label for="salary">월 급여 (세전)</label>
+      <div class="input-wrap">
+        <input type="number" id="salary" placeholder="예: 3000000" min="0">
+        <span class="unit">원</span>
+      </div>
+      <p class="hint">기본급 + 각종 수당 포함 총 급여</p>
+    </div>
+    <button class="btn-calc" onclick="calculate()">4대보험 계산하기</button>
+  </div>
+
+  <div class="result-card" id="resultCard">
+    <h2>📊 계산 결과 (2026년 기준)</h2>
+    <table class="ins-table">
+      <thead>
+        <tr><th>항목</th><th>근로자</th><th>사업주</th><th>합계</th></tr>
+      </thead>
+      <tbody id="insBody"></tbody>
+    </table>
+    <div class="summary-grid">
+      <div class="summary-box">
+        <div class="s-label">근로자 총 공제액</div>
+        <div class="s-value" id="sumEmployee">-<span>원</span></div>
+      </div>
+      <div class="summary-box">
+        <div class="s-label">사업주 총 부담액</div>
+        <div class="s-value" id="sumEmployer">-<span>원</span></div>
+      </div>
+    </div>
+    <div class="rate-info">
+      ※ 2026년 적용 요율 | 국민연금: 9% (각 4.5%) | 건강보험: 7.09% (각 3.545%) | 장기요양: 건강보험료×12.95% | 고용보험: 1.8% (근로자 0.9%, 사업주 0.9%)
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>자주 묻는 질문</h2>
+    <div class="faq-item">
+      <div class="faq-q">Q. 국민연금 상한액이 있나요?</div>
+      <div class="faq-a">2026년 기준 국민연금 기준소득월액 상한은 617만원입니다. 급여가 617만원 초과해도 617만원 기준으로 계산됩니다.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Q. 장기요양보험료는 어떻게 계산하나요?</div>
+      <div class="faq-a">장기요양보험료 = 건강보험료 × 12.95%입니다. 근로자와 사업주가 각각 절반씩 부담합니다.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Q. 산재보험은 왜 없나요?</div>
+      <div class="faq-a">산재보험은 사업주가 100% 부담하며, 업종에 따라 요율이 다릅니다. 일반 사무직 기준 약 0.7% 수준입니다.</div>
+    </div>
+  </div>
+  <div class="ad-banner ad-bottom"></div>
+</main>
+<footer>
+  <p><a href="/">← 홈으로</a> &nbsp;|&nbsp; <a href="/privacy/">개인정보처리방침</a></p>
+  <p style="margin-top:8px;">© 2026 CocoFlow. 본 계산기는 참고용이며 법적 효력이 없습니다.</p>
+</footer>
+<script>
+  function fmt(n) { return Math.round(n).toLocaleString('ko-KR'); }
+  function calculate() {
+    const sal = parseFloat(document.getElementById('salary').value);
+    if (!sal || sal <= 0) { alert('월 급여를 입력해주세요.'); return; }
+
+    // 국민연금 (상한 6,170,000)
+    const npBase = Math.min(sal, 6170000);
+    const npEmp  = npBase * 0.045;
+    const npEr   = npBase * 0.045;
+
+    // 건강보험
+    const hiEmp = sal * 0.03545;
+    const hiEr  = sal * 0.03545;
+
+    // 장기요양 (건강보험료 기준)
+    const ltEmp = hiEmp * 0.1295;
+    const ltEr  = hiEr  * 0.1295;
+
+    // 고용보험
+    const uiEmp = sal * 0.009;
+    const uiEr  = sal * 0.009;
+
+    const rows = [
+      { name: '국민연금',    emp: npEmp, er: npEr },
+      { name: '건강보험',    emp: hiEmp, er: hiEr },
+      { name: '장기요양보험', emp: ltEmp, er: ltEr },
+      { name: '고용보험',    emp: uiEmp, er: uiEr },
+    ];
+
+    let totalEmp = 0, totalEr = 0;
+    const tbody = document.getElementById('insBody');
+    tbody.innerHTML = '';
+    rows.forEach(r => {
+      totalEmp += r.emp; totalEr += r.er;
+      const tr = document.createElement('tr');
+      tr.innerHTML = `<td>${r.name}</td><td>${fmt(r.emp)}원</td><td>${fmt(r.er)}원</td><td>${fmt(r.emp + r.er)}원</td>`;
+      tbody.appendChild(tr);
+    });
+    const totalTr = document.createElement('tr');
+    totalTr.className = 'total-row';
+    totalTr.innerHTML = `<td>합계</td><td>${fmt(totalEmp)}원</td><td>${fmt(totalEr)}원</td><td>${fmt(totalEmp + totalEr)}원</td>`;
+    tbody.appendChild(totalTr);
+
+    document.getElementById('sumEmployee').innerHTML = fmt(totalEmp) + '<span>원</span>';
+    document.getElementById('sumEmployer').innerHTML = fmt(totalEr)  + '<span>원</span>';
+    document.getElementById('resultCard').classList.add('show');
+    document.getElementById('resultCard').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+  document.addEventListener('keydown', e => { if (e.key === 'Enter') calculate(); });
+</script>
+</body>
+</html>

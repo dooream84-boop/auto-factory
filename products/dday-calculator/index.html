@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="google-site-verification" content="OyvdhFUwC-wAD4ZSdgejG5A1ch3hPGNN6Tt0UUsyzqk" />
+  <title>D-Day 계산기 2026 - 날짜 카운트다운 무료 계산</title>
+  <meta name="description" content="목표 날짜를 입력하면 D-Day를 즉시 계산합니다. 남은 일/시간/분과 진행률을 확인하세요.">
+  <meta name="keywords" content="D-Day 계산기, 디데이 계산, 날짜 카운트다운, 기념일 계산, D+n">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="D-Day 계산기 - 날짜 카운트다운">
+  <meta property="og:description" content="목표 날짜를 입력하면 D-Day와 남은 시간을 즉시 계산합니다.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://cocoflow.xyz/products/dday-calculator/">
+  <link rel="canonical" href="https://cocoflow.xyz/products/dday-calculator/">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "D-Day 계산기",
+    "description": "목표 날짜까지 D-Day와 남은 시간을 계산하는 무료 웹 도구",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "All",
+    "offers": { "@type": "Offer", "price": "0" }
+  }
+  </script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8616886611208474" crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Noto Sans KR', sans-serif; background: #f0f4f8; color: #1e293b; line-height: 1.6; }
+    header { background: linear-gradient(135deg, #2563eb, #1d4ed8); color: #fff; text-align: center; padding: 28px 16px 24px; }
+    .header-brand { font-size: 0.85rem; font-weight: 600; opacity: 0.8; letter-spacing: 1px; margin-bottom: 8px; }
+    header h1 { font-size: clamp(1.4rem, 4vw, 2rem); font-weight: 800; }
+    header p { margin-top: 6px; font-size: 0.95rem; opacity: 0.88; }
+    nav { margin-top: 12px; }
+    nav a { color: rgba(255,255,255,0.8); text-decoration: none; font-size: 0.85rem; margin: 0 10px; }
+    nav a:hover { color: #fff; }
+    .ad-banner { background: #fff; border: 1px dashed #cbd5e1; text-align: center; color: #94a3b8; font-size: 0.8rem; display: flex; align-items: center; justify-content: center; }
+    .ad-top { min-height: 90px; }
+    .ad-bottom { min-height: 250px; margin-top: 8px; border-radius: 12px; }
+    main { max-width: 680px; margin: 24px auto; padding: 0 16px 48px; }
+    .card { background: #fff; border-radius: 12px; box-shadow: 0 2px 12px rgba(37,99,235,0.08); padding: 28px 24px; margin-bottom: 20px; border: 1px solid #e2e8f0; }
+    .card h2 { font-size: 1.05rem; font-weight: 700; color: #2563eb; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid #eff6ff; }
+    .form-group { margin-bottom: 18px; }
+    .form-group label { display: block; font-size: 0.88rem; font-weight: 600; color: #475569; margin-bottom: 6px; }
+    .input-wrap input {
+      width: 100%; padding: 12px 14px;
+      border: 1.5px solid #e2e8f0; border-radius: 8px;
+      font-size: 1rem; font-family: 'Noto Sans KR', sans-serif;
+      outline: none; transition: border-color 0.2s; background: #fff; color: #1e293b;
+    }
+    .input-wrap input:focus { border-color: #2563eb; }
+    .btn-calc { width: 100%; padding: 14px; background: linear-gradient(135deg, #2563eb, #1d4ed8); color: #fff; font-size: 1.05rem; font-weight: 700; border: none; border-radius: 8px; cursor: pointer; transition: opacity 0.2s, transform 0.1s; margin-top: 4px; font-family: 'Noto Sans KR', sans-serif; }
+    .btn-calc:hover { opacity: 0.92; }
+    .btn-calc:active { transform: scale(0.98); }
+
+    /* 결과 */
+    .result-card { display: none; background: linear-gradient(135deg, #eff6ff, #f0f4ff); border: 1.5px solid #2563eb; border-radius: 12px; padding: 24px; margin-bottom: 20px; }
+    .result-card.show { display: block; }
+    .dday-label { font-size: 0.9rem; color: #64748b; text-align: center; margin-bottom: 8px; font-weight: 600; }
+    .dday-number { font-size: clamp(3rem, 10vw, 5rem); font-weight: 800; text-align: center; color: #2563eb; line-height: 1; margin-bottom: 4px; }
+    .dday-number.past { color: #64748b; }
+    .dday-name { text-align: center; font-size: 1rem; color: #475569; margin-bottom: 20px; }
+    .time-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 16px; }
+    .time-box { background: #fff; border-radius: 10px; padding: 14px 8px; text-align: center; border: 1px solid #bfdbfe; }
+    .time-box .t-val { font-size: clamp(1.2rem, 4vw, 1.8rem); font-weight: 800; color: #1d4ed8; }
+    .time-box .t-unit { font-size: 0.78rem; color: #64748b; margin-top: 2px; }
+    .progress-wrap { margin-top: 12px; }
+    .progress-label { display: flex; justify-content: space-between; font-size: 0.78rem; color: #64748b; margin-bottom: 6px; }
+    .progress-bar-bg { background: #e2e8f0; border-radius: 8px; height: 10px; overflow: hidden; }
+    .progress-bar-fill { height: 100%; background: linear-gradient(90deg, #2563eb, #1d4ed8); border-radius: 8px; transition: width 0.6s ease; }
+    .faq-item { margin-bottom: 14px; }
+    .faq-q { font-weight: 700; font-size: 0.92rem; color: #1e293b; margin-bottom: 4px; }
+    .faq-a { font-size: 0.88rem; color: #475569; line-height: 1.7; }
+    footer { text-align: center; font-size: 0.78rem; color: #94a3b8; padding: 20px 16px 32px; }
+    footer a { color: #94a3b8; text-decoration: none; }
+    footer a:hover { color: #2563eb; }
+    @media (max-width: 480px) { .card { padding: 20px 16px; } .time-grid { grid-template-columns: 1fr 1fr 1fr; gap: 8px; } }
+  </style>
+</head>
+<body>
+<header>
+  <div class="header-brand">COCOFLOW</div>
+  <h1>D-Day 계산기</h1>
+  <p>목표 날짜 입력 → D-Day · 남은 시간 즉시 확인</p>
+  <nav>
+    <a href="/privacy/">개인정보처리방침</a>
+    <a href="/contact/">문의하기</a>
+  </nav>
+</header>
+<div class="ad-banner ad-top"></div>
+<main>
+  <div class="card">
+    <h2>날짜 설정</h2>
+    <div class="form-group">
+      <label for="eventName">기념일 / 이벤트 이름 (선택)</label>
+      <div class="input-wrap">
+        <input type="text" id="eventName" placeholder="예: 수능, 결혼기념일, 프로젝트 마감">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="targetDate">목표 날짜</label>
+      <div class="input-wrap">
+        <input type="date" id="targetDate">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="startDate">시작 기준일 (선택 · 진행률 계산용)</label>
+      <div class="input-wrap">
+        <input type="date" id="startDate" placeholder="비워두면 오늘 기준">
+      </div>
+    </div>
+    <button class="btn-calc" onclick="calculate()">D-Day 계산하기</button>
+  </div>
+
+  <div class="result-card" id="resultCard">
+    <div class="dday-label" id="ddayLabel">D-Day</div>
+    <div class="dday-number" id="ddayNumber">D-0</div>
+    <div class="dday-name" id="ddayName"></div>
+    <div class="time-grid">
+      <div class="time-box"><div class="t-val" id="tDays">0</div><div class="t-unit">일</div></div>
+      <div class="time-box"><div class="t-val" id="tHours">0</div><div class="t-unit">시간</div></div>
+      <div class="time-box"><div class="t-val" id="tMins">0</div><div class="t-unit">분</div></div>
+    </div>
+    <div class="progress-wrap" id="progressWrap" style="display:none;">
+      <div class="progress-label">
+        <span id="progStart">시작</span>
+        <span id="progPct">0%</span>
+        <span id="progEnd">목표</span>
+      </div>
+      <div class="progress-bar-bg">
+        <div class="progress-bar-fill" id="progressBar" style="width:0%"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>자주 묻는 질문</h2>
+    <div class="faq-item">
+      <div class="faq-q">Q. D-0과 D-1의 차이는 무엇인가요?</div>
+      <div class="faq-a">D-0은 오늘이 목표일인 경우입니다. D-1은 내일이 목표일인 경우이며, 한국 관례상 당일을 D-Day로 표기합니다.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Q. D+n은 무엇을 의미하나요?</div>
+      <div class="faq-a">목표일이 이미 지난 경우 D+n으로 표시됩니다. 예를 들어 기념일로부터 100일이 지났다면 D+100입니다.</div>
+    </div>
+  </div>
+  <div class="ad-banner ad-bottom"></div>
+</main>
+<footer>
+  <p><a href="/">← 홈으로</a> &nbsp;|&nbsp; <a href="/privacy/">개인정보처리방침</a></p>
+  <p style="margin-top:8px;">© 2026 CocoFlow. All rights reserved.</p>
+</footer>
+<script>
+  function calculate() {
+    const targetVal = document.getElementById('targetDate').value;
+    if (!targetVal) { alert('목표 날짜를 입력해주세요.'); return; }
+    const name = document.getElementById('eventName').value.trim();
+    const startVal = document.getElementById('startDate').value;
+
+    const now    = new Date();
+    const today  = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+    const target = new Date(targetVal);
+    const targetDay = new Date(target.getFullYear(), target.getMonth(), target.getDate());
+
+    const diffMs   = targetDay - today;
+    const diffDays = Math.round(diffMs / 86400000);
+
+    const ddayEl = document.getElementById('ddayNumber');
+    const labelEl = document.getElementById('ddayLabel');
+
+    if (diffDays > 0) {
+      ddayEl.textContent = 'D-' + diffDays;
+      ddayEl.className = 'dday-number';
+      labelEl.textContent = '목표까지 남은 날';
+    } else if (diffDays === 0) {
+      ddayEl.textContent = 'D-Day';
+      ddayEl.className = 'dday-number';
+      labelEl.textContent = '오늘이 바로 그 날!';
+    } else {
+      ddayEl.textContent = 'D+' + Math.abs(diffDays);
+      ddayEl.className = 'dday-number past';
+      labelEl.textContent = '목표일로부터 지난 날';
+    }
+
+    document.getElementById('ddayName').textContent = name || '';
+
+    // 시간/분 계산 (미래인 경우)
+    const remMs = target - now;
+    if (remMs > 0) {
+      const remH = Math.floor(remMs / 3600000) % 24;
+      const remM = Math.floor(remMs / 60000) % 60;
+      document.getElementById('tDays').textContent  = Math.max(diffDays, 0).toLocaleString();
+      document.getElementById('tHours').textContent = remH;
+      document.getElementById('tMins').textContent  = remM;
+    } else {
+      document.getElementById('tDays').textContent  = Math.abs(diffDays).toLocaleString();
+      document.getElementById('tHours').textContent = '-';
+      document.getElementById('tMins').textContent  = '-';
+    }
+
+    // 진행률
+    if (startVal) {
+      const start    = new Date(startVal);
+      const startDay = new Date(start.getFullYear(), start.getMonth(), start.getDate());
+      const totalSpan = targetDay - startDay;
+      const elapsed   = today - startDay;
+      if (totalSpan > 0) {
+        const pct = Math.min(Math.max(Math.round(elapsed / totalSpan * 100), 0), 100);
+        document.getElementById('progressBar').style.width = pct + '%';
+        document.getElementById('progPct').textContent = pct + '%';
+        document.getElementById('progStart').textContent = startVal;
+        document.getElementById('progEnd').textContent   = targetVal;
+        document.getElementById('progressWrap').style.display = '';
+      }
+    } else {
+      document.getElementById('progressWrap').style.display = 'none';
+    }
+
+    document.getElementById('resultCard').classList.add('show');
+    document.getElementById('resultCard').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+</script>
+</body>
+</html>

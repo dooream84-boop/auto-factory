@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="google-site-verification" content="OyvdhFUwC-wAD4ZSdgejG5A1ch3hPGNN6Tt0UUsyzqk" />
+  <title>연차수당 계산기 2026 - 잔여 연차 수당 무료 계산</title>
+  <meta name="description" content="통상임금과 잔여 연차일수를 입력하면 연차수당을 즉시 계산합니다. 2026년 근로기준법 기준.">
+  <meta name="keywords" content="연차수당 계산기, 잔여연차 계산, 연차수당, 통상임금 계산, 연차휴가">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="연차수당 계산기 - 잔여 연차 수당 무료 계산">
+  <meta property="og:description" content="통상임금과 잔여 연차일수로 연차수당을 즉시 계산합니다.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://cocoflow.xyz/products/annual-leave-calculator/">
+  <link rel="canonical" href="https://cocoflow.xyz/products/annual-leave-calculator/">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "연차수당 계산기",
+    "description": "통상임금과 잔여 연차일수로 연차수당을 계산하는 무료 웹 도구",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "All",
+    "offers": { "@type": "Offer", "price": "0" }
+  }
+  </script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8616886611208474" crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Noto Sans KR', sans-serif; background: #f0f4f8; color: #1e293b; line-height: 1.6; }
+    header { background: linear-gradient(135deg, #2563eb, #1d4ed8); color: #fff; text-align: center; padding: 28px 16px 24px; }
+    .header-brand { font-size: 0.85rem; font-weight: 600; opacity: 0.8; letter-spacing: 1px; margin-bottom: 8px; }
+    header h1 { font-size: clamp(1.4rem, 4vw, 2rem); font-weight: 800; }
+    header p { margin-top: 6px; font-size: 0.95rem; opacity: 0.88; }
+    nav { margin-top: 12px; }
+    nav a { color: rgba(255,255,255,0.8); text-decoration: none; font-size: 0.85rem; margin: 0 10px; }
+    nav a:hover { color: #fff; }
+    .ad-banner { background: #fff; border: 1px dashed #cbd5e1; text-align: center; color: #94a3b8; font-size: 0.8rem; display: flex; align-items: center; justify-content: center; }
+    .ad-top { min-height: 90px; }
+    .ad-bottom { min-height: 250px; margin-top: 8px; border-radius: 12px; }
+    main { max-width: 680px; margin: 24px auto; padding: 0 16px 48px; }
+    .card { background: #fff; border-radius: 12px; box-shadow: 0 2px 12px rgba(37,99,235,0.08); padding: 28px 24px; margin-bottom: 20px; border: 1px solid #e2e8f0; }
+    .card h2 { font-size: 1.05rem; font-weight: 700; color: #2563eb; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid #eff6ff; }
+    .form-group { margin-bottom: 18px; }
+    .form-group label { display: block; font-size: 0.88rem; font-weight: 600; color: #475569; margin-bottom: 6px; }
+    .form-group .hint { font-size: 0.78rem; color: #94a3b8; margin-top: 5px; }
+    .input-wrap { position: relative; }
+    .input-wrap input {
+      width: 100%; padding: 12px 48px 12px 14px;
+      border: 1.5px solid #e2e8f0; border-radius: 8px;
+      font-size: 1rem; font-family: 'Noto Sans KR', sans-serif;
+      outline: none; transition: border-color 0.2s; background: #fff; color: #1e293b;
+    }
+    .input-wrap input:focus { border-color: #2563eb; }
+    .input-wrap .unit { position: absolute; right: 14px; top: 50%; transform: translateY(-50%); font-size: 0.85rem; color: #94a3b8; pointer-events: none; }
+    .btn-calc { width: 100%; padding: 14px; background: linear-gradient(135deg, #2563eb, #1d4ed8); color: #fff; font-size: 1.05rem; font-weight: 700; border: none; border-radius: 8px; cursor: pointer; transition: opacity 0.2s, transform 0.1s; margin-top: 4px; font-family: 'Noto Sans KR', sans-serif; }
+    .btn-calc:hover { opacity: 0.92; }
+    .btn-calc:active { transform: scale(0.98); }
+    .result-card { display: none; background: linear-gradient(135deg, #eff6ff, #f0f4ff); border: 1.5px solid #2563eb; border-radius: 12px; padding: 24px; margin-bottom: 20px; }
+    .result-card.show { display: block; }
+    .result-card h2 { font-size: 1rem; font-weight: 700; color: #2563eb; margin-bottom: 16px; }
+    .result-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    .result-box { background: #fff; border-radius: 10px; padding: 16px 12px; text-align: center; border: 1px solid #bfdbfe; }
+    .result-box .r-label { font-size: 0.78rem; color: #64748b; margin-bottom: 6px; }
+    .result-box .r-value { font-size: clamp(1rem, 3vw, 1.25rem); font-weight: 800; color: #1d4ed8; word-break: break-all; }
+    .result-box .r-value span { font-size: 0.8rem; font-weight: 500; }
+    .result-box.highlight { background: #eff6ff; border-color: #2563eb; }
+    .result-box.highlight .r-value { color: #2563eb; font-size: clamp(1.1rem, 3.5vw, 1.5rem); }
+    .notice { background: #fff8e1; border-left: 4px solid #f59e0b; border-radius: 0 8px 8px 0; padding: 12px 14px; font-size: 0.82rem; color: #555; margin-top: 16px; }
+    .faq-item { margin-bottom: 14px; }
+    .faq-q { font-weight: 700; font-size: 0.92rem; color: #1e293b; margin-bottom: 4px; }
+    .faq-a { font-size: 0.88rem; color: #475569; line-height: 1.7; }
+    footer { text-align: center; font-size: 0.78rem; color: #94a3b8; padding: 20px 16px 32px; }
+    footer a { color: #94a3b8; text-decoration: none; }
+    footer a:hover { color: #2563eb; }
+    @media (max-width: 480px) { .card { padding: 20px 16px; } .result-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+<header>
+  <div class="header-brand">COCOFLOW</div>
+  <h1>연차수당 계산기</h1>
+  <p>통상임금 + 잔여 연차일수 → 연차수당 즉시 계산</p>
+  <nav>
+    <a href="/privacy/">개인정보처리방침</a>
+    <a href="/contact/">문의하기</a>
+  </nav>
+</header>
+<div class="ad-banner ad-top"></div>
+<main>
+  <div class="card">
+    <h2>급여 및 연차 정보 입력</h2>
+    <div class="form-group">
+      <label for="monthlySalary">통상임금 (월)</label>
+      <div class="input-wrap">
+        <input type="number" id="monthlySalary" placeholder="예: 3000000" min="0">
+        <span class="unit">원</span>
+      </div>
+      <p class="hint">기본급 + 각종 고정 수당 포함 금액</p>
+    </div>
+    <div class="form-group">
+      <label for="remainDays">잔여 연차일수</label>
+      <div class="input-wrap">
+        <input type="number" id="remainDays" placeholder="예: 5" min="0" max="25">
+        <span class="unit">일</span>
+      </div>
+    </div>
+    <button class="btn-calc" onclick="calculate()">연차수당 계산하기</button>
+  </div>
+
+  <div class="result-card" id="resultCard">
+    <h2>📊 계산 결과</h2>
+    <div class="result-grid">
+      <div class="result-box">
+        <div class="r-label">시간당 통상임금</div>
+        <div class="r-value" id="resHourly">-<span>원</span></div>
+      </div>
+      <div class="result-box">
+        <div class="r-label">1일 연차수당</div>
+        <div class="r-value" id="resDaily">-<span>원</span></div>
+      </div>
+      <div class="result-box highlight">
+        <div class="r-label">총 연차수당</div>
+        <div class="r-value" id="resTotal">-<span>원</span></div>
+      </div>
+    </div>
+    <div class="notice">※ 연차수당 = 통상임금 ÷ 209시간 × 8시간 × 잔여일수. 소수점 이하 절사.</div>
+  </div>
+
+  <div class="card">
+    <h2>자주 묻는 질문</h2>
+    <div class="faq-item">
+      <div class="faq-q">Q. 209시간은 어떻게 산출되나요?</div>
+      <div class="faq-a">월 소정근로시간 209시간은 주 40시간 기준으로 {(40+8) × 52 ÷ 12 ≈ 208.6}시간을 올림한 수치입니다. 근로기준법에서 정한 기준입니다.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Q. 연차수당 지급 시기는 언제인가요?</div>
+      <div class="faq-a">미사용 연차에 대한 연차수당은 연차 사용 기간(1년) 만료 다음 날 또는 퇴직 시 지급됩니다.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Q. 통상임금에 포함되는 항목은 무엇인가요?</div>
+      <div class="faq-a">기본급, 직책수당, 기술수당 등 고정적·일률적으로 지급되는 금품이 포함됩니다. 상여금, 복리후생비는 원칙적으로 제외됩니다.</div>
+    </div>
+  </div>
+  <div class="ad-banner ad-bottom"></div>
+</main>
+<footer>
+  <p><a href="/">← 홈으로</a> &nbsp;|&nbsp; <a href="/privacy/">개인정보처리방침</a></p>
+  <p style="margin-top:8px;">© 2026 CocoFlow. 본 계산기는 참고용이며 법적 효력이 없습니다.</p>
+</footer>
+<script>
+  function fmt(n) { return Math.floor(n).toLocaleString('ko-KR'); }
+  function calculate() {
+    const salary = parseFloat(document.getElementById('monthlySalary').value);
+    const days   = parseFloat(document.getElementById('remainDays').value);
+    if (!salary || salary <= 0) { alert('통상임금을 입력해주세요.'); return; }
+    if (!days || days < 0)      { alert('잔여 연차일수를 입력해주세요.'); return; }
+    const hourly = salary / 209;
+    const daily  = hourly * 8;
+    const total  = daily * days;
+    document.getElementById('resHourly').innerHTML = fmt(hourly) + '<span>원</span>';
+    document.getElementById('resDaily').innerHTML  = fmt(daily)  + '<span>원</span>';
+    document.getElementById('resTotal').innerHTML  = fmt(total)  + '<span>원</span>';
+    document.getElementById('resultCard').classList.add('show');
+    document.getElementById('resultCard').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+  document.addEventListener('keydown', e => { if (e.key === 'Enter') calculate(); });
+</script>
+</body>
+</html>
