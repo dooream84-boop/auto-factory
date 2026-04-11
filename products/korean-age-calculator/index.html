@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="google-site-verification" content="OyvdhFUwC-wAD4ZSdgejG5A1ch3hPGNN6Tt0UUsyzqk" />
+  <title>만나이 계산기 2026 - 만나이 한국나이 띠 별자리 무료 계산</title>
+  <meta name="description" content="생년월일을 입력하면 만나이, 한국나이(세는나이), 태어난 지 며칠, 다음 생일까지 남은 날, 띠, 별자리를 즉시 계산합니다.">
+  <meta name="keywords" content="만나이 계산기, 한국나이 계산, 세는나이, 띠 계산기, 별자리 계산, 만나이 통일">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="만나이 계산기 - 만나이 한국나이 띠 별자리">
+  <meta property="og:description" content="생년월일로 만나이, 한국나이, 띠, 별자리를 즉시 계산합니다.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://cocoflow.xyz/products/korean-age-calculator/">
+  <link rel="canonical" href="https://cocoflow.xyz/products/korean-age-calculator/">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "만나이 계산기",
+    "description": "만나이, 한국나이, 띠, 별자리를 계산하는 무료 웹 도구",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "All",
+    "offers": { "@type": "Offer", "price": "0" }
+  }
+  </script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8616886611208474" crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Noto Sans KR', sans-serif; background: #f0f4f8; color: #1e293b; line-height: 1.6; }
+    header { background: linear-gradient(135deg, #2563eb, #1d4ed8); color: #fff; text-align: center; padding: 28px 16px 24px; }
+    .header-brand { font-size: 0.85rem; font-weight: 600; opacity: 0.8; letter-spacing: 1px; margin-bottom: 8px; }
+    header h1 { font-size: clamp(1.4rem, 4vw, 2rem); font-weight: 800; }
+    header p { margin-top: 6px; font-size: 0.95rem; opacity: 0.88; }
+    nav { margin-top: 12px; }
+    nav a { color: rgba(255,255,255,0.8); text-decoration: none; font-size: 0.85rem; margin: 0 10px; }
+    nav a:hover { color: #fff; }
+    .ad-banner { background: #fff; border: 1px dashed #cbd5e1; text-align: center; color: #94a3b8; font-size: 0.8rem; display: flex; align-items: center; justify-content: center; }
+    .ad-top { min-height: 90px; }
+    .ad-bottom { min-height: 250px; margin-top: 8px; border-radius: 12px; }
+    main { max-width: 680px; margin: 24px auto; padding: 0 16px 48px; }
+    .card { background: #fff; border-radius: 12px; box-shadow: 0 2px 12px rgba(37,99,235,0.08); padding: 28px 24px; margin-bottom: 20px; border: 1px solid #e2e8f0; }
+    .card h2 { font-size: 1.05rem; font-weight: 700; color: #2563eb; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid #eff6ff; }
+    .form-group { margin-bottom: 18px; }
+    .form-group label { display: block; font-size: 0.88rem; font-weight: 600; color: #475569; margin-bottom: 6px; }
+    .input-wrap input {
+      width: 100%; padding: 12px 14px;
+      border: 1.5px solid #e2e8f0; border-radius: 8px;
+      font-size: 1rem; font-family: 'Noto Sans KR', sans-serif;
+      outline: none; transition: border-color 0.2s; background: #fff; color: #1e293b;
+    }
+    .input-wrap input:focus { border-color: #2563eb; }
+    .btn-calc { width: 100%; padding: 14px; background: linear-gradient(135deg, #2563eb, #1d4ed8); color: #fff; font-size: 1.05rem; font-weight: 700; border: none; border-radius: 8px; cursor: pointer; transition: opacity 0.2s, transform 0.1s; margin-top: 4px; font-family: 'Noto Sans KR', sans-serif; }
+    .btn-calc:hover { opacity: 0.92; }
+    .btn-calc:active { transform: scale(0.98); }
+    .result-card { display: none; background: linear-gradient(135deg, #eff6ff, #f0f4ff); border: 1.5px solid #2563eb; border-radius: 12px; padding: 24px; margin-bottom: 20px; }
+    .result-card.show { display: block; }
+    .result-card h2 { font-size: 1rem; font-weight: 700; color: #2563eb; margin-bottom: 16px; }
+    /* 나이 대형 표시 */
+    .age-display { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 16px; }
+    .age-box { background: #fff; border-radius: 10px; padding: 20px 12px; text-align: center; border: 1px solid #bfdbfe; }
+    .age-box.main { background: #eff6ff; border-color: #2563eb; }
+    .age-box .a-label { font-size: 0.8rem; color: #64748b; margin-bottom: 4px; }
+    .age-box .a-value { font-size: clamp(2rem, 7vw, 3rem); font-weight: 800; color: #2563eb; line-height: 1; }
+    .age-box .a-unit { font-size: 0.9rem; font-weight: 600; color: #475569; margin-top: 4px; }
+    .age-box.main .a-value { color: #1d4ed8; }
+    /* 부가정보 */
+    .info-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 14px; }
+    .info-box { background: #fff; border-radius: 10px; padding: 14px 12px; text-align: center; border: 1px solid #e2e8f0; }
+    .info-box .i-icon { font-size: 1.6rem; margin-bottom: 4px; }
+    .info-box .i-label { font-size: 0.75rem; color: #64748b; margin-bottom: 3px; }
+    .info-box .i-value { font-size: 0.95rem; font-weight: 700; color: #1e293b; }
+    .info-box .i-sub { font-size: 0.75rem; color: #94a3b8; margin-top: 2px; }
+    .detail-row { display: flex; justify-content: space-between; font-size: 0.88rem; padding: 6px 0; border-bottom: 1px dotted #e2e8f0; color: #475569; }
+    .detail-row:last-child { border-bottom: none; }
+    .info-notice { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 12px 14px; font-size: 0.82rem; color: #2563eb; margin-top: 12px; line-height: 1.7; }
+    .faq-item { margin-bottom: 14px; }
+    .faq-q { font-weight: 700; font-size: 0.92rem; color: #1e293b; margin-bottom: 4px; }
+    .faq-a { font-size: 0.88rem; color: #475569; line-height: 1.7; }
+    footer { text-align: center; font-size: 0.78rem; color: #94a3b8; padding: 20px 16px 32px; }
+    footer a { color: #94a3b8; text-decoration: none; }
+    footer a:hover { color: #2563eb; }
+    @media (max-width: 480px) { .card { padding: 20px 16px; } .info-grid { grid-template-columns: 1fr 1fr; } }
+  </style>
+</head>
+<body>
+<header>
+  <div class="header-brand">COCOFLOW</div>
+  <h1>만나이 계산기</h1>
+  <p>생년월일 입력 → 만나이 · 한국나이 · 띠 · 별자리 즉시 계산</p>
+  <nav>
+    <a href="/privacy/">개인정보처리방침</a>
+    <a href="/contact/">문의하기</a>
+  </nav>
+</header>
+<div class="ad-banner ad-top"></div>
+<main>
+  <div class="card">
+    <h2>생년월일 입력</h2>
+    <div class="form-group">
+      <label for="birthDate">생년월일</label>
+      <div class="input-wrap">
+        <input type="date" id="birthDate">
+      </div>
+    </div>
+    <button class="btn-calc" onclick="calculate()">나이 계산하기</button>
+  </div>
+
+  <div class="result-card" id="resultCard">
+    <h2>📊 계산 결과</h2>
+    <div class="age-display">
+      <div class="age-box main">
+        <div class="a-label">만나이 (법적 나이)</div>
+        <div class="a-value" id="ageWestern">0</div>
+        <div class="a-unit">세</div>
+      </div>
+      <div class="age-box">
+        <div class="a-label">한국나이 (세는나이)</div>
+        <div class="a-value" id="ageKorean">0</div>
+        <div class="a-unit">세</div>
+      </div>
+    </div>
+    <div class="info-grid">
+      <div class="info-box">
+        <div class="i-icon" id="zodiacIcon">🐀</div>
+        <div class="i-label">띠</div>
+        <div class="i-value" id="zodiac">-</div>
+      </div>
+      <div class="info-box">
+        <div class="i-icon" id="starIcon">♈</div>
+        <div class="i-label">별자리</div>
+        <div class="i-value" id="starSign">-</div>
+      </div>
+      <div class="info-box">
+        <div class="i-icon">📅</div>
+        <div class="i-label">태어난 지</div>
+        <div class="i-value" id="daysLived">-</div>
+        <div class="i-sub">일째</div>
+      </div>
+      <div class="info-box">
+        <div class="i-icon">🎂</div>
+        <div class="i-label">다음 생일까지</div>
+        <div class="i-value" id="daysToNext">-</div>
+        <div class="i-sub" id="nextBirthLabel">일 남음</div>
+      </div>
+    </div>
+    <div id="detailSection" style="border-top:1px solid #bfdbfe;padding-top:12px;margin-top:4px;"></div>
+    <div class="info-notice">📌 <strong>만나이 통일법</strong> — 2023년 6월 28일부터 법령·공문서에서 만나이가 공식 기준입니다. 일상에서 사용하는 세는나이와 다를 수 있습니다.</div>
+  </div>
+
+  <div class="card">
+    <h2>자주 묻는 질문</h2>
+    <div class="faq-item">
+      <div class="faq-q">Q. 만나이와 한국나이의 차이는?</div>
+      <div class="faq-a">만나이는 태어난 날을 0세로 보고 생일이 지날 때마다 1세 증가합니다. 한국 세는나이는 태어난 해를 1살로 보고 매년 1월 1일에 1살이 추가됩니다.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Q. 연나이란 무엇인가요?</div>
+      <div class="faq-a">현재 연도 - 출생 연도로 계산합니다. 병역, 학교 입학 등 일부 행정 분야에서 사용됩니다. 만나이 통일법 이후 점차 만나이로 통일되는 추세입니다.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Q. 만나이 통일법은 언제 시행됐나요?</div>
+      <div class="faq-a">2023년 6월 28일부터 시행됐습니다. 법령, 계약서, 공문서 등에서 나이를 표기할 때는 만나이가 기준이 됩니다.</div>
+    </div>
+  </div>
+  <div class="ad-banner ad-bottom"></div>
+</main>
+<footer>
+  <p><a href="/">← 홈으로</a> &nbsp;|&nbsp; <a href="/privacy/">개인정보처리방침</a></p>
+  <p style="margin-top:8px;">© 2026 CocoFlow. All rights reserved.</p>
+</footer>
+<script>
+  const ZODIAC = [
+    { name: '쥐', icon: '🐀' }, { name: '소', icon: '🐂' }, { name: '호랑이', icon: '🐅' },
+    { name: '토끼', icon: '🐇' }, { name: '용', icon: '🐉' }, { name: '뱀', icon: '🐍' },
+    { name: '말', icon: '🐎' }, { name: '양', icon: '🐑' }, { name: '원숭이', icon: '🐒' },
+    { name: '닭', icon: '🐓' }, { name: '개', icon: '🐕' }, { name: '돼지', icon: '🐖' },
+  ];
+
+  const STAR_SIGNS = [
+    { name: '염소자리', icon: '♑', start: [1,1],  end: [1,19] },
+    { name: '물병자리', icon: '♒', start: [1,20], end: [2,18] },
+    { name: '물고기자리', icon: '♓', start: [2,19], end: [3,20] },
+    { name: '양자리',   icon: '♈', start: [3,21], end: [4,19] },
+    { name: '황소자리', icon: '♉', start: [4,20], end: [5,20] },
+    { name: '쌍둥이자리', icon: '♊', start: [5,21], end: [6,21] },
+    { name: '게자리',   icon: '♋', start: [6,22], end: [7,22] },
+    { name: '사자자리', icon: '♌', start: [7,23], end: [8,22] },
+    { name: '처녀자리', icon: '♍', start: [8,23], end: [9,22] },
+    { name: '천칭자리', icon: '♎', start: [9,23], end: [10,23] },
+    { name: '전갈자리', icon: '♏', start: [10,24], end: [11,22] },
+    { name: '사수자리', icon: '♐', start: [11,23], end: [12,21] },
+    { name: '염소자리', icon: '♑', start: [12,22], end: [12,31] },
+  ];
+
+  function getStarSign(month, day) {
+    for (const s of STAR_SIGNS) {
+      const [sm, sd] = s.start, [em, ed] = s.end;
+      if ((month === sm && day >= sd) || (month === em && day <= ed)) return s;
+    }
+    return STAR_SIGNS[0];
+  }
+
+  function calculate() {
+    const val = document.getElementById('birthDate').value;
+    if (!val) { alert('생년월일을 입력해주세요.'); return; }
+
+    const birth = new Date(val);
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    if (birth > today) { alert('생년월일이 오늘보다 미래일 수 없습니다.'); return; }
+
+    // 만나이
+    let age = today.getFullYear() - birth.getFullYear();
+    const hadBirthday = (today.getMonth() > birth.getMonth()) ||
+                        (today.getMonth() === birth.getMonth() && today.getDate() >= birth.getDate());
+    if (!hadBirthday) age--;
+
+    // 한국나이 (세는나이)
+    const korAge = today.getFullYear() - birth.getFullYear() + 1;
+
+    // 태어난 지 며칠
+    const daysLived = Math.floor((today - birth) / 86400000) + 1;
+
+    // 다음 생일
+    let nextBirth = new Date(today.getFullYear(), birth.getMonth(), birth.getDate());
+    const isBirthday = (today.getMonth() === birth.getMonth() && today.getDate() === birth.getDate());
+    if (nextBirth <= today && !isBirthday) nextBirth.setFullYear(today.getFullYear() + 1);
+    const daysToNext = isBirthday ? 0 : Math.floor((nextBirth - today) / 86400000);
+
+    // 띠
+    const zodiacIdx = (birth.getFullYear() - 4) % 12;
+    const zod = ZODIAC[(zodiacIdx + 12) % 12];
+
+    // 별자리
+    const star = getStarSign(birth.getMonth() + 1, birth.getDate());
+
+    document.getElementById('ageWestern').textContent = age;
+    document.getElementById('ageKorean').textContent  = korAge;
+    document.getElementById('daysLived').textContent  = daysLived.toLocaleString('ko-KR');
+    document.getElementById('daysToNext').textContent = daysToNext;
+    document.getElementById('nextBirthLabel').textContent = isBirthday ? '🎉 오늘이 생일!' : '일 남음';
+    document.getElementById('zodiac').textContent   = zod.name + '띠';
+    document.getElementById('zodiacIcon').textContent = zod.icon;
+    document.getElementById('starSign').textContent  = star.name;
+    document.getElementById('starIcon').textContent  = star.icon;
+
+    const ymd = val.split('-');
+    document.getElementById('detailSection').innerHTML =
+      `<div class="detail-row"><span>생년월일</span><span>${ymd[0]}년 ${parseInt(ymd[1])}월 ${parseInt(ymd[2])}일</span></div>
+       <div class="detail-row"><span>만나이</span><span>${age}세</span></div>
+       <div class="detail-row"><span>한국나이 (세는나이)</span><span>${korAge}세</span></div>
+       <div class="detail-row"><span>연나이</span><span>${today.getFullYear() - birth.getFullYear()}세</span></div>
+       <div class="detail-row"><span>태어난 지</span><span>${daysLived.toLocaleString()}일째</span></div>
+       <div class="detail-row"><span>다음 생일 (${birth.getMonth()+1}월 ${birth.getDate()}일)</span><span>${isBirthday ? '🎉 오늘!' : daysToNext + '일 후'}</span></div>`;
+
+    document.getElementById('resultCard').classList.add('show');
+    document.getElementById('resultCard').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="google-site-verification" content="OyvdhFUwC-wAD4ZSdgejG5A1ch3hPGNN6Tt0UUsyzqk" />
+  <title>시급 계산기 2026 - 주휴수당 포함 월급 연봉 무료 계산</title>
+  <meta name="description" content="시급과 근무시간을 입력하면 주휴수당 포함 일급, 주급, 월급, 연봉을 즉시 계산합니다. 2026년 최저시급 10,030원 기준.">
+  <meta name="keywords" content="시급 계산기, 주휴수당 계산, 최저시급 2026, 월급 계산, 아르바이트 급여">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="시급 계산기 - 주휴수당 포함 월급 연봉 계산">
+  <meta property="og:description" content="시급으로 주휴수당 포함 일급·주급·월급·연봉을 즉시 계산합니다. 2026년 최저시급 반영.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://cocoflow.xyz/products/hourly-wage-calculator/">
+  <link rel="canonical" href="https://cocoflow.xyz/products/hourly-wage-calculator/">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "시급 계산기",
+    "description": "시급으로 주휴수당 포함 월급과 연봉을 계산하는 무료 웹 도구",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "All",
+    "offers": { "@type": "Offer", "price": "0" }
+  }
+  </script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8616886611208474" crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Noto Sans KR', sans-serif; background: #f0f4f8; color: #1e293b; line-height: 1.6; }
+    header { background: linear-gradient(135deg, #2563eb, #1d4ed8); color: #fff; text-align: center; padding: 28px 16px 24px; }
+    .header-brand { font-size: 0.85rem; font-weight: 600; opacity: 0.8; letter-spacing: 1px; margin-bottom: 8px; }
+    header h1 { font-size: clamp(1.4rem, 4vw, 2rem); font-weight: 800; }
+    header p { margin-top: 6px; font-size: 0.95rem; opacity: 0.88; }
+    nav { margin-top: 12px; }
+    nav a { color: rgba(255,255,255,0.8); text-decoration: none; font-size: 0.85rem; margin: 0 10px; }
+    nav a:hover { color: #fff; }
+    .ad-banner { background: #fff; border: 1px dashed #cbd5e1; text-align: center; color: #94a3b8; font-size: 0.8rem; display: flex; align-items: center; justify-content: center; }
+    .ad-top { min-height: 90px; }
+    .ad-bottom { min-height: 250px; margin-top: 8px; border-radius: 12px; }
+    main { max-width: 680px; margin: 24px auto; padding: 0 16px 48px; }
+    .card { background: #fff; border-radius: 12px; box-shadow: 0 2px 12px rgba(37,99,235,0.08); padding: 28px 24px; margin-bottom: 20px; border: 1px solid #e2e8f0; }
+    .card h2 { font-size: 1.05rem; font-weight: 700; color: #2563eb; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid #eff6ff; }
+    .form-group { margin-bottom: 18px; }
+    .form-group label { display: block; font-size: 0.88rem; font-weight: 600; color: #475569; margin-bottom: 6px; }
+    .form-group .hint { font-size: 0.78rem; color: #94a3b8; margin-top: 5px; }
+    .input-row { display: flex; gap: 8px; align-items: flex-start; }
+    .input-wrap { position: relative; flex: 1; }
+    .input-wrap input {
+      width: 100%; padding: 12px 48px 12px 14px;
+      border: 1.5px solid #e2e8f0; border-radius: 8px;
+      font-size: 1rem; font-family: 'Noto Sans KR', sans-serif;
+      outline: none; transition: border-color 0.2s; background: #fff; color: #1e293b;
+    }
+    .input-wrap input:focus { border-color: #2563eb; }
+    .input-wrap .unit { position: absolute; right: 14px; top: 50%; transform: translateY(-50%); font-size: 0.85rem; color: #94a3b8; pointer-events: none; }
+    .btn-min { padding: 12px 14px; background: #eff6ff; border: 1.5px solid #2563eb; border-radius: 8px; color: #2563eb; font-size: 0.82rem; font-weight: 700; cursor: pointer; white-space: nowrap; font-family: 'Noto Sans KR', sans-serif; transition: background 0.18s; }
+    .btn-min:hover { background: #dbeafe; }
+    .btn-calc { width: 100%; padding: 14px; background: linear-gradient(135deg, #2563eb, #1d4ed8); color: #fff; font-size: 1.05rem; font-weight: 700; border: none; border-radius: 8px; cursor: pointer; transition: opacity 0.2s, transform 0.1s; margin-top: 4px; font-family: 'Noto Sans KR', sans-serif; }
+    .btn-calc:hover { opacity: 0.92; }
+    .btn-calc:active { transform: scale(0.98); }
+    .result-card { display: none; background: linear-gradient(135deg, #eff6ff, #f0f4ff); border: 1.5px solid #2563eb; border-radius: 12px; padding: 24px; margin-bottom: 20px; }
+    .result-card.show { display: block; }
+    .result-card h2 { font-size: 1rem; font-weight: 700; color: #2563eb; margin-bottom: 16px; }
+    .result-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-bottom: 16px; }
+    .result-box { background: #fff; border-radius: 10px; padding: 16px 12px; text-align: center; border: 1px solid #bfdbfe; }
+    .result-box .r-label { font-size: 0.78rem; color: #64748b; margin-bottom: 6px; }
+    .result-box .r-value { font-size: clamp(1rem, 3vw, 1.25rem); font-weight: 800; color: #1d4ed8; word-break: break-all; }
+    .result-box .r-value span { font-size: 0.78rem; font-weight: 400; }
+    .result-box.highlight { background: #eff6ff; border-color: #2563eb; }
+    .result-box.highlight .r-value { color: #2563eb; font-size: clamp(1.1rem, 3.5vw, 1.5rem); }
+    .detail-row { display: flex; justify-content: space-between; font-size: 0.88rem; padding: 6px 0; border-bottom: 1px dotted #e2e8f0; color: #475569; }
+    .detail-row:last-child { border-bottom: none; }
+    .detail-row.sub { padding-left: 12px; font-size: 0.82rem; color: #94a3b8; }
+    .badge-min { display: inline-block; background: #fef3c7; color: #d97706; font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 20px; margin-left: 6px; }
+    .notice { background: #fff8e1; border-left: 4px solid #f59e0b; border-radius: 0 8px 8px 0; padding: 12px 14px; font-size: 0.82rem; color: #555; margin-top: 16px; }
+    .faq-item { margin-bottom: 14px; }
+    .faq-q { font-weight: 700; font-size: 0.92rem; color: #1e293b; margin-bottom: 4px; }
+    .faq-a { font-size: 0.88rem; color: #475569; line-height: 1.7; }
+    footer { text-align: center; font-size: 0.78rem; color: #94a3b8; padding: 20px 16px 32px; }
+    footer a { color: #94a3b8; text-decoration: none; }
+    footer a:hover { color: #2563eb; }
+    @media (max-width: 480px) { .card { padding: 20px 16px; } .result-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+<header>
+  <div class="header-brand">COCOFLOW</div>
+  <h1>시급 계산기</h1>
+  <p>시급 · 근무시간 입력 → 주휴수당 포함 월급 · 연봉 즉시 계산</p>
+  <nav>
+    <a href="/privacy/">개인정보처리방침</a>
+    <a href="/contact/">문의하기</a>
+  </nav>
+</header>
+<div class="ad-banner ad-top"></div>
+<main>
+  <div class="card">
+    <h2>근무 정보 입력</h2>
+    <div class="form-group">
+      <label for="hourlyWage">시급</label>
+      <div class="input-row">
+        <div class="input-wrap">
+          <input type="number" id="hourlyWage" placeholder="예: 10030" min="0">
+          <span class="unit">원</span>
+        </div>
+        <button class="btn-min" onclick="setMinWage()">2026 최저시급<br>10,030원</button>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="hoursPerDay">하루 근무시간</label>
+      <div class="input-wrap">
+        <input type="number" id="hoursPerDay" placeholder="예: 8" step="0.5" min="0" max="24">
+        <span class="unit">시간</span>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="daysPerWeek">주 근무일수</label>
+      <div class="input-wrap">
+        <input type="number" id="daysPerWeek" placeholder="예: 5" min="1" max="7">
+        <span class="unit">일</span>
+      </div>
+      <p class="hint">주 15시간 이상 근무 시 주휴수당 발생</p>
+    </div>
+    <button class="btn-calc" onclick="calculate()">급여 계산하기</button>
+  </div>
+
+  <div class="result-card" id="resultCard">
+    <h2 id="resultTitle">📊 계산 결과</h2>
+    <div class="result-grid">
+      <div class="result-box">
+        <div class="r-label">일급</div>
+        <div class="r-value" id="resDaily">-<span>원</span></div>
+      </div>
+      <div class="result-box">
+        <div class="r-label">주급 <span id="weeklyLabel" style="font-size:0.72rem;"></span></div>
+        <div class="r-value" id="resWeekly">-<span>원</span></div>
+      </div>
+      <div class="result-box highlight">
+        <div class="r-label">월급 (주휴 포함)</div>
+        <div class="r-value" id="resMonthly">-<span>원</span></div>
+      </div>
+      <div class="result-box highlight">
+        <div class="r-label">연봉 (세전)</div>
+        <div class="r-value" id="resAnnual">-<span>원</span></div>
+      </div>
+    </div>
+    <div id="detailSection" style="border-top:1px solid #bfdbfe;padding-top:14px;margin-top:4px;"></div>
+    <div class="notice" id="noticeBox"></div>
+  </div>
+
+  <div class="card">
+    <h2>자주 묻는 질문</h2>
+    <div class="faq-item">
+      <div class="faq-q">Q. 주휴수당이란 무엇인가요?</div>
+      <div class="faq-a">근로기준법 제55조에 따라 1주에 15시간 이상 소정근로를 개근한 근로자에게 유급 주휴일을 부여해야 합니다. 이 날의 임금을 주휴수당이라 합니다.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Q. 주휴수당 계산 공식은?</div>
+      <div class="faq-a">주휴수당 = (주 소정근로시간 ÷ 40) × 8시간 × 시급. 주 40시간 미만 근무 시 비례 계산됩니다.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Q. 2026년 최저시급은?</div>
+      <div class="faq-a">2026년 최저시급은 10,030원입니다. 월 환산액(주 40시간, 주휴 포함 209시간 기준)은 약 2,096,270원입니다.</div>
+    </div>
+  </div>
+  <div class="ad-banner ad-bottom"></div>
+</main>
+<footer>
+  <p><a href="/">← 홈으로</a> &nbsp;|&nbsp; <a href="/privacy/">개인정보처리방침</a></p>
+  <p style="margin-top:8px;">© 2026 CocoFlow. 본 계산기는 참고용이며 법적 효력이 없습니다.</p>
+</footer>
+<script>
+  const MIN_WAGE_2026 = 10030;
+  function setMinWage() { document.getElementById('hourlyWage').value = MIN_WAGE_2026; }
+  function fmt(n) { return Math.round(n).toLocaleString('ko-KR'); }
+
+  function calculate() {
+    const wage  = parseFloat(document.getElementById('hourlyWage').value);
+    const hours = parseFloat(document.getElementById('hoursPerDay').value);
+    const days  = parseFloat(document.getElementById('daysPerWeek').value);
+    if (!wage || wage <= 0)   { alert('시급을 입력해주세요.'); return; }
+    if (!hours || hours <= 0) { alert('하루 근무시간을 입력해주세요.'); return; }
+    if (!days || days <= 0)   { alert('주 근무일수를 입력해주세요.'); return; }
+
+    const weeklyHours = hours * days;
+    const daily  = wage * hours;
+    const weekly = daily * days;
+
+    // 주휴수당: 주 15시간 이상 시
+    let weeklyHoliday = 0;
+    let hasHoliday = weeklyHours >= 15;
+    if (hasHoliday) {
+      weeklyHoliday = (weeklyHours / 40) * 8 * wage;
+    }
+
+    // 월급: 4.345주 × (주급 + 주휴수당)
+    const monthly = (weekly + weeklyHoliday) * (52 / 12);
+    const annual  = monthly * 12;
+
+    document.getElementById('resDaily').innerHTML   = fmt(daily)   + '<span>원</span>';
+    document.getElementById('resWeekly').innerHTML  = fmt(weekly)  + '<span>원</span>';
+    document.getElementById('resMonthly').innerHTML = fmt(monthly) + '<span>원</span>';
+    document.getElementById('resAnnual').innerHTML  = fmt(annual)  + '<span>원</span>';
+    document.getElementById('weeklyLabel').textContent = hasHoliday ? '(주휴 별도)' : '';
+
+    const minBadge = wage < MIN_WAGE_2026 ? `<span class="badge-min">⚠️ 최저시급 미만</span>` : '';
+    document.getElementById('resultTitle').innerHTML = '📊 계산 결과' + minBadge;
+
+    document.getElementById('detailSection').innerHTML =
+      `<div class="detail-row"><span>시급</span><span>${fmt(wage)}원</span></div>
+       <div class="detail-row"><span>주 근무시간</span><span>${weeklyHours}시간 (${hours}시간 × ${days}일)</span></div>
+       <div class="detail-row"><span>일급</span><span>${fmt(daily)}원</span></div>
+       <div class="detail-row"><span>주급 (근로분)</span><span>${fmt(weekly)}원</span></div>
+       <div class="detail-row"><span>주휴수당</span><span>${hasHoliday ? fmt(weeklyHoliday) + '원' : '미발생 (주 15시간 미만)'}</span></div>
+       <div class="detail-row sub"><span>└ 주휴수당 계산식</span><span>${hasHoliday ? weeklyHours + '÷40×8×' + fmt(wage) : '-'}</span></div>
+       <div class="detail-row"><span>월급 (주 52÷12 기준)</span><span>${fmt(monthly)}원</span></div>`;
+
+    document.getElementById('noticeBox').innerHTML =
+      hasHoliday
+        ? '✅ 주 소정근로시간 ' + weeklyHours + '시간으로 주휴수당이 발생합니다.'
+        : '⚠️ 주 소정근로시간 ' + weeklyHours + '시간으로 주 15시간 미만 — 주휴수당이 발생하지 않습니다.';
+
+    document.getElementById('resultCard').classList.add('show');
+    document.getElementById('resultCard').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+  document.addEventListener('keydown', e => { if (e.key === 'Enter') calculate(); });
+</script>
+</body>
+</html>
