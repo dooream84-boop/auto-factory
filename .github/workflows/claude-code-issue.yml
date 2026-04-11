@@ -1,0 +1,18 @@
+name: Claude Code Issue Automation
+
+on:
+  issues:
+    types: [labeled]
+
+jobs:
+  claude-code:
+    if: github.event.label.name == 'claude'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      issues: write
+      pull-requests: write
+    steps:
+      - uses: anthropics/claude-code-action@beta
+        with:
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
