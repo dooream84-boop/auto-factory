@@ -14,9 +14,9 @@
 - AdSense 코드 (<head>에 필수):
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8616886611208474" crossorigin="anonymous"></script>
 
-## 배포된 계산기 20개
+## 배포된 계산기 21개
 
-### 금융·노무 (13개)
+### 금융·노무 (14개)
 - 퇴직금: /products/severance-calculator/
 - 실수령액: /products/salary-calculator/
 - 대출이자: /products/loan-calculator/
@@ -30,6 +30,7 @@
 - 적금이자: /products/savings-calculator/
 - 상속세: /products/inheritance-tax-calculator/
 - 시급: /products/hourly-wage-calculator/
+- 연말정산: /products/tax-refund-calculator/
 
 ### 건강·생활 (6개)
 - BMI: /products/bmi-calculator/
