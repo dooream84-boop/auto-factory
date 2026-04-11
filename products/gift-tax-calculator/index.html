@@ -46,7 +46,7 @@
       flex: 1; padding: 16px 8px; border: none; background: transparent;
       font-size: 1rem; font-weight: 700; color: #94a3b8; cursor: pointer;
       font-family: 'Noto Sans KR', sans-serif; border-bottom: 3px solid transparent;
-      margin-bottom: -2px; transition: all 0.18s;
+      margin-bottom: -2px; transition: color 0.18s, border-bottom-color 0.18s;
     }
     .main-tab-btn.active { color: #2563eb; border-bottom-color: #2563eb; }
     .main-tab-btn:hover:not(.active) { color: #475569; }
@@ -226,26 +226,26 @@
     <div class="card">
       <h2>상속 정보 입력</h2>
       <div class="form-group">
-        <label for="estate">상속재산 총액</label>
+        <label for="inhEstate">상속재산 총액</label>
         <div class="input-wrap">
-          <input type="number" id="estate" placeholder="예: 1000000000" min="0">
+          <input type="number" id="inhEstate" placeholder="예: 1000000000" min="0">
           <span class="unit">원</span>
         </div>
         <p class="hint">부동산, 금융재산, 기타 재산의 합산 금액</p>
       </div>
       <div class="form-group">
-        <label for="spouse">배우자 유무</label>
+        <label for="inhSpouse">배우자 유무</label>
         <div class="input-wrap">
-          <select id="spouse">
+          <select id="inhSpouse">
             <option value="1">배우자 있음</option>
             <option value="0">배우자 없음</option>
           </select>
         </div>
       </div>
       <div class="form-group">
-        <label for="children">자녀 수</label>
+        <label for="inhChildren">자녀 수</label>
         <div class="input-wrap">
-          <select id="children">
+          <select id="inhChildren">
             <option value="0">0명</option>
             <option value="1">1명</option>
             <option value="2">2명</option>
@@ -349,10 +349,11 @@
   const BRACKET_LABELS = ['1억 이하', '1억~5억', '5억~10억', '10억~30억', '30억 초과'];
 
   function applyTax(taxable) {
-    if (taxable <= 0) return 0;
+    if (!Number.isFinite(taxable) || taxable <= 0) return 0;
     for (const b of TAX_BRACKETS) {
       if (taxable <= b.limit) return Math.max(taxable * b.rate - b.deduct, 0);
     }
+    return 0; // fallback: 위 루프에서 반드시 return되지만 명시적 보호
   }
 
   function fmt(n) { return Math.round(n).toLocaleString('ko-KR'); }
@@ -419,10 +420,11 @@
 
   // ===== 상속세 =====
   function calcInheritance() {
-    const estate    = parseFloat(document.getElementById('estate').value) || 0;
-    const hasSpouse = parseInt(document.getElementById('spouse').value);
-    const children  = parseInt(document.getElementById('children').value);
-    if (!estate || estate <= 0) { alert('상속재산 총액을 입력해주세요.'); return; }
+    const estateRaw = document.getElementById('inhEstate').value;
+    const estate    = Number(estateRaw);
+    const hasSpouse = parseInt(document.getElementById('inhSpouse').value, 10);
+    const children  = parseInt(document.getElementById('inhChildren').value, 10);
+    if (!Number.isFinite(estate) || estate <= 0) { alert('상속재산 총액을 올바르게 입력해주세요.'); return; }
 
     const personalDeduct = children * 50000000;
     const baseDeduct     = 200000000 + personalDeduct;
@@ -457,9 +459,11 @@
     document.getElementById('inhResultCard').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   }
 
-  // Enter 키
+  // Enter 키 (input/select 안에서만 동작)
   document.addEventListener('keydown', e => {
     if (e.key !== 'Enter') return;
+    const tag = e.target.tagName;
+    if (tag !== 'INPUT' && tag !== 'SELECT') return;
     if (document.getElementById('section-gift').classList.contains('active')) calcGift();
     else calcInheritance();
   });
