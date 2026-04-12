@@ -8,12 +8,12 @@
   <meta name="google-site-verification" content="OyvdhFUwC-wAD4ZSdgejG5A1ch3hPGNN6Tt0UUsyzqk" />
 
   <!-- SEO 메타태그 -->
-  <title>퇴직금 계산기 2026 - 정확한 퇴직금 계산 무료</title>
-  <meta name="description" content="퇴직금 계산기로 퇴직금을 정확하게 계산하세요. 근무기간, 평균임금을 입력하면 즉시 계산됩니다. 2026년 최신 기준 적용.">
-  <meta name="keywords" content="퇴직금 계산기, 퇴직금 계산, 퇴직금 산정, 퇴직금 얼마, 퇴직금 조회">
+  <title>퇴직금 계산기 2026 - DC형·중간정산·평균임금 자동계산</title>
+  <meta name="description" content="입사일·퇴직일 입력으로 퇴직금을 계산합니다. DC형 퇴직연금, 중간정산 이후 퇴직금, 평균임금 자동계산 지원.">
+  <meta name="keywords" content="퇴직금 계산기, DC형 퇴직연금, 중간정산, 평균임금 계산, 퇴직금 산정">
   <meta name="robots" content="index, follow">
-  <meta property="og:title" content="퇴직금 계산기 - 정확한 퇴직금 무료 계산">
-  <meta property="og:description" content="퇴직금을 정확하게 계산해드립니다. 근무기간과 평균임금만 입력하세요.">
+  <meta property="og:title" content="퇴직금 계산기 2026 - DC형·중간정산·평균임금 자동계산">
+  <meta property="og:description" content="입사일·퇴직일 입력으로 퇴직금을 계산합니다. DC형 퇴직연금, 중간정산 이후 퇴직금, 평균임금 자동계산 지원.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://cocoflow.xyz/products/severance-calculator/">
   <meta property="og:image" content="https://cocoflow.xyz/og-severance-calculator.png">
@@ -25,7 +25,7 @@
     "@context": "https://schema.org",
     "@type": "WebApplication",
     "name": "퇴직금 계산기",
-    "description": "퇴직금을 무료로 계산하는 웹 도구",
+    "description": "입사일·퇴직일 입력으로 퇴직금을 계산하는 무료 웹 도구. DC형 퇴직연금, 중간정산 지원.",
     "applicationCategory": "FinanceApplication",
     "operatingSystem": "All",
     "offers": { "@type": "Offer", "price": "0" }
@@ -35,63 +35,128 @@
   <!-- Google AdSense -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8616886611208474" crossorigin="anonymous"></script>
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;600;700;800&display=swap" rel="stylesheet">
+
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans KR', sans-serif;
-      background: #f5f7fa;
+      font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #f0f4f8;
       color: #333;
       line-height: 1.6;
     }
 
+    /* ── Header ── */
     header {
-      background: linear-gradient(135deg, #1a73e8, #0d47a1);
+      background: linear-gradient(135deg, #2563eb, #1d4ed8);
       color: #fff;
-      text-align: center;
-      padding: 28px 16px 24px;
+      padding: 20px 16px 18px;
     }
-    header h1 { font-size: clamp(1.4rem, 4vw, 2rem); font-weight: 700; }
-    header p  { margin-top: 6px; font-size: 0.95rem; opacity: 0.88; }
+    .header-inner {
+      max-width: 680px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .header-brand {
+      font-size: 1rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      color: #fff;
+      text-decoration: none;
+    }
+    .header-nav { display: flex; gap: 14px; }
+    .header-nav a { color: rgba(255,255,255,0.85); font-size: 0.82rem; text-decoration: none; }
+    .header-nav a:hover { color: #fff; }
+    .header-title {
+      width: 100%;
+      text-align: center;
+      margin-top: 10px;
+    }
+    .header-title h1 { font-size: clamp(1.3rem, 4vw, 1.8rem); font-weight: 700; }
+    .header-title p  { margin-top: 4px; font-size: 0.9rem; opacity: 0.88; }
 
-    /* 상단 광고 */
-    .ad-banner {
+    /* ── Tabs ── */
+    .tab-bar {
+      max-width: 680px;
+      margin: 24px auto 0;
+      padding: 0 16px;
+      display: flex;
+      gap: 6px;
+    }
+    .tab-btn {
+      flex: 1;
+      padding: 10px 6px;
       background: #fff;
-      border: 1px dashed #ccc;
+      border: 2px solid #dbeafe;
+      border-radius: 8px 8px 0 0;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: #64748b;
+      cursor: pointer;
+      transition: all 0.18s;
       text-align: center;
-      padding: 12px;
-      color: #999;
-      font-size: 0.8rem;
     }
-    .ad-banner-top    { min-height: 90px;  display: flex; align-items: center; justify-content: center; }
-    .ad-banner-bottom { min-height: 250px; display: flex; align-items: center; justify-content: center; }
+    .tab-btn.active {
+      background: #2563eb;
+      border-color: #2563eb;
+      color: #fff;
+    }
 
+    /* ── Main ── */
     main {
       max-width: 680px;
-      margin: 24px auto;
+      margin: 0 auto;
       padding: 0 16px 40px;
     }
 
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    /* ── Card ── */
     .card {
+      background: #fff;
+      border-radius: 0 0 12px 12px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      padding: 28px 24px;
+      margin-bottom: 20px;
+    }
+    .card-plain {
       background: #fff;
       border-radius: 12px;
       box-shadow: 0 2px 12px rgba(0,0,0,0.08);
       padding: 28px 24px;
       margin-bottom: 20px;
     }
-
-    .card h2 {
+    .card h2, .card-plain h2 {
       font-size: 1.05rem;
-      font-weight: 600;
-      color: #1a73e8;
+      font-weight: 700;
+      color: #2563eb;
       margin-bottom: 20px;
       padding-bottom: 10px;
-      border-bottom: 2px solid #e8f0fe;
+      border-bottom: 2px solid #eff6ff;
     }
 
-    .form-group {
-      margin-bottom: 18px;
+    /* ── Info box ── */
+    .info-box {
+      background: #eff6ff;
+      border-left: 4px solid #2563eb;
+      border-radius: 0 8px 8px 0;
+      padding: 12px 14px;
+      font-size: 0.83rem;
+      color: #1e40af;
+      margin-bottom: 20px;
+      line-height: 1.5;
     }
+
+    /* ── Form ── */
+    .form-group { margin-bottom: 18px; }
     .form-group label {
       display: block;
       font-size: 0.88rem;
@@ -99,25 +164,21 @@
       color: #555;
       margin-bottom: 6px;
     }
-    .form-group .hint {
-      font-size: 0.78rem;
-      color: #888;
-      margin-top: 4px;
-    }
+    .form-group .hint { font-size: 0.78rem; color: #888; margin-top: 4px; }
 
-    .input-wrap {
-      position: relative;
-    }
-    .input-wrap input {
+    .input-wrap { position: relative; }
+    .input-wrap input, .input-wrap select {
       width: 100%;
       padding: 11px 44px 11px 14px;
       border: 1.5px solid #ddd;
       border-radius: 8px;
       font-size: 1rem;
+      font-family: inherit;
       transition: border-color 0.2s;
       outline: none;
+      background: #fff;
     }
-    .input-wrap input:focus { border-color: #1a73e8; }
+    .input-wrap input:focus, .input-wrap select:focus { border-color: #2563eb; }
     .input-wrap .unit {
       position: absolute;
       right: 14px;
@@ -128,19 +189,32 @@
       pointer-events: none;
     }
 
-    .date-row {
+    .radio-group { display: flex; gap: 16px; margin-bottom: 14px; flex-wrap: wrap; }
+    .radio-group label {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.88rem;
+      color: #444;
+      cursor: pointer;
+    }
+    .radio-group input[type="radio"] { accent-color: #2563eb; }
+
+    .salary3-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 10px;
     }
 
+    /* ── Button ── */
     .btn-calc {
       width: 100%;
       padding: 14px;
-      background: linear-gradient(135deg, #1a73e8, #1558b0);
+      background: linear-gradient(135deg, #2563eb, #1d4ed8);
       color: #fff;
       font-size: 1.05rem;
       font-weight: 700;
+      font-family: inherit;
       border: none;
       border-radius: 8px;
       cursor: pointer;
@@ -150,34 +224,30 @@
     .btn-calc:hover  { opacity: 0.92; }
     .btn-calc:active { transform: scale(0.98); }
 
+    /* ── Result ── */
     .result-card {
       display: none;
-      background: linear-gradient(135deg, #e8f0fe, #f0f7ff);
-      border: 1.5px solid #1a73e8;
+      background: linear-gradient(135deg, #eff6ff, #f0f4ff);
+      border: 1.5px solid #2563eb;
       border-radius: 12px;
       padding: 24px;
       margin-bottom: 20px;
     }
     .result-card.show { display: block; }
-
-    .result-card h2 {
-      font-size: 1rem;
-      color: #1a73e8;
-      margin-bottom: 16px;
-    }
-
+    .result-card h2 { font-size: 1rem; color: #2563eb; margin-bottom: 16px; border-bottom: none; padding-bottom: 0; }
     .result-amount {
       font-size: clamp(1.6rem, 5vw, 2.4rem);
       font-weight: 800;
-      color: #0d47a1;
+      color: #1d4ed8;
       text-align: center;
       margin: 12px 0 4px;
     }
     .result-amount span { font-size: 1rem; font-weight: 500; }
+    .result-sub { text-align: center; font-size: 0.85rem; color: #666; margin-bottom: 12px; }
 
     .result-detail {
       margin-top: 16px;
-      border-top: 1px solid #c5d8f8;
+      border-top: 1px solid #bfdbfe;
       padding-top: 14px;
     }
     .result-row {
@@ -186,7 +256,9 @@
       font-size: 0.88rem;
       padding: 5px 0;
       color: #444;
+      border-bottom: 1px dotted #eff6ff;
     }
+    .result-row:last-child { border-bottom: none; }
     .result-row .label { color: #666; }
     .result-row .value { font-weight: 600; }
 
@@ -201,197 +273,415 @@
     }
     .notice strong { color: #e65100; }
 
-    /* FAQ */
+    /* ── FAQ ── */
     .faq-item { margin-bottom: 14px; }
-    .faq-q {
-      font-weight: 600;
-      font-size: 0.92rem;
-      color: #333;
-      margin-bottom: 4px;
-    }
+    .faq-q { font-weight: 600; font-size: 0.92rem; color: #333; margin-bottom: 4px; }
     .faq-a { font-size: 0.88rem; color: #555; }
 
+    /* ── Footer ── */
     footer {
       text-align: center;
       font-size: 0.78rem;
       color: #aaa;
       padding: 20px 16px 32px;
     }
+    footer a { color: #aaa; text-decoration: none; }
+    footer a:hover { color: #888; }
 
     @media (max-width: 480px) {
-      .card { padding: 20px 16px; }
-      .date-row { grid-template-columns: 1fr; }
+      .card, .card-plain { padding: 20px 16px; }
+      .salary3-grid { grid-template-columns: 1fr; }
+      .tab-btn { font-size: 0.75rem; padding: 8px 4px; }
     }
   </style>
 </head>
 <body>
 
 <header>
-  <h1>퇴직금 계산기</h1>
-  <p>근무기간과 임금 정보를 입력하면 퇴직금을 즉시 계산합니다</p>
+  <div class="header-inner">
+    <a href="/" class="header-brand">COCOFLOW</a>
+    <nav class="header-nav">
+      <a href="/privacy/">개인정보처리방침</a>
+      <a href="mailto:contact@cocoflow.xyz">문의하기</a>
+    </nav>
+    <div class="header-title">
+      <h1>퇴직금 계산기</h1>
+      <p>기본 퇴직금 · DC형 퇴직연금 · 중간정산 이후 퇴직금 계산</p>
+    </div>
+  </div>
 </header>
 
-<!-- 상단 애드센스 광고 -->
-<div class="ad-banner ad-banner-top">
-  <!-- Google AdSense 코드 삽입 위치 (상단 배너 728x90 / 모바일 320x50) -->
-  <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script> -->
-  <!-- <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXX" data-ad-slot="XXXXXXXX" data-ad-format="auto"></ins> -->
-  [광고 영역 - AdSense 상단 배너]
+<!-- 탭 버튼 -->
+<div class="tab-bar">
+  <button class="tab-btn active" onclick="switchTab(0, this)">기본 퇴직금</button>
+  <button class="tab-btn" onclick="switchTab(1, this)">DC형 퇴직연금</button>
+  <button class="tab-btn" onclick="switchTab(2, this)">중간정산 이후</button>
 </div>
 
 <main>
 
-  <!-- 입력 카드 -->
-  <div class="card">
-    <h2>근무 정보 입력</h2>
+  <!-- ── 탭 1: 기본 퇴직금 ── -->
+  <div class="tab-panel active" id="panel0">
+    <div class="card">
+      <h2>기본 퇴직금 계산</h2>
 
-    <div class="form-group">
-      <label for="startDate">입사일</label>
-      <input type="date" id="startDate">
-    </div>
-
-    <div class="form-group">
-      <label for="endDate">퇴직일</label>
-      <input type="date" id="endDate">
-      <p class="hint">퇴직일 기준 마지막 근무일</p>
-    </div>
-
-    <div class="form-group">
-      <label for="avgSalary">최근 3개월 월 평균 임금</label>
-      <div class="input-wrap">
-        <input type="number" id="avgSalary" placeholder="예: 3000000" min="0">
-        <span class="unit">원</span>
+      <div class="form-group">
+        <label>입사일</label>
+        <div class="input-wrap">
+          <input type="date" id="t1StartDate">
+        </div>
       </div>
-      <p class="hint">기본급 + 수당 포함 세전 금액</p>
+
+      <div class="form-group">
+        <label>퇴직일</label>
+        <div class="input-wrap">
+          <input type="date" id="t1EndDate">
+        </div>
+        <p class="hint">마지막 근무일 기준</p>
+      </div>
+
+      <div class="form-group">
+        <label>평균임금 입력 방식</label>
+        <div class="radio-group">
+          <label><input type="radio" name="t1Mode" value="A" checked onchange="toggleSalaryMode()"> 월 평균임금 직접 입력</label>
+          <label><input type="radio" name="t1Mode" value="B" onchange="toggleSalaryMode()"> 최근 3개월 급여 각각 입력</label>
+        </div>
+      </div>
+
+      <!-- 방식 A -->
+      <div id="modeA">
+        <div class="form-group">
+          <label>월 평균임금 (세전)</label>
+          <div class="input-wrap">
+            <input type="number" id="t1MonthlyAvg" placeholder="예: 3000000" min="0">
+            <span class="unit">원</span>
+          </div>
+          <p class="hint">기본급 + 수당 포함</p>
+        </div>
+      </div>
+
+      <!-- 방식 B -->
+      <div id="modeB" style="display:none;">
+        <div class="form-group">
+          <label>최근 3개월 급여</label>
+          <div class="salary3-grid">
+            <div class="input-wrap">
+              <input type="number" id="t1S1" placeholder="1개월전" min="0">
+              <span class="unit" style="right:6px; font-size:0.75rem;">원</span>
+            </div>
+            <div class="input-wrap">
+              <input type="number" id="t1S2" placeholder="2개월전" min="0">
+              <span class="unit" style="right:6px; font-size:0.75rem;">원</span>
+            </div>
+            <div class="input-wrap">
+              <input type="number" id="t1S3" placeholder="3개월전" min="0">
+              <span class="unit" style="right:6px; font-size:0.75rem;">원</span>
+            </div>
+          </div>
+          <p class="hint">입력하면 월 평균임금이 자동 계산됩니다</p>
+        </div>
+      </div>
+
+      <button class="btn-calc" onclick="calcBasic()">퇴직금 계산하기</button>
     </div>
 
-    <button class="btn-calc" onclick="calculate()">퇴직금 계산하기</button>
+    <div class="result-card" id="t1Result">
+      <h2>계산 결과</h2>
+      <div class="result-amount" id="t1Amount">0 <span>원</span></div>
+      <div class="result-detail">
+        <div class="result-row"><span class="label">근속 기간</span><span class="value" id="t1Period">-</span></div>
+        <div class="result-row"><span class="label">1일 평균임금</span><span class="value" id="t1Daily">-</span></div>
+        <div class="result-row"><span class="label">월 평균임금</span><span class="value" id="t1Monthly">-</span></div>
+        <div class="result-row"><span class="label">계산 공식</span><span class="value">1일 평균임금 × 30 × (근속일수 ÷ 365)</span></div>
+      </div>
+      <div class="notice">
+        <strong>※ 참고:</strong> 근로기준법 제34조 기준입니다. 실제 지급액은 회사 규정·세금 등에 따라 다를 수 있습니다.
+      </div>
+    </div>
+
+    <div class="card-plain">
+      <h2>자주 묻는 질문</h2>
+      <div class="faq-item">
+        <div class="faq-q">Q. 퇴직금은 언제부터 받을 수 있나요?</div>
+        <div class="faq-a">계속 근로기간 1년 이상인 근로자에게 발생합니다. 1년 미만은 퇴직금이 지급되지 않습니다.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Q. 평균임금이란 무엇인가요?</div>
+        <div class="faq-a">퇴직 전 3개월간 지급된 임금 총액을 그 기간의 달력 일수(약 89~92일)로 나눈 1일 금액입니다.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Q. 퇴직금 미지급 시 어떻게 하나요?</div>
+        <div class="faq-a">퇴직일로부터 14일 이내 미지급 시 사업주는 연 20% 지연이자를 부담합니다. 관할 고용노동청에 진정 제기가 가능합니다.</div>
+      </div>
+    </div>
   </div>
 
-  <!-- 결과 카드 -->
-  <div class="result-card" id="resultCard">
-    <h2>계산 결과</h2>
-    <div class="result-amount" id="resultAmount">0 <span>원</span></div>
-    <div class="result-detail">
-      <div class="result-row"><span class="label">근속 기간</span><span class="value" id="resWorkPeriod">-</span></div>
-      <div class="result-row"><span class="label">1일 평균임금</span><span class="value" id="resDailyWage">-</span></div>
-      <div class="result-row"><span class="label">계산 공식</span><span class="value">1일 평균임금 × 30일 × 근속연수</span></div>
+  <!-- ── 탭 2: DC형 퇴직연금 ── -->
+  <div class="tab-panel" id="panel1">
+    <div class="card">
+      <h2>DC형 퇴직연금 납입 기준액</h2>
+
+      <div class="info-box">
+        <strong>DC형(확정기여형) 퇴직연금이란?</strong><br>
+        회사가 매년 근로자 연간 임금총액의 1/12 이상을 근로자의 퇴직연금 계좌에 납입하는 제도입니다. 운용 수익은 근로자 본인이 책임집니다.
+      </div>
+
+      <div class="form-group">
+        <label>연간 임금총액 (세전)</label>
+        <div class="input-wrap">
+          <input type="number" id="t2Annual" placeholder="예: 40000000" min="0">
+          <span class="unit">원</span>
+        </div>
+        <p class="hint">기본급 + 수당 + 상여금 등 모든 임금 포함</p>
+      </div>
+
+      <button class="btn-calc" onclick="calcDC()">납입 기준액 계산하기</button>
     </div>
-    <div class="notice">
-      <strong>※ 참고사항:</strong> 이 계산기는 근로기준법 제34조 기준으로 계산합니다. 실제 지급액은 회사 규정, 세금, 4대 보험 등에 따라 달라질 수 있습니다.
+
+    <div class="result-card" id="t2Result">
+      <h2>DC형 납입 기준액</h2>
+      <div class="result-amount" id="t2Amount">0 <span>원 / 연</span></div>
+      <div class="result-sub">회사 연간 최소 납입 기준액</div>
+      <div class="result-detail">
+        <div class="result-row"><span class="label">연간 임금총액</span><span class="value" id="t2TotalAnnual">-</span></div>
+        <div class="result-row"><span class="label">연간 납입 기준액 (1/12)</span><span class="value" id="t2YearBase">-</span></div>
+        <div class="result-row"><span class="label">월 기준액 (연간 ÷ 12)</span><span class="value" id="t2MonthBase">-</span></div>
+      </div>
+      <div class="notice">
+        <strong>※ 참고:</strong> DC형은 회사가 정한 시기(분기·반기·연 등)에 납입하며, 실제 납입액은 회사 규정에 따라 다를 수 있습니다. 계산된 금액은 법정 최소 기준입니다.
+      </div>
+    </div>
+
+    <div class="card-plain">
+      <h2>DC형 vs DB형 비교</h2>
+      <div class="faq-item">
+        <div class="faq-q">DB형(확정급여형)이란?</div>
+        <div class="faq-a">퇴직 전 3개월 평균임금 × 근속연수로 퇴직급여가 확정되는 방식. 운용 책임은 회사가 집니다.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">DC형 장점은?</div>
+        <div class="faq-a">근로자가 직접 운용하므로 수익률에 따라 더 높은 퇴직급여를 받을 수 있습니다. 임금 인상이 크지 않은 경우 유리합니다.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">DC형은 중간정산이 가능한가요?</div>
+        <div class="faq-a">DC형은 매년 회사가 납입하는 구조이므로 별도 중간정산 개념이 없습니다. 적립된 금액은 이직 시 IRP 계좌로 이전됩니다.</div>
+      </div>
     </div>
   </div>
 
-  <!-- 중간 애드센스 광고 -->
-  <div class="ad-banner" style="min-height:100px; margin-bottom:20px; border-radius:8px;">
-    <!-- Google AdSense 코드 삽입 위치 (중간 반응형) -->
-    [광고 영역 - AdSense 중간 반응형]
-  </div>
+  <!-- ── 탭 3: 중간정산 이후 퇴직금 ── -->
+  <div class="tab-panel" id="panel2">
+    <div class="card">
+      <h2>중간정산 이후 퇴직금 계산</h2>
 
-  <!-- FAQ 카드 -->
-  <div class="card">
-    <h2>자주 묻는 질문</h2>
-    <div class="faq-item">
-      <div class="faq-q">Q. 퇴직금은 언제부터 받을 수 있나요?</div>
-      <div class="faq-a">1년 이상 근무한 근로자는 퇴직 시 퇴직금을 받을 수 있습니다. 계속 근로기간이 1년 미만이면 퇴직금이 발생하지 않습니다.</div>
+      <div class="info-box">
+        중간정산 이후의 퇴직금은 <strong>중간정산일부터 최종 퇴직일까지의 기간</strong>만을 기준으로 계산합니다.
+      </div>
+
+      <div class="form-group">
+        <label>중간정산일</label>
+        <div class="input-wrap">
+          <input type="date" id="t3MidDate">
+        </div>
+        <p class="hint">직전 중간정산이 완료된 날</p>
+      </div>
+
+      <div class="form-group">
+        <label>최종 퇴직일</label>
+        <div class="input-wrap">
+          <input type="date" id="t3EndDate">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>현재 월 평균임금 (세전)</label>
+        <div class="input-wrap">
+          <input type="number" id="t3Monthly" placeholder="예: 3500000" min="0">
+          <span class="unit">원</span>
+        </div>
+        <p class="hint">퇴직 전 3개월 평균 기준</p>
+      </div>
+
+      <button class="btn-calc" onclick="calcMidSettle()">퇴직금 계산하기</button>
     </div>
-    <div class="faq-item">
-      <div class="faq-q">Q. 평균임금은 어떻게 계산하나요?</div>
-      <div class="faq-a">퇴직 전 3개월간 지급된 임금(기본급 + 각종 수당 + 상여금 포함)의 총액을 해당 기간의 총 일수(약 89~92일)로 나눈 금액입니다.</div>
+
+    <div class="result-card" id="t3Result">
+      <h2>중간정산 이후 퇴직금</h2>
+      <div class="result-amount" id="t3Amount">0 <span>원</span></div>
+      <div class="result-detail">
+        <div class="result-row"><span class="label">중간정산일 ~ 퇴직일 기간</span><span class="value" id="t3Period">-</span></div>
+        <div class="result-row"><span class="label">1일 평균임금</span><span class="value" id="t3Daily">-</span></div>
+        <div class="result-row"><span class="label">계산 공식</span><span class="value">1일 평균임금 × 30 × (근속일수 ÷ 365)</span></div>
+      </div>
+      <div class="notice">
+        <strong>※ 참고:</strong> 중간정산 이전 기간은 이미 정산 완료된 것으로 포함되지 않습니다.
+      </div>
     </div>
-    <div class="faq-item">
-      <div class="faq-q">Q. 퇴직금을 받지 못하면 어떻게 하나요?</div>
-      <div class="faq-a">퇴직일로부터 14일 이내에 지급하지 않으면 사업주는 지연이자(연 20%)를 부담합니다. 미지급 시 관할 고용노동청에 진정을 제기할 수 있습니다.</div>
+
+    <div class="card-plain">
+      <h2>중간정산 관련 안내</h2>
+      <div class="faq-item">
+        <div class="faq-q">Q. 퇴직금 중간정산이 가능한 경우는?</div>
+        <div class="faq-a">무주택자 주택 구입, 전세·보증금 부담, 6개월 이상 요양이 필요한 질병·부상, 파산·회생 절차 등 법정 사유에 해당할 때만 가능합니다.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Q. 중간정산 후 퇴직금 기산점은?</div>
+        <div class="faq-a">중간정산일 다음 날부터 새롭게 기산됩니다. 이전 근속기간은 이미 정산되어 포함되지 않습니다.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Q. 중간정산 세금은?</div>
+        <div class="faq-a">중간정산 퇴직금에도 퇴직소득세가 부과됩니다. IRP 계좌로 이전 시 과세 이연이 가능합니다.</div>
+      </div>
     </div>
   </div>
 
 </main>
 
-<!-- 하단 애드센스 광고 -->
-<div class="ad-banner ad-banner-bottom">
-  <!-- Google AdSense 코드 삽입 위치 (하단 사각형 300x250) -->
-  [광고 영역 - AdSense 하단 사각형]
-</div>
-
 <footer>
-  <p>본 계산기는 참고용이며, 정확한 퇴직금은 회사 또는 노무사에게 문의하세요.</p>
-  <p style="margin-top:6px;">
-    <a href="../index.html" style="color:#aaa;">← 계산기 목록</a>
+  <p>본 계산기는 참고용이며, 정확한 퇴직금은 회사 또는 공인노무사에게 문의하세요.</p>
+  <p style="margin-top:8px;">
+    <a href="/">← 홈으로</a>
     &nbsp;|&nbsp;
-    <a href="../privacy-policy.html" style="color:#aaa;">개인정보처리방침</a>
+    <a href="/privacy/">개인정보처리방침</a>
+    &nbsp;|&nbsp;
+    <a href="mailto:contact@cocoflow.xyz">문의하기</a>
   </p>
-  <p style="margin-top:4px;">© 2026 모두의 계산기. All rights reserved.</p>
+  <p style="margin-top:6px;">© 2026 CocoFlow. All rights reserved.</p>
 </footer>
 
 <script>
-  // 오늘 날짜를 기본값으로 설정
-  (function () {
+  // 탭 전환
+  function switchTab(idx, btn) {
+    document.querySelectorAll('.tab-btn').forEach((b, i) => {
+      b.classList.toggle('active', i === idx);
+    });
+    document.querySelectorAll('.tab-panel').forEach((p, i) => {
+      p.classList.toggle('active', i === idx);
+    });
+  }
+
+  // 평균임금 입력 방식 전환
+  function toggleSalaryMode() {
+    const mode = document.querySelector('input[name="t1Mode"]:checked').value;
+    document.getElementById('modeA').style.display = mode === 'A' ? '' : 'none';
+    document.getElementById('modeB').style.display = mode === 'B' ? '' : 'none';
+  }
+
+  // 오늘 날짜 기본값
+  (function() {
     const today = new Date().toISOString().split('T')[0];
-    document.getElementById('endDate').value = today;
+    document.getElementById('t1EndDate').value = today;
+    document.getElementById('t3EndDate').value = today;
   })();
 
-  function calculate() {
-    const startVal  = document.getElementById('startDate').value;
-    const endVal    = document.getElementById('endDate').value;
-    const salaryVal = parseFloat(document.getElementById('avgSalary').value);
+  function fmt(n) { return n.toLocaleString('ko-KR'); }
 
-    if (!startVal || !endVal) {
-      alert('입사일과 퇴직일을 모두 입력해주세요.');
-      return;
-    }
-    if (!salaryVal || salaryVal <= 0) {
-      alert('월 평균임금을 올바르게 입력해주세요.');
-      return;
-    }
+  function workPeriodText(diffDays) {
+    const y = Math.floor(diffDays / 365);
+    const m = Math.floor((diffDays % 365) / 30);
+    const d = (diffDays % 365) % 30;
+    return y + '년 ' + m + '개월 ' + d + '일 (총 ' + diffDays + '일)';
+  }
+
+  // ── 탭 1: 기본 퇴직금 계산 ──
+  function calcBasic() {
+    const startVal = document.getElementById('t1StartDate').value;
+    const endVal   = document.getElementById('t1EndDate').value;
+    const mode     = document.querySelector('input[name="t1Mode"]:checked').value;
+
+    if (!startVal || !endVal) { alert('입사일과 퇴직일을 모두 입력해주세요.'); return; }
 
     const start = new Date(startVal);
     const end   = new Date(endVal);
+    if (end <= start) { alert('퇴직일은 입사일 이후여야 합니다.'); return; }
 
-    if (end <= start) {
-      alert('퇴직일은 입사일보다 이후여야 합니다.');
-      return;
-    }
-
-    // 근속일수 계산
-    const diffMs   = end - start;
-    const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
-
+    const diffDays = Math.floor((end - start) / 86400000);
     if (diffDays < 365) {
       alert('퇴직금은 1년(365일) 이상 근무해야 발생합니다.\n현재 근속일수: ' + diffDays + '일');
       return;
     }
 
-    // 근속연수 (소수점 포함)
-    const workYears = diffDays / 365;
+    let monthlyAvg;
+    if (mode === 'A') {
+      monthlyAvg = parseFloat(document.getElementById('t1MonthlyAvg').value);
+      if (!monthlyAvg || monthlyAvg <= 0) { alert('월 평균임금을 입력해주세요.'); return; }
+    } else {
+      const s1 = parseFloat(document.getElementById('t1S1').value) || 0;
+      const s2 = parseFloat(document.getElementById('t1S2').value) || 0;
+      const s3 = parseFloat(document.getElementById('t1S3').value) || 0;
+      if (s1 <= 0 && s2 <= 0 && s3 <= 0) { alert('최근 3개월 급여를 입력해주세요.'); return; }
+      monthlyAvg = (s1 + s2 + s3) / 3;
+    }
 
-    // 1일 평균임금 = 퇴직 전 실제 3개월 임금 합계 / 실제 3개월 달력 일수
+    // 3개월 실제 달력 일수
     const threeMonthsBefore = new Date(end);
     threeMonthsBefore.setMonth(end.getMonth() - 3);
-    const actual3MonthDays = Math.floor((end - threeMonthsBefore) / (1000 * 60 * 60 * 24));
-    const dailyWage = (salaryVal * 3) / actual3MonthDays;
+    const actual3Days = Math.floor((end - threeMonthsBefore) / 86400000);
+    const dailyWage = (monthlyAvg * 3) / actual3Days;
 
-    // 퇴직금 = 1일 평균임금 × 30 × 근속연수
-    const severance = dailyWage * 30 * workYears;
+    const severance = dailyWage * 30 * (diffDays / 365);
 
-    // 결과 표시
-    const years  = Math.floor(diffDays / 365);
-    const months = Math.floor((diffDays % 365) / 30);
-    const days   = (diffDays % 365) % 30;
+    document.getElementById('t1Amount').innerHTML = fmt(Math.round(severance)) + ' <span>원</span>';
+    document.getElementById('t1Period').textContent  = workPeriodText(diffDays);
+    document.getElementById('t1Daily').textContent   = fmt(Math.round(dailyWage)) + '원';
+    document.getElementById('t1Monthly').textContent = fmt(Math.round(monthlyAvg)) + '원';
 
-    document.getElementById('resultAmount').innerHTML =
-      formatNum(Math.round(severance)) + ' <span>원</span>';
-    document.getElementById('resWorkPeriod').textContent =
-      years + '년 ' + months + '개월 ' + days + '일 (' + diffDays + '일)';
-    document.getElementById('resDailyWage').textContent =
-      formatNum(Math.round(dailyWage)) + '원';
-
-    const card = document.getElementById('resultCard');
+    const card = document.getElementById('t1Result');
     card.classList.add('show');
     card.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 
-  function formatNum(n) {
-    return n.toLocaleString('ko-KR');
+  // ── 탭 2: DC형 퇴직연금 ──
+  function calcDC() {
+    const annual = parseFloat(document.getElementById('t2Annual').value);
+    if (!annual || annual <= 0) { alert('연간 임금총액을 입력해주세요.'); return; }
+
+    const yearBase  = Math.round(annual / 12);
+    const monthBase = Math.round(yearBase / 12);
+
+    document.getElementById('t2Amount').innerHTML   = fmt(yearBase) + ' <span>원 / 연</span>';
+    document.getElementById('t2TotalAnnual').textContent = fmt(Math.round(annual)) + '원';
+    document.getElementById('t2YearBase').textContent    = fmt(yearBase) + '원';
+    document.getElementById('t2MonthBase').textContent   = fmt(monthBase) + '원';
+
+    const card = document.getElementById('t2Result');
+    card.classList.add('show');
+    card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  // ── 탭 3: 중간정산 이후 퇴직금 ──
+  function calcMidSettle() {
+    const midVal  = document.getElementById('t3MidDate').value;
+    const endVal  = document.getElementById('t3EndDate').value;
+    const monthly = parseFloat(document.getElementById('t3Monthly').value);
+
+    if (!midVal || !endVal) { alert('중간정산일과 퇴직일을 모두 입력해주세요.'); return; }
+    if (!monthly || monthly <= 0) { alert('월 평균임금을 입력해주세요.'); return; }
+
+    const mid = new Date(midVal);
+    const end = new Date(endVal);
+    if (end <= mid) { alert('퇴직일은 중간정산일 이후여야 합니다.'); return; }
+
+    const diffDays = Math.floor((end - mid) / 86400000);
+    if (diffDays < 365) {
+      alert('중간정산 이후 1년(365일) 이상 근무해야 퇴직금이 발생합니다.\n현재 기간: ' + diffDays + '일');
+      return;
+    }
+
+    const threeMonthsBefore = new Date(end);
+    threeMonthsBefore.setMonth(end.getMonth() - 3);
+    const actual3Days = Math.floor((end - threeMonthsBefore) / 86400000);
+    const dailyWage = (monthly * 3) / actual3Days;
+
+    const severance = dailyWage * 30 * (diffDays / 365);
+
+    document.getElementById('t3Amount').innerHTML = fmt(Math.round(severance)) + ' <span>원</span>';
+    document.getElementById('t3Period').textContent = workPeriodText(diffDays);
+    document.getElementById('t3Daily').textContent  = fmt(Math.round(dailyWage)) + '원';
+
+    const card = document.getElementById('t3Result');
+    card.classList.add('show');
+    card.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 </script>
 

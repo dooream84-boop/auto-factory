@@ -4,12 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="google-site-verification" content="OyvdhFUwC-wAD4ZSdgejG5A1ch3hPGNN6Tt0UUsyzqk" />
-  <title>4대보험 계산기 2026 - 국민연금 건강보험 고용보험 무료 계산</title>
-  <meta name="description" content="월 급여를 입력하면 국민연금, 건강보험, 장기요양보험, 고용보험 근로자·사업주 부담액을 즉시 계산합니다. 2026년 기준.">
-  <meta name="keywords" content="4대보험 계산기, 국민연금 계산, 건강보험 계산, 고용보험, 장기요양보험">
+  <title>4대보험 계산기 2026 - 근로자·사업주 산재보험 총인건비 계산</title>
+  <meta name="description" content="월 급여로 4대보험 근로자·사업주 부담액과 산재보험, 총인건비를 계산합니다. 2026년 기준.">
+  <meta name="keywords" content="4대보험 계산기, 국민연금 계산, 건강보험 계산, 고용보험, 장기요양보험, 산재보험, 총인건비">
   <meta name="robots" content="index, follow">
-  <meta property="og:title" content="4대보험 계산기 - 근로자 사업주 부담액 무료 계산">
-  <meta property="og:description" content="월 급여로 4대보험 근로자·사업주 부담액을 즉시 계산합니다.">
+  <meta property="og:title" content="4대보험 계산기 2026 - 근로자·사업주 산재보험 총인건비 계산">
+  <meta property="og:description" content="월 급여로 4대보험 근로자·사업주 부담액과 산재보험, 총인건비를 계산합니다. 2026년 기준.">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://cocoflow.xyz/og-insurance-calculator.png">
   <meta property="og:url" content="https://cocoflow.xyz/products/insurance-calculator/">
@@ -19,7 +19,7 @@
     "@context": "https://schema.org",
     "@type": "WebApplication",
     "name": "4대보험 계산기",
-    "description": "4대보험 근로자·사업주 부담액을 계산하는 무료 웹 도구",
+    "description": "4대보험 근로자·사업주 부담액과 산재보험, 총인건비를 계산하는 무료 웹 도구",
     "applicationCategory": "FinanceApplication",
     "operatingSystem": "All",
     "offers": { "@type": "Offer", "price": "0" }
@@ -42,20 +42,30 @@
     .ad-top { min-height: 90px; }
     .ad-bottom { min-height: 250px; margin-top: 8px; border-radius: 12px; }
     main { max-width: 680px; margin: 24px auto; padding: 0 16px 48px; }
-    .card { background: #fff; border-radius: 12px; box-shadow: 0 2px 12px rgba(37,99,235,0.08); padding: 28px 24px; margin-bottom: 20px; border: 1px solid #e2e8f0; }
+    /* 탭 */
+    .tab-nav { display: flex; gap: 0; background: #fff; border-radius: 12px 12px 0 0; border: 1px solid #e2e8f0; border-bottom: none; overflow: hidden; margin-bottom: 0; }
+    .tab-btn { flex: 1; padding: 13px 10px; font-size: 0.92rem; font-weight: 700; border: none; background: #f8fafc; color: #64748b; cursor: pointer; transition: background 0.2s, color 0.2s; font-family: 'Noto Sans KR', sans-serif; }
+    .tab-btn.active { background: #fff; color: #2563eb; border-bottom: 2px solid #2563eb; }
+    .tab-btn:hover:not(.active) { background: #eff6ff; color: #2563eb; }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+    .card { background: #fff; border-radius: 0 0 12px 12px; box-shadow: 0 2px 12px rgba(37,99,235,0.08); padding: 28px 24px; margin-bottom: 20px; border: 1px solid #e2e8f0; }
+    .card.standalone { border-radius: 12px; }
     .card h2 { font-size: 1.05rem; font-weight: 700; color: #2563eb; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid #eff6ff; }
     .form-group { margin-bottom: 18px; }
     .form-group label { display: block; font-size: 0.88rem; font-weight: 600; color: #475569; margin-bottom: 6px; }
     .form-group .hint { font-size: 0.78rem; color: #94a3b8; margin-top: 5px; }
     .input-wrap { position: relative; }
-    .input-wrap input {
+    .input-wrap input, .input-wrap select {
       width: 100%; padding: 12px 48px 12px 14px;
       border: 1.5px solid #e2e8f0; border-radius: 8px;
       font-size: 1rem; font-family: 'Noto Sans KR', sans-serif;
       outline: none; transition: border-color 0.2s; background: #fff; color: #1e293b;
     }
-    .input-wrap input:focus { border-color: #2563eb; }
+    .input-wrap select { padding-right: 14px; }
+    .input-wrap input:focus, .input-wrap select:focus { border-color: #2563eb; }
     .input-wrap .unit { position: absolute; right: 14px; top: 50%; transform: translateY(-50%); font-size: 0.85rem; color: #94a3b8; pointer-events: none; }
+    .hidden { display: none !important; }
     .btn-calc { width: 100%; padding: 14px; background: linear-gradient(135deg, #2563eb, #1d4ed8); color: #fff; font-size: 1.05rem; font-weight: 700; border: none; border-radius: 8px; cursor: pointer; transition: opacity 0.2s, transform 0.1s; margin-top: 4px; font-family: 'Noto Sans KR', sans-serif; }
     .btn-calc:hover { opacity: 0.92; }
     .btn-calc:active { transform: scale(0.98); }
@@ -72,21 +82,27 @@
     .summary-box .s-label { font-size: 0.78rem; color: #64748b; margin-bottom: 4px; }
     .summary-box .s-value { font-size: clamp(1rem, 3vw, 1.3rem); font-weight: 800; color: #2563eb; }
     .summary-box .s-value span { font-size: 0.78rem; font-weight: 400; }
+    .summary-box.full { grid-column: span 2; background: #eff6ff; border-color: #2563eb; }
+    .summary-box.full .s-value { font-size: clamp(1.1rem, 3.5vw, 1.5rem); }
     .rate-info { background: #f8fafc; border-radius: 8px; padding: 14px 16px; font-size: 0.82rem; color: #475569; margin-top: 16px; line-height: 1.9; }
+    .detail-section { margin-top: 16px; border-top: 1px solid #bfdbfe; padding-top: 14px; }
+    .detail-row { display: flex; justify-content: space-between; font-size: 0.88rem; padding: 6px 0; border-bottom: 1px dotted #e2e8f0; color: #475569; }
+    .detail-row:last-child { border-bottom: none; font-weight: 700; color: #2563eb; }
+    .detail-row.highlight { font-weight: 700; color: #1d4ed8; }
     .faq-item { margin-bottom: 14px; }
     .faq-q { font-weight: 700; font-size: 0.92rem; color: #1e293b; margin-bottom: 4px; }
     .faq-a { font-size: 0.88rem; color: #475569; line-height: 1.7; }
     footer { text-align: center; font-size: 0.78rem; color: #94a3b8; padding: 20px 16px 32px; }
     footer a { color: #94a3b8; text-decoration: none; }
     footer a:hover { color: #2563eb; }
-    @media (max-width: 480px) { .card { padding: 20px 16px; } .ins-table { font-size: 0.78rem; } .summary-grid { grid-template-columns: 1fr; } }
+    @media (max-width: 480px) { .card { padding: 20px 16px; } .ins-table { font-size: 0.78rem; } .summary-grid { grid-template-columns: 1fr; } .summary-box.full { grid-column: span 1; } }
   </style>
 </head>
 <body>
 <header>
   <div class="header-brand">COCOFLOW</div>
   <h1>4대보험 계산기</h1>
-  <p>월 급여 입력 → 근로자·사업주 보험료 즉시 계산</p>
+  <p>월 급여 입력 → 근로자·사업주 보험료 및 총인건비 즉시 계산</p>
   <nav>
     <a href="/privacy/">개인정보처리방침</a>
     <a href="/contact/">문의하기</a>
@@ -94,85 +110,181 @@
 </header>
 <div class="ad-banner ad-top"></div>
 <main>
-  <div class="card">
-    <h2>급여 정보 입력</h2>
-    <div class="form-group">
-      <label for="salary">월 급여 (세전)</label>
-      <div class="input-wrap">
-        <input type="number" id="salary" placeholder="예: 3000000" min="0">
-        <span class="unit">원</span>
-      </div>
-      <p class="hint">기본급 + 각종 수당 포함 총 급여</p>
-    </div>
-    <button class="btn-calc" onclick="calculate()">4대보험 계산하기</button>
+  <!-- 탭 네비게이션 -->
+  <div class="tab-nav">
+    <button class="tab-btn active" onclick="switchTab('worker')">근로자 4대보험</button>
+    <button class="tab-btn" onclick="switchTab('employer')">사업주 총인건비</button>
   </div>
 
-  <div class="result-card" id="resultCard">
-    <h2>📊 계산 결과 (2026년 기준)</h2>
-    <table class="ins-table">
-      <thead>
-        <tr><th>항목</th><th>근로자</th><th>사업주</th><th>합계</th></tr>
-      </thead>
-      <tbody id="insBody"></tbody>
-    </table>
-    <div class="summary-grid">
-      <div class="summary-box">
-        <div class="s-label">근로자 총 공제액</div>
-        <div class="s-value" id="sumEmployee">-<span>원</span></div>
+  <!-- 탭 1: 근로자 4대보험 -->
+  <div class="tab-panel active" id="tab-worker">
+    <div class="card">
+      <h2>급여 정보 입력</h2>
+      <div class="form-group">
+        <label for="salary">월 급여 (세전)</label>
+        <div class="input-wrap">
+          <input type="number" id="salary" placeholder="예: 3000000" min="0">
+          <span class="unit">원</span>
+        </div>
+        <p class="hint">기본급 + 각종 수당 포함 총 급여</p>
       </div>
-      <div class="summary-box">
-        <div class="s-label">사업주 총 부담액</div>
-        <div class="s-value" id="sumEmployer">-<span>원</span></div>
+      <button class="btn-calc" onclick="calcWorker()">4대보험 계산하기</button>
+    </div>
+
+    <div class="result-card" id="workerResult">
+      <h2>계산 결과 (2026년 기준)</h2>
+      <table class="ins-table">
+        <thead>
+          <tr><th>항목</th><th>근로자</th><th>사업주</th><th>합계</th></tr>
+        </thead>
+        <tbody id="workerBody"></tbody>
+      </table>
+      <div class="summary-grid">
+        <div class="summary-box">
+          <div class="s-label">근로자 총 공제액</div>
+          <div class="s-value" id="sumEmployee">-<span>원</span></div>
+        </div>
+        <div class="summary-box">
+          <div class="s-label">사업주 총 부담액</div>
+          <div class="s-value" id="sumEmployer">-<span>원</span></div>
+        </div>
+      </div>
+      <div class="rate-info">
+        ※ 2026년 적용 요율 | 국민연금: 9% (각 4.5%, 상한 617만원) | 건강보험: 7.09% (각 3.545%) | 장기요양: 건강보험료×12.95% | 고용보험: 근로자 0.9%, 사업주 0.9%
       </div>
     </div>
-    <div class="rate-info">
-      ※ 2026년 적용 요율 | 국민연금: 9% (각 4.5%) | 건강보험: 7.09% (각 3.545%) | 장기요양: 건강보험료×12.95% | 고용보험: 1.8% (근로자 0.9%, 사업주 0.9%)
+
+    <div class="card standalone">
+      <h2>자주 묻는 질문</h2>
+      <div class="faq-item">
+        <div class="faq-q">Q. 국민연금 상한액이 있나요?</div>
+        <div class="faq-a">2026년 기준 국민연금 기준소득월액 상한은 617만원입니다. 급여가 617만원을 초과해도 617만원 기준으로 계산됩니다.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Q. 장기요양보험료는 어떻게 계산하나요?</div>
+        <div class="faq-a">장기요양보험료 = 건강보험료 × 12.95%입니다. 근로자와 사업주가 각각 절반씩 부담합니다.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Q. 산재보험은 왜 없나요?</div>
+        <div class="faq-a">산재보험은 사업주가 100% 부담하며, 업종에 따라 요율이 다릅니다. '사업주 총인건비' 탭에서 산재보험료를 포함한 총인건비를 계산할 수 있습니다.</div>
+      </div>
     </div>
   </div>
 
-  <div class="card">
-    <h2>자주 묻는 질문</h2>
-    <div class="faq-item">
-      <div class="faq-q">Q. 국민연금 상한액이 있나요?</div>
-      <div class="faq-a">2026년 기준 국민연금 기준소득월액 상한은 617만원입니다. 급여가 617만원 초과해도 617만원 기준으로 계산됩니다.</div>
+  <!-- 탭 2: 사업주 총인건비 -->
+  <div class="tab-panel" id="tab-employer">
+    <div class="card">
+      <h2>총인건비 계산 입력</h2>
+      <div class="form-group">
+        <label for="empSalary">직원 월 급여 (세전)</label>
+        <div class="input-wrap">
+          <input type="number" id="empSalary" placeholder="예: 3000000" min="0">
+          <span class="unit">원</span>
+        </div>
+        <p class="hint">기본급 + 각종 수당 포함 총 급여</p>
+      </div>
+      <div class="form-group">
+        <label for="accidentType">산재보험 업종 선택</label>
+        <div class="input-wrap">
+          <select id="accidentType" onchange="toggleCustomRate()">
+            <option value="0.007">사무직 (0.7%)</option>
+            <option value="0.019">음식업 (1.9%)</option>
+            <option value="0.012">소매업 (1.2%)</option>
+            <option value="0.015">제조업 일반 (1.5%)</option>
+            <option value="0.037">건설업 (3.7%)</option>
+            <option value="custom">직접 입력 (%)</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group hidden" id="customRateGroup">
+        <label for="customRate">산재보험 요율 직접 입력</label>
+        <div class="input-wrap">
+          <input type="number" id="customRate" placeholder="예: 2.5" min="0" max="100" step="0.1">
+          <span class="unit">%</span>
+        </div>
+      </div>
+      <button class="btn-calc" onclick="calcEmployer()">총인건비 계산하기</button>
     </div>
-    <div class="faq-item">
-      <div class="faq-q">Q. 장기요양보험료는 어떻게 계산하나요?</div>
-      <div class="faq-a">장기요양보험료 = 건강보험료 × 12.95%입니다. 근로자와 사업주가 각각 절반씩 부담합니다.</div>
+
+    <div class="result-card" id="employerResult">
+      <h2>계산 결과 (2026년 기준)</h2>
+      <div class="summary-grid">
+        <div class="summary-box">
+          <div class="s-label">사업주 4대보험 합계</div>
+          <div class="s-value" id="emp4ins">-<span>원</span></div>
+        </div>
+        <div class="summary-box">
+          <div class="s-label">산재보험료</div>
+          <div class="s-value" id="empAccident">-<span>원</span></div>
+        </div>
+        <div class="summary-box full">
+          <div class="s-label">월 총 인건비</div>
+          <div class="s-value" id="empTotal">-<span>원</span></div>
+        </div>
+        <div class="summary-box full">
+          <div class="s-label">연간 환산 총인건비</div>
+          <div class="s-value" id="empAnnual">-<span>원</span></div>
+        </div>
+      </div>
+      <div class="detail-section" id="empDetailSection"></div>
+      <div class="rate-info">
+        ※ 고용보험 사업주 1.15% (실업급여 0.9% + 고용안정·직업능력개발 0.25%, 150인 미만 사업장 기준) | 국민연금 상한 617만원
+      </div>
     </div>
-    <div class="faq-item">
-      <div class="faq-q">Q. 산재보험은 왜 없나요?</div>
-      <div class="faq-a">산재보험은 사업주가 100% 부담하며, 업종에 따라 요율이 다릅니다. 일반 사무직 기준 약 0.7% 수준입니다.</div>
+
+    <div class="card standalone">
+      <h2>자주 묻는 질문</h2>
+      <div class="faq-item">
+        <div class="faq-q">Q. 산재보험 요율은 왜 업종마다 다른가요?</div>
+        <div class="faq-a">산재보험은 업종별 재해율에 따라 요율이 차등 적용됩니다. 위험도가 높은 건설업·제조업은 요율이 높고, 사무직은 낮습니다.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Q. 고용보험 사업주 부담률이 탭 1과 다른가요?</div>
+        <div class="faq-a">탭 1(근로자 4대보험)은 실업급여분 0.9%만 표시하지만, 총인건비 탭에서는 고용안정·직업능력개발 부담금(150인 미만 0.25%)을 포함한 1.15%로 계산합니다.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Q. 총인건비에 퇴직금도 포함되나요?</div>
+        <div class="faq-a">본 계산기는 4대보험과 산재보험만 포함합니다. 퇴직금(급여의 약 8.33%)은 별도 적립이 필요합니다.</div>
+      </div>
     </div>
   </div>
+
   <div class="ad-banner ad-bottom"></div>
 </main>
 <footer>
-  <p><a href="/">← 홈으로</a> &nbsp;|&nbsp; <a href="/privacy/">개인정보처리방침</a></p>
+  <p><a href="/">← 홈으로</a></p>
   <p style="margin-top:8px;">© 2026 CocoFlow. 본 계산기는 참고용이며 법적 효력이 없습니다.</p>
 </footer>
 <script>
   function fmt(n) { return Math.round(n).toLocaleString('ko-KR'); }
-  function calculate() {
+
+  function switchTab(tab) {
+    document.querySelectorAll('.tab-btn').forEach((b, i) => {
+      b.classList.toggle('active', (i === 0 && tab === 'worker') || (i === 1 && tab === 'employer'));
+    });
+    document.getElementById('tab-worker').classList.toggle('active', tab === 'worker');
+    document.getElementById('tab-employer').classList.toggle('active', tab === 'employer');
+  }
+
+  function toggleCustomRate() {
+    const sel = document.getElementById('accidentType');
+    document.getElementById('customRateGroup').classList.toggle('hidden', sel.value !== 'custom');
+  }
+
+  // 탭 1: 근로자 4대보험
+  function calcWorker() {
     const sal = parseFloat(document.getElementById('salary').value);
     if (!sal || sal <= 0) { alert('월 급여를 입력해주세요.'); return; }
 
-    // 국민연금 (상한 6,170,000)
     const npBase = Math.min(sal, 6170000);
     const npEmp  = npBase * 0.045;
     const npEr   = npBase * 0.045;
-
-    // 건강보험
-    const hiEmp = sal * 0.03545;
-    const hiEr  = sal * 0.03545;
-
-    // 장기요양 (건강보험료 기준)
-    const ltEmp = hiEmp * 0.1295;
-    const ltEr  = hiEr  * 0.1295;
-
-    // 고용보험
-    const uiEmp = sal * 0.009;
-    const uiEr  = sal * 0.009;
+    const hiEmp  = sal * 0.03545;
+    const hiEr   = sal * 0.03545;
+    const ltEmp  = hiEmp * 0.1295;
+    const ltEr   = hiEr  * 0.1295;
+    const uiEmp  = sal * 0.009;
+    const uiEr   = sal * 0.009;
 
     const rows = [
       { name: '국민연금',    emp: npEmp, er: npEr },
@@ -182,7 +294,7 @@
     ];
 
     let totalEmp = 0, totalEr = 0;
-    const tbody = document.getElementById('insBody');
+    const tbody = document.getElementById('workerBody');
     tbody.innerHTML = '';
     rows.forEach(r => {
       totalEmp += r.emp; totalEr += r.er;
@@ -197,10 +309,61 @@
 
     document.getElementById('sumEmployee').innerHTML = fmt(totalEmp) + '<span>원</span>';
     document.getElementById('sumEmployer').innerHTML = fmt(totalEr)  + '<span>원</span>';
-    document.getElementById('resultCard').classList.add('show');
-    document.getElementById('resultCard').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    const rc = document.getElementById('workerResult');
+    rc.classList.add('show');
+    rc.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   }
-  document.addEventListener('keydown', e => { if (e.key === 'Enter') calculate(); });
+
+  // 탭 2: 사업주 총인건비
+  function calcEmployer() {
+    const sal = parseFloat(document.getElementById('empSalary').value);
+    if (!sal || sal <= 0) { alert('직원 월 급여를 입력해주세요.'); return; }
+
+    const accSel = document.getElementById('accidentType');
+    let accRate;
+    if (accSel.value === 'custom') {
+      const cv = parseFloat(document.getElementById('customRate').value);
+      if (!cv || cv <= 0) { alert('산재보험 요율을 입력해주세요.'); return; }
+      accRate = cv / 100;
+    } else {
+      accRate = parseFloat(accSel.value);
+    }
+
+    const npBase = Math.min(sal, 6170000);
+    const npEr   = npBase * 0.045;
+    const hiEr   = sal * 0.03545;
+    const ltEr   = hiEr  * 0.1295;
+    const uiEr   = sal * 0.0115; // 0.9% + 0.25%
+    const accAmt = sal * accRate;
+
+    const ins4total = npEr + hiEr + ltEr + uiEr;
+    const totalCost = sal + ins4total + accAmt;
+    const annualCost = totalCost * 12;
+
+    document.getElementById('emp4ins').innerHTML    = fmt(ins4total) + '<span>원</span>';
+    document.getElementById('empAccident').innerHTML = fmt(accAmt)   + '<span>원</span>';
+    document.getElementById('empTotal').innerHTML    = fmt(totalCost) + '<span>원</span>';
+    document.getElementById('empAnnual').innerHTML   = fmt(annualCost) + '<span>원</span>';
+
+    const accLabel = accSel.value === 'custom'
+      ? `산재보험 (${document.getElementById('customRate').value}%)`
+      : `산재보험 (${accSel.options[accSel.selectedIndex].text})`;
+
+    document.getElementById('empDetailSection').innerHTML =
+      `<div class="detail-row"><span>직원 월 급여</span><span>${fmt(sal)}원</span></div>
+       <div class="detail-row"><span>국민연금 (사업주 4.5%, 상한 617만원)</span><span>${fmt(npEr)}원</span></div>
+       <div class="detail-row"><span>건강보험 (사업주 3.545%)</span><span>${fmt(hiEr)}원</span></div>
+       <div class="detail-row"><span>장기요양 (건강보험료×12.95%)</span><span>${fmt(ltEr)}원</span></div>
+       <div class="detail-row"><span>고용보험 (사업주 1.15%)</span><span>${fmt(uiEr)}원</span></div>
+       <div class="detail-row"><span>사업주 4대보험 합계</span><span>${fmt(ins4total)}원</span></div>
+       <div class="detail-row"><span>${accLabel}</span><span>${fmt(accAmt)}원</span></div>
+       <div class="detail-row highlight"><span>월 총 인건비</span><span>${fmt(totalCost)}원</span></div>
+       <div class="detail-row highlight"><span>연간 환산 총인건비</span><span>${fmt(annualCost)}원</span></div>`;
+
+    const rc = document.getElementById('employerResult');
+    rc.classList.add('show');
+    rc.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
 </script>
 </body>
 </html>
