@@ -142,6 +142,10 @@
       padding-bottom: 10px;
       border-bottom: 2px solid #eff6ff;
     }
+    .help-banner { background: #eff6ff; border-radius: 10px; padding: 14px 16px; margin-bottom: 20px; border: 1px solid #bfdbfe; }
+    .help-banner summary { font-size: 0.85rem; font-weight: 700; color: #2563eb; cursor: pointer; list-style: none; display: flex; align-items: center; gap: 6px; }
+    .help-banner summary::before { content: 'ℹ️'; }
+    .help-banner .help-content { margin-top: 10px; font-size: 0.82rem; color: #475569; line-height: 1.8; }
 
     /* ── Info box ── */
     .info-box {
@@ -320,6 +324,15 @@
 
 <main>
 
+  <details class="help-banner">
+    <summary>세법 기준 안내</summary>
+    <div class="help-content">
+      <p>• 근거: 근로자퇴직급여 보장법 (근로기준법 제34조)</p>
+      <p>• DB형: 퇴직 직전 3개월 평균임금 × 근속연수</p>
+      <p>• DC형: 연간 임금총액의 1/12 이상 납입</p>
+    </div>
+  </details>
+
   <!-- ── 탭 1: 기본 퇴직금 ── -->
   <div class="tab-panel active" id="panel0">
     <div class="card">
@@ -419,36 +432,70 @@
   <!-- ── 탭 2: DC형 퇴직연금 ── -->
   <div class="tab-panel" id="panel1">
     <div class="card">
-      <h2>DC형 퇴직연금 납입 기준액</h2>
+      <h2>DC형 퇴직연금 복리 시뮬레이션</h2>
 
       <div class="info-box">
         <strong>DC형(확정기여형) 퇴직연금이란?</strong><br>
-        회사가 매년 근로자 연간 임금총액의 1/12 이상을 근로자의 퇴직연금 계좌에 납입하는 제도입니다. 운용 수익은 근로자 본인이 책임집니다.
+        회사가 매년 근로자 연간 임금총액의 1/12 이상을 근로자의 퇴직연금 계좌에 납입하는 제도입니다. 운용 수익은 근로자 본인이 책임지며, 월별 복리 적립으로 시뮬레이션합니다.
       </div>
 
       <div class="form-group">
-        <label>연간 임금총액 (세전)</label>
+        <label>입사일</label>
         <div class="input-wrap">
-          <input type="number" id="t2Annual" placeholder="예: 40000000" min="0">
-          <span class="unit">원</span>
+          <input type="date" id="t2StartDate">
         </div>
-        <p class="hint">기본급 + 수당 + 상여금 등 모든 임금 포함</p>
       </div>
 
-      <button class="btn-calc" onclick="calcDC()">납입 기준액 계산하기</button>
+      <div class="form-group">
+        <label>퇴직일</label>
+        <div class="input-wrap">
+          <input type="date" id="t2EndDate">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>월 평균 급여 (세전)</label>
+        <div class="input-wrap">
+          <input type="number" id="t2Monthly" placeholder="예: 3000000" min="0">
+          <span class="unit">원</span>
+        </div>
+        <p class="hint">기본급 + 수당 포함 월 총 급여</p>
+      </div>
+
+      <div class="salary3-grid">
+        <div class="form-group">
+          <label>월 적립률</label>
+          <div class="input-wrap">
+            <input type="number" id="t2ContribRate" placeholder="8" min="0" max="100" step="0.1" value="8">
+            <span class="unit">%</span>
+          </div>
+          <p class="hint">법정 최소 8.33%</p>
+        </div>
+        <div class="form-group">
+          <label>연 운용수익률</label>
+          <div class="input-wrap">
+            <input type="number" id="t2ReturnRate" placeholder="3" min="0" max="30" step="0.1" value="3">
+            <span class="unit">%</span>
+          </div>
+          <p class="hint">가정 수익률</p>
+        </div>
+      </div>
+
+      <button class="btn-calc" onclick="calcDC()">DC형 퇴직금 계산하기</button>
     </div>
 
     <div class="result-card" id="t2Result">
-      <h2>DC형 납입 기준액</h2>
-      <div class="result-amount" id="t2Amount">0 <span>원 / 연</span></div>
-      <div class="result-sub">회사 연간 최소 납입 기준액</div>
+      <h2>DC형 퇴직금 예상액</h2>
+      <div class="result-amount" id="t2Amount">0 <span>원</span></div>
+      <div class="result-sub">복리 운용수익 포함 예상 퇴직금</div>
       <div class="result-detail">
-        <div class="result-row"><span class="label">연간 임금총액</span><span class="value" id="t2TotalAnnual">-</span></div>
-        <div class="result-row"><span class="label">연간 납입 기준액 (1/12)</span><span class="value" id="t2YearBase">-</span></div>
-        <div class="result-row"><span class="label">월 기준액 (연간 ÷ 12)</span><span class="value" id="t2MonthBase">-</span></div>
+        <div class="result-row"><span class="label">월 적립액</span><span class="value" id="t2MonthlyContrib">-</span></div>
+        <div class="result-row"><span class="label">총 적립 기간</span><span class="value" id="t2TotalMonths">-</span></div>
+        <div class="result-row"><span class="label">총 납입액</span><span class="value" id="t2TotalContrib">-</span></div>
+        <div class="result-row"><span class="label">예상 운용수익</span><span class="value" id="t2InvestReturn">-</span></div>
       </div>
       <div class="notice">
-        <strong>※ 참고:</strong> DC형은 회사가 정한 시기(분기·반기·연 등)에 납입하며, 실제 납입액은 회사 규정에 따라 다를 수 있습니다. 계산된 금액은 법정 최소 기준입니다.
+        <strong>※ 참고:</strong> 월별 복리 적립 기준 시뮬레이션입니다. 실제 수익률은 운용 상품에 따라 달라지며, 원금 손실 가능성도 있습니다.
       </div>
     </div>
 
@@ -571,6 +618,7 @@
   (function() {
     const today = new Date().toISOString().split('T')[0];
     document.getElementById('t1EndDate').value = today;
+    document.getElementById('t2EndDate').value = today;
     document.getElementById('t3EndDate').value = today;
   })();
 
@@ -631,18 +679,42 @@
     card.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 
-  // ── 탭 2: DC형 퇴직연금 ──
+  // ── 탭 2: DC형 퇴직연금 (복리 시뮬레이션) ──
   function calcDC() {
-    const annual = parseFloat(document.getElementById('t2Annual').value);
-    if (!annual || annual <= 0) { alert('연간 임금총액을 입력해주세요.'); return; }
+    const startVal     = document.getElementById('t2StartDate').value;
+    const endVal       = document.getElementById('t2EndDate').value;
+    const monthly      = parseFloat(document.getElementById('t2Monthly').value);
+    const contribRate  = (parseFloat(document.getElementById('t2ContribRate').value) || 8) / 100;
+    const returnRate   = (parseFloat(document.getElementById('t2ReturnRate').value)  || 3) / 100;
 
-    const yearBase  = Math.round(annual / 12);
-    const monthBase = Math.round(yearBase / 12);
+    if (!startVal || !endVal) { alert('입사일과 퇴직일을 입력해주세요.'); return; }
+    if (!monthly || monthly <= 0) { alert('월 평균 급여를 입력해주세요.'); return; }
 
-    document.getElementById('t2Amount').innerHTML   = fmt(yearBase) + ' <span>원 / 연</span>';
-    document.getElementById('t2TotalAnnual').textContent = fmt(Math.round(annual)) + '원';
-    document.getElementById('t2YearBase').textContent    = fmt(yearBase) + '원';
-    document.getElementById('t2MonthBase').textContent   = fmt(monthBase) + '원';
+    const start = new Date(startVal);
+    const end   = new Date(endVal);
+    if (end <= start) { alert('퇴직일이 입사일보다 이후여야 합니다.'); return; }
+
+    const totalMonths = (end.getFullYear() - start.getFullYear()) * 12
+                      + (end.getMonth() - start.getMonth());
+    if (totalMonths <= 0) { alert('근무 기간이 너무 짧습니다.'); return; }
+
+    const monthlyContrib = Math.round(monthly * contribRate);
+    const monthlyReturn  = returnRate / 12;
+
+    // 월별 복리 적립
+    let accumulated = 0;
+    for (let i = 0; i < totalMonths; i++) {
+      accumulated = (accumulated + monthlyContrib) * (1 + monthlyReturn);
+    }
+
+    const totalContrib  = monthlyContrib * totalMonths;
+    const investReturn  = accumulated - totalContrib;
+
+    document.getElementById('t2Amount').innerHTML          = fmt(Math.round(accumulated)) + ' <span>원</span>';
+    document.getElementById('t2MonthlyContrib').textContent = fmt(monthlyContrib) + '원';
+    document.getElementById('t2TotalMonths').textContent    = totalMonths + '개월';
+    document.getElementById('t2TotalContrib').textContent   = fmt(Math.round(totalContrib)) + '원';
+    document.getElementById('t2InvestReturn').textContent   = fmt(Math.round(investReturn)) + '원';
 
     const card = document.getElementById('t2Result');
     card.classList.add('show');

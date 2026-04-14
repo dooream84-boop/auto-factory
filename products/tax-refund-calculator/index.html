@@ -44,6 +44,10 @@
     main { max-width: 680px; margin: 24px auto; padding: 0 16px 48px; }
     .card { background: #fff; border-radius: 12px; box-shadow: 0 2px 12px rgba(37,99,235,0.08); padding: 28px 24px; margin-bottom: 20px; border: 1px solid #e2e8f0; }
     .card h2 { font-size: 1.05rem; font-weight: 700; color: #2563eb; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid #eff6ff; }
+    .help-banner { background: #eff6ff; border-radius: 10px; padding: 14px 16px; margin-bottom: 20px; border: 1px solid #bfdbfe; }
+    .help-banner summary { font-size: 0.85rem; font-weight: 700; color: #2563eb; cursor: pointer; list-style: none; display: flex; align-items: center; gap: 6px; }
+    .help-banner summary::before { content: 'ℹ️'; }
+    .help-banner .help-content { margin-top: 10px; font-size: 0.82rem; color: #475569; line-height: 1.8; }
     .section-label { font-size: 0.8rem; font-weight: 700; color: #2563eb; background: #eff6ff; padding: 5px 10px; border-radius: 6px; margin: 18px 0 12px; }
     .form-group { margin-bottom: 16px; }
     .form-group label { display: block; font-size: 0.88rem; font-weight: 600; color: #475569; margin-bottom: 6px; }
@@ -101,6 +105,17 @@
 </header>
 <div class="ad-banner ad-top"></div>
 <main>
+
+  <details class="help-banner">
+    <summary>세법 기준 안내</summary>
+    <div class="help-content">
+      <p>• 적용 기준: 2024년 귀속 연말정산 (2025년 신고)</p>
+      <p>• 신용카드 공제: 총급여 25% 초과분에 대해 15~40% 공제</p>
+      <p>• 월세 세액공제: 총급여 8천만원 이하, 최대 17%</p>
+      <p>• 주택자금 공제: 장기주택저당차입금 이자 최대 1,800만원</p>
+    </div>
+  </details>
+
   <div class="card">
     <h2>소득 및 공제 입력</h2>
 

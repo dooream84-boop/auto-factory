@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="google-site-verification" content="OyvdhFUwC-wAD4ZSdgejG5A1ch3hPGNN6Tt0UUsyzqk" />
+  <title>금융소득세 계산기 2026 - 이자·배당소득 분리과세·종합과세 비교</title>
+  <meta name="description" content="이자소득·배당소득을 입력하면 2,000만원 기준 분리과세(15.4%)와 종합과세를 비교하여 납부세액을 계산합니다.">
+  <meta name="keywords" content="금융소득세 계산기, 이자소득세, 배당소득세, 분리과세, 종합과세, 금융소득 2000만원">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="금융소득세 계산기 2026 - 이자·배당소득 분리과세·종합과세 비교">
+  <meta property="og:description" content="이자·배당소득 합계에 따라 분리과세(15.4%)와 종합과세를 비교하여 납부세액을 계산합니다.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://cocoflow.xyz/og-financial-income-tax-calculator.png">
+  <meta property="og:url" content="https://cocoflow.xyz/products/financial-income-tax-calculator/">
+  <link rel="canonical" href="https://cocoflow.xyz/products/financial-income-tax-calculator/">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "금융소득세 계산기",
+    "description": "이자·배당소득 분리과세와 종합과세를 비교하여 납부세액을 계산하는 무료 웹 도구",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "All",
+    "offers": { "@type": "Offer", "price": "0" }
+  }
+  </script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8616886611208474" crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Noto Sans KR', sans-serif; background: #f0f4f8; color: #1e293b; line-height: 1.6; }
+    header { background: linear-gradient(135deg, #2563eb, #1d4ed8); color: #fff; text-align: center; padding: 28px 16px 24px; }
+    .header-brand { font-size: 0.85rem; font-weight: 600; opacity: 0.8; letter-spacing: 1px; margin-bottom: 8px; }
+    header h1 { font-size: clamp(1.4rem, 4vw, 2rem); font-weight: 800; }
+    header p { margin-top: 6px; font-size: 0.95rem; opacity: 0.88; }
+    nav { margin-top: 12px; }
+    nav a { color: rgba(255,255,255,0.8); text-decoration: none; font-size: 0.85rem; margin: 0 10px; }
+    nav a:hover { color: #fff; }
+    .ad-banner { background: #fff; border: 1px dashed #cbd5e1; text-align: center; color: #94a3b8; font-size: 0.8rem; display: flex; align-items: center; justify-content: center; }
+    .ad-top { min-height: 90px; }
+    .ad-bottom { min-height: 250px; margin-top: 8px; border-radius: 12px; }
+    main { max-width: 680px; margin: 24px auto; padding: 0 16px 48px; }
+    .card { background: #fff; border-radius: 12px; box-shadow: 0 2px 12px rgba(37,99,235,0.08); padding: 28px 24px; margin-bottom: 20px; border: 1px solid #e2e8f0; }
+    .card h2 { font-size: 1.05rem; font-weight: 700; color: #2563eb; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid #eff6ff; }
+    .help-banner { background: #eff6ff; border-radius: 10px; padding: 14px 16px; margin-bottom: 20px; border: 1px solid #bfdbfe; }
+    .help-banner summary { font-size: 0.85rem; font-weight: 700; color: #2563eb; cursor: pointer; list-style: none; display: flex; align-items: center; gap: 6px; }
+    .help-banner summary::before { content: 'ℹ️'; }
+    .help-banner .help-content { margin-top: 10px; font-size: 0.82rem; color: #475569; line-height: 1.8; }
+    .form-group { margin-bottom: 18px; }
+    .form-group label { display: block; font-size: 0.88rem; font-weight: 600; color: #475569; margin-bottom: 6px; }
+    .form-group .hint { font-size: 0.78rem; color: #94a3b8; margin-top: 5px; }
+    .input-wrap { position: relative; }
+    .input-wrap input, .input-wrap select {
+      width: 100%; padding: 12px 48px 12px 14px;
+      border: 1.5px solid #e2e8f0; border-radius: 8px;
+      font-size: 1rem; font-family: 'Noto Sans KR', sans-serif;
+      outline: none; transition: border-color 0.2s; background: #fff; color: #1e293b;
+    }
+    .input-wrap select { padding-right: 14px; }
+    .input-wrap input:focus, .input-wrap select:focus { border-color: #2563eb; }
+    .input-wrap .unit { position: absolute; right: 14px; top: 50%; transform: translateY(-50%); font-size: 0.85rem; color: #94a3b8; pointer-events: none; }
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .btn-add { width: 100%; padding: 11px; background: #eff6ff; border: 1.5px solid #2563eb; color: #2563eb; font-size: 0.92rem; font-weight: 700; border-radius: 8px; cursor: pointer; font-family: 'Noto Sans KR', sans-serif; transition: background 0.18s; margin-bottom: 4px; }
+    .btn-add:hover { background: #dbeafe; }
+    .btn-calc { width: 100%; padding: 14px; background: linear-gradient(135deg, #2563eb, #1d4ed8); color: #fff; font-size: 1.05rem; font-weight: 700; border: none; border-radius: 8px; cursor: pointer; transition: opacity 0.2s, transform 0.1s; margin-top: 4px; font-family: 'Noto Sans KR', sans-serif; }
+    .btn-calc:hover { opacity: 0.92; }
+    .btn-calc:active { transform: scale(0.98); }
+    .btn-calc:disabled { opacity: 0.4; cursor: not-allowed; }
+    .income-list { margin-bottom: 16px; }
+    .income-item { display: flex; justify-content: space-between; align-items: center; padding: 10px 12px; background: #f8fafc; border-radius: 8px; margin-bottom: 8px; border: 1px solid #e2e8f0; }
+    .income-item .info { flex: 1; }
+    .income-item .type-badge { display: inline-block; font-size: 0.72rem; font-weight: 700; padding: 2px 7px; border-radius: 20px; margin-right: 6px; }
+    .badge-interest { background: #dbeafe; color: #1d4ed8; }
+    .badge-dividend { background: #dcfce7; color: #15803d; }
+    .income-item .source { font-size: 0.88rem; font-weight: 600; color: #1e293b; }
+    .income-item .amount { font-size: 0.95rem; font-weight: 700; color: #2563eb; }
+    .income-item .btn-del { background: none; border: none; color: #ef4444; cursor: pointer; font-size: 0.85rem; padding: 4px 8px; border-radius: 4px; }
+    .income-item .btn-del:hover { background: #fee2e2; }
+    .summary-bar { background: #eff6ff; border-radius: 10px; padding: 14px 16px; margin-bottom: 16px; border: 1px solid #bfdbfe; }
+    .summary-bar .summary-row { display: flex; justify-content: space-between; font-size: 0.88rem; padding: 4px 0; }
+    .summary-bar .total { font-weight: 800; font-size: 1.05rem; color: #2563eb; border-top: 1px solid #bfdbfe; padding-top: 8px; margin-top: 4px; }
+    .warning-badge { background: #fff7ed; border: 1px solid #fed7aa; border-radius: 8px; padding: 8px 12px; font-size: 0.82rem; color: #c2410c; font-weight: 600; margin-bottom: 12px; }
+    .result-card { display: none; background: linear-gradient(135deg, #eff6ff, #f0f4ff); border: 1.5px solid #2563eb; border-radius: 12px; padding: 24px; margin-bottom: 20px; }
+    .result-card.show { display: block; }
+    .result-card h2 { font-size: 1rem; font-weight: 700; color: #2563eb; margin-bottom: 16px; }
+    .result-amount { font-size: clamp(1.8rem, 5vw, 2.4rem); font-weight: 800; color: #1d4ed8; text-align: center; margin: 8px 0 4px; }
+    .result-amount span { font-size: 1rem; font-weight: 500; }
+    .result-sub { text-align: center; font-size: 0.85rem; color: #64748b; margin-bottom: 16px; }
+    .detail-section { border-top: 1px solid #bfdbfe; padding-top: 14px; margin-top: 4px; }
+    .detail-row { display: flex; justify-content: space-between; font-size: 0.88rem; padding: 6px 0; border-bottom: 1px dotted #e2e8f0; color: #475569; }
+    .detail-row:last-child { border-bottom: none; }
+    .detail-row.highlight { font-weight: 700; color: #1d4ed8; }
+    .detail-row.warning { color: #c2410c; font-weight: 600; }
+    .compare-box { background: #fff; border-radius: 10px; padding: 14px 16px; margin: 12px 0; border: 1px solid #e2e8f0; }
+    .compare-box .compare-title { font-size: 0.82rem; font-weight: 700; color: #64748b; margin-bottom: 8px; }
+    .compare-row { display: flex; justify-content: space-between; font-size: 0.88rem; padding: 4px 0; }
+    .compare-row.active { font-weight: 700; color: #2563eb; }
+    .tax-type-badge { display: inline-block; background: #2563eb; color: #fff; font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 20px; margin-left: 6px; }
+    .notice { background: #fff8e1; border-left: 4px solid #f59e0b; border-radius: 0 8px 8px 0; padding: 12px 14px; font-size: 0.82rem; color: #555; margin-top: 16px; line-height: 1.7; }
+    .rate-table { width: 100%; border-collapse: collapse; font-size: 0.82rem; margin-top: 4px; }
+    .rate-table th { background: #2563eb; color: #fff; padding: 7px 10px; }
+    .rate-table td { padding: 6px 10px; border-bottom: 1px solid #e2e8f0; text-align: center; }
+    .faq-item { margin-bottom: 14px; }
+    .faq-q { font-weight: 700; font-size: 0.92rem; color: #1e293b; margin-bottom: 4px; }
+    .faq-a { font-size: 0.88rem; color: #475569; line-height: 1.7; }
+    footer { text-align: center; font-size: 0.78rem; color: #94a3b8; padding: 20px 16px 32px; }
+    footer a { color: #94a3b8; text-decoration: none; }
+    footer a:hover { color: #2563eb; }
+    @media (max-width: 480px) { .card { padding: 20px 16px; } .two-col { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+<header>
+  <div class="header-brand">COCOFLOW</div>
+  <h1>금융소득세 계산기</h1>
+  <p>이자·배당소득 입력 → 분리과세·종합과세 비교 즉시 계산</p>
+  <nav>
+    <a href="/privacy/">개인정보처리방침</a>
+    <a href="/contact/">문의하기</a>
+  </nav>
+</header>
+<div class="ad-banner ad-top"></div>
+<main>
+
+  <details class="help-banner">
+    <summary>세법 기준 안내</summary>
+    <div class="help-content">
+      <p>• 금융소득(이자+배당) 연 2,000만원 이하: 분리과세 15.4% (소득세 14% + 지방세 1.4%)</p>
+      <p>• 2,000만원 초과: 종합과세 (6%~45% 누진세율, 다른 소득과 합산)</p>
+      <p>• 2024년: 금융투자소득세(금투세) 폐지 확정 — 기존 방식 유지</p>
+      <p>• 종합과세 시 2,000만원까지의 원천징수(14%)는 기납부세액으로 공제</p>
+      <p style="margin-top:6px;font-weight:700;">적용 기준: 2024년 귀속 소득세법</p>
+    </div>
+  </details>
+
+  <div class="card">
+    <h2>금융소득 입력</h2>
+
+    <div class="two-col">
+      <div class="form-group">
+        <label for="incomeType">소득 유형</label>
+        <div class="input-wrap">
+          <select id="incomeType">
+            <option value="interest">이자소득</option>
+            <option value="dividend">배당소득</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="incomeSource">출처 (은행/증권사)</label>
+        <div class="input-wrap">
+          <input type="text" id="incomeSource" placeholder="예: 국민은행">
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="incomeAmount">금액</label>
+      <div class="input-wrap">
+        <input type="number" id="incomeAmount" placeholder="예: 5000000" min="0">
+        <span class="unit">원</span>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="incomeMemo">메모 (선택)</label>
+      <div class="input-wrap">
+        <input type="text" id="incomeMemo" placeholder="예: 정기예금 만기">
+      </div>
+    </div>
+
+    <button class="btn-add" onclick="addIncome()">+ 소득 추가</button>
+  </div>
+
+  <div class="card" id="listCard" style="display:none;">
+    <h2>입력된 금융소득</h2>
+    <div class="income-list" id="incomeList"></div>
+    <div class="summary-bar" id="summaryBar"></div>
+    <div id="warningBadge"></div>
+
+    <div class="form-group" id="otherIncomeGroup" style="display:none;">
+      <label for="otherIncome">기타 종합소득 (선택)</label>
+      <div class="input-wrap">
+        <input type="number" id="otherIncome" placeholder="근로·사업·기타 소득 등" min="0">
+        <span class="unit">원</span>
+      </div>
+      <p class="hint">금융소득 2,000만원 초과 시 종합과세 계산에 합산됩니다</p>
+    </div>
+
+    <button class="btn-calc" id="calcBtn" onclick="calculate()">세금 계산하기</button>
+  </div>
+
+  <div class="result-card" id="resultCard">
+    <h2>금융소득세 계산 결과</h2>
+    <div class="result-amount" id="rFinalTax">-</div>
+    <div class="result-sub" id="rSub"></div>
+    <div class="detail-section" id="detailSection"></div>
+    <div class="notice">※ 실제 세금은 각종 공제 및 개인 상황에 따라 달라질 수 있습니다. 본 계산기는 참고용입니다.</div>
+  </div>
+
+  <div class="card">
+    <h2>종합소득세 세율표</h2>
+    <table class="rate-table">
+      <thead><tr><th>과세표준</th><th>세율</th><th>누진공제</th></tr></thead>
+      <tbody>
+        <tr><td>1,400만원 이하</td><td>6%</td><td>-</td></tr>
+        <tr><td>1,400만~5,000만원</td><td>15%</td><td>126만원</td></tr>
+        <tr><td>5,000만~8,800만원</td><td>24%</td><td>576만원</td></tr>
+        <tr><td>8,800만~1.5억원</td><td>35%</td><td>1,544만원</td></tr>
+        <tr><td>1.5억~3억원</td><td>38%</td><td>1,994만원</td></tr>
+        <tr><td>3억~5억원</td><td>40%</td><td>2,594만원</td></tr>
+        <tr><td>5억~10억원</td><td>42%</td><td>3,594만원</td></tr>
+        <tr><td>10억원 초과</td><td>45%</td><td>6,594만원</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <h2>자주 묻는 질문</h2>
+    <div class="faq-item">
+      <div class="faq-q">Q. 금융소득 2,000만원 기준이란?</div>
+      <div class="faq-a">이자소득과 배당소득의 합계가 연간 2,000만원을 초과하면 초과분은 다른 종합소득(근로·사업소득 등)과 합산하여 6~45% 누진세율로 과세됩니다. 2,000만원 이하는 14% 원천징수로 납세의무가 종결됩니다.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Q. 분리과세 15.4%는 어떻게 구성되나요?</div>
+      <div class="faq-a">소득세 14% + 지방소득세 1.4%입니다. 금융기관에서 이자·배당을 지급할 때 원천징수됩니다.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Q. 종합과세가 더 유리한 경우도 있나요?</div>
+      <div class="faq-a">종합소득이 매우 낮은 경우(예: 다른 소득이 없고 금융소득만 있는 경우) 종합과세 세율이 분리과세(15.4%)보다 낮을 수 있습니다. 본 계산기는 두 방식을 비교하여 보여줍니다.</div>
+    </div>
+  </div>
+
+  <div class="ad-banner ad-bottom"></div>
+</main>
+<footer>
+  <p><a href="/">← 홈으로</a></p>
+  <p style="margin-top:8px;">© 2026 CocoFlow. 본 계산기는 참고용이며 법적 효력이 없습니다.</p>
+</footer>
+
+<script>
+  const incomes = [];
+  function fmt(n) { return Math.round(n).toLocaleString('ko-KR'); }
+
+  function addIncome() {
+    const type   = document.getElementById('incomeType').value;
+    const source = document.getElementById('incomeSource').value.trim();
+    const amount = parseFloat(document.getElementById('incomeAmount').value);
+    const memo   = document.getElementById('incomeMemo').value.trim();
+    if (!amount || amount <= 0) { alert('금액을 입력해주세요.'); return; }
+
+    incomes.push({ type, source, amount, memo });
+    document.getElementById('incomeAmount').value = '';
+    document.getElementById('incomeSource').value = '';
+    document.getElementById('incomeMemo').value   = '';
+    renderList();
+    document.getElementById('resultCard').classList.remove('show');
+  }
+
+  function deleteIncome(idx) {
+    incomes.splice(idx, 1);
+    renderList();
+    document.getElementById('resultCard').classList.remove('show');
+  }
+
+  function renderList() {
+    const list = document.getElementById('incomeList');
+    const card = document.getElementById('listCard');
+    if (incomes.length === 0) { card.style.display = 'none'; return; }
+    card.style.display = 'block';
+
+    list.innerHTML = incomes.map((inc, i) => `
+      <div class="income-item">
+        <div class="info">
+          <span class="type-badge ${inc.type === 'interest' ? 'badge-interest' : 'badge-dividend'}">${inc.type === 'interest' ? '이자' : '배당'}</span>
+          <span class="source">${inc.source || '(출처 없음)'}${inc.memo ? ' · ' + inc.memo : ''}</span>
+        </div>
+        <span class="amount">${fmt(inc.amount)}원</span>
+        <button class="btn-del" onclick="deleteIncome(${i})">✕</button>
+      </div>
+    `).join('');
+
+    const interestTotal  = incomes.filter(i => i.type === 'interest').reduce((s, i) => s + i.amount, 0);
+    const dividendTotal  = incomes.filter(i => i.type === 'dividend').reduce((s, i) => s + i.amount, 0);
+    const total = interestTotal + dividendTotal;
+
+    document.getElementById('summaryBar').innerHTML = `
+      <div class="summary-row"><span>이자소득 합계</span><span>${fmt(interestTotal)}원</span></div>
+      <div class="summary-row"><span>배당소득 합계</span><span>${fmt(dividendTotal)}원</span></div>
+      <div class="summary-row total"><span>금융소득 합계</span><span>${fmt(total)}원</span></div>
+    `;
+
+    const warn = document.getElementById('warningBadge');
+    const otherGroup = document.getElementById('otherIncomeGroup');
+    if (total > 20000000) {
+      warn.innerHTML = '<div class="warning-badge">⚠️ 금융소득 2,000만원 초과 — 종합과세 대상입니다</div>';
+      otherGroup.style.display = 'block';
+    } else {
+      warn.innerHTML = '';
+      otherGroup.style.display = 'none';
+    }
+  }
+
+  function calculate() {
+    if (incomes.length === 0) { alert('금융소득을 먼저 입력해주세요.'); return; }
+    const total       = incomes.reduce((s, i) => s + i.amount, 0);
+    const otherIncome = parseFloat(document.getElementById('otherIncome').value) || 0;
+
+    // 분리과세: 15.4%
+    const separateTax = total * 0.154;
+
+    let finalTax, subText, detailHTML;
+
+    if (total <= 20000000) {
+      finalTax = separateTax;
+      subText  = '분리과세 적용 (원천징수로 납세의무 종결)';
+      detailHTML = `
+        <div class="detail-row"><span>금융소득 합계</span><span>${fmt(total)}원</span></div>
+        <div class="detail-row"><span>과세 방식</span><span>분리과세 (2,000만원 이하)</span></div>
+        <div class="detail-row"><span>소득세 (14%)</span><span>${fmt(total * 0.14)}원</span></div>
+        <div class="detail-row"><span>지방소득세 (1.4%)</span><span>${fmt(total * 0.014)}원</span></div>
+        <div class="detail-row highlight"><span>납부세액 (15.4%)</span><span>${fmt(finalTax)}원</span></div>
+        <div class="detail-row"><span>실효세율</span><span>15.4%</span></div>
+      `;
+    } else {
+      // 종합과세
+      const withheld = 20000000 * 0.14; // 원천징수 기납부
+      const excess   = total - 20000000;
+      const comprehensive = excess + otherIncome;
+      const progTax  = calcProgressiveTax(comprehensive);
+      const compTotal = (withheld + progTax) * 1.1; // 지방소득세 포함
+      const effective = total > 0 ? (compTotal / total) * 100 : 0;
+      const isSeparateBetter = separateTax < compTotal;
+      finalTax = isSeparateBetter ? separateTax : compTotal;
+      subText  = '종합과세 적용 (2,000만원 초과)';
+
+      detailHTML = `
+        <div class="detail-row"><span>금융소득 합계</span><span>${fmt(total)}원</span></div>
+        <div class="detail-row"><span>기타 종합소득</span><span>${fmt(otherIncome)}원</span></div>
+        <div class="compare-box">
+          <div class="compare-title">분리과세 vs 종합과세 비교</div>
+          <div class="compare-row ${isSeparateBetter ? 'active' : ''}"><span>분리과세 (15.4%)${isSeparateBetter ? '<span class="tax-type-badge">적용</span>' : ''}</span><span>${fmt(separateTax)}원</span></div>
+          <div class="compare-row ${!isSeparateBetter ? 'active' : ''}"><span>종합과세 (기납부+초과분)${!isSeparateBetter ? '<span class="tax-type-badge">적용</span>' : ''}</span><span>${fmt(compTotal)}원</span></div>
+        </div>
+        <div class="detail-row"><span>2,000만원까지 원천징수 (14%)</span><span>${fmt(withheld)}원</span></div>
+        <div class="detail-row"><span>초과분 + 기타소득</span><span>${fmt(comprehensive)}원</span></div>
+        <div class="detail-row"><span>초과분 누진세</span><span>${fmt(progTax)}원</span></div>
+        <div class="detail-row"><span>지방소득세 (10%) 포함</span><span>${fmt(compTotal)}원</span></div>
+        <div class="detail-row highlight"><span>최종 납부세액</span><span>${fmt(finalTax)}원</span></div>
+        <div class="detail-row"><span>실효세율</span><span>${effective.toFixed(1)}%</span></div>
+      `;
+    }
+
+    document.getElementById('rFinalTax').innerHTML = fmt(finalTax) + ' <span>원</span>';
+    document.getElementById('rSub').textContent = subText;
+    document.getElementById('detailSection').innerHTML = detailHTML;
+    const rc = document.getElementById('resultCard');
+    rc.classList.add('show');
+    rc.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+
+  function calcProgressiveTax(income) {
+    if (income <= 0) return 0;
+    const brackets = [
+      { limit: 14000000,    rate: 0.06, deduct: 0 },
+      { limit: 50000000,    rate: 0.15, deduct: 1260000 },
+      { limit: 88000000,    rate: 0.24, deduct: 5760000 },
+      { limit: 150000000,   rate: 0.35, deduct: 15440000 },
+      { limit: 300000000,   rate: 0.38, deduct: 19940000 },
+      { limit: 500000000,   rate: 0.40, deduct: 25940000 },
+      { limit: 1000000000,  rate: 0.42, deduct: 35940000 },
+      { limit: Infinity,    rate: 0.45, deduct: 65940000 },
+    ];
+    for (const b of brackets) {
+      if (income <= b.limit) return income * b.rate - b.deduct;
+    }
+    return 0;
+  }
+
+  document.addEventListener('keydown', e => { if (e.key === 'Enter') addIncome(); });
+</script>
+</body>
+</html>

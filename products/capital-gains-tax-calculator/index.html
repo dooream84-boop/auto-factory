@@ -44,6 +44,10 @@
     main { max-width: 680px; margin: 24px auto; padding: 0 16px 48px; }
     .card { background: #fff; border-radius: 12px; box-shadow: 0 2px 12px rgba(37,99,235,0.08); padding: 28px 24px; margin-bottom: 20px; border: 1px solid #e2e8f0; }
     .card h2 { font-size: 1.05rem; font-weight: 700; color: #2563eb; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid #eff6ff; }
+    .help-banner { background: #eff6ff; border-radius: 10px; padding: 14px 16px; margin-bottom: 20px; border: 1px solid #bfdbfe; }
+    .help-banner summary { font-size: 0.85rem; font-weight: 700; color: #2563eb; cursor: pointer; list-style: none; display: flex; align-items: center; gap: 6px; }
+    .help-banner summary::before { content: 'ℹ️'; }
+    .help-banner .help-content { margin-top: 10px; font-size: 0.82rem; color: #475569; line-height: 1.8; }
     .tab-group { display: flex; gap: 6px; margin-bottom: 24px; }
     .tab-btn { flex: 1; padding: 10px 8px; border: 1.5px solid #e2e8f0; border-radius: 8px; background: #fff; color: #64748b; font-size: 0.85rem; font-weight: 600; cursor: pointer; transition: all 0.18s; font-family: 'Noto Sans KR', sans-serif; text-align: center; }
     .tab-btn:hover { border-color: #2563eb; color: #2563eb; }
@@ -112,6 +116,16 @@
 </header>
 <div class="ad-banner ad-top"></div>
 <main>
+
+  <details class="help-banner">
+    <summary>세법 기준 안내</summary>
+    <div class="help-content">
+      <p>• 1세대 1주택 비과세: 2년 이상 보유 (조정지역 2년 거주 추가)</p>
+      <p>• 장기보유특별공제: 최대 80% (15년 이상 1세대 1주택)</p>
+      <p>• 다주택자 중과: 기본세율 + 10~30%p 중과</p>
+    </div>
+  </details>
+
   <div class="card">
     <h2>주택 유형 선택</h2>
     <div class="tab-group">

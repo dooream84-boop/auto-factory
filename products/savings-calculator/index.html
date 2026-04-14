@@ -44,6 +44,10 @@
     main { max-width: 680px; margin: 24px auto; padding: 0 16px 48px; }
     .card { background: #fff; border-radius: 12px; box-shadow: 0 2px 12px rgba(37,99,235,0.08); padding: 28px 24px; margin-bottom: 20px; border: 1px solid #e2e8f0; }
     .card h2 { font-size: 1.05rem; font-weight: 700; color: #2563eb; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid #eff6ff; }
+    .help-banner { background: #eff6ff; border-radius: 10px; padding: 14px 16px; margin-bottom: 20px; border: 1px solid #bfdbfe; }
+    .help-banner summary { font-size: 0.85rem; font-weight: 700; color: #2563eb; cursor: pointer; list-style: none; display: flex; align-items: center; gap: 6px; }
+    .help-banner summary::before { content: 'ℹ️'; }
+    .help-banner .help-content { margin-top: 10px; font-size: 0.82rem; color: #475569; line-height: 1.8; }
     .form-group { margin-bottom: 18px; }
     .form-group label { display: block; font-size: 0.88rem; font-weight: 600; color: #475569; margin-bottom: 6px; }
     .tab-wrap { display: flex; gap: 8px; }
@@ -95,6 +99,15 @@
 </header>
 <div class="ad-banner ad-top"></div>
 <main>
+
+  <details class="help-banner">
+    <summary>세법 기준 안내</summary>
+    <div class="help-content">
+      <p>• 이자소득세: 15.4% (소득세 14% + 지방소득세 1.4%)</p>
+      <p>• 비과세 종합저축: 65세 이상·장애인 등 5천만원 한도 비과세</p>
+    </div>
+  </details>
+
   <div class="card">
     <h2>적금 정보 입력</h2>
     <div class="form-group">

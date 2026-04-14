@@ -44,6 +44,10 @@
     main { max-width: 680px; margin: 24px auto; padding: 0 16px 48px; }
     .card { background: #fff; border-radius: 12px; box-shadow: 0 2px 12px rgba(37,99,235,0.08); padding: 28px 24px; margin-bottom: 20px; border: 1px solid #e2e8f0; }
     .card h2 { font-size: 1.05rem; font-weight: 700; color: #2563eb; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid #eff6ff; }
+    .help-banner { background: #eff6ff; border-radius: 10px; padding: 14px 16px; margin-bottom: 20px; border: 1px solid #bfdbfe; }
+    .help-banner summary { font-size: 0.85rem; font-weight: 700; color: #2563eb; cursor: pointer; list-style: none; display: flex; align-items: center; gap: 6px; }
+    .help-banner summary::before { content: 'ℹ️'; }
+    .help-banner .help-content { margin-top: 10px; font-size: 0.82rem; color: #475569; line-height: 1.8; }
     .tab-group { display: flex; gap: 6px; margin-bottom: 24px; }
     .tab-btn { flex: 1; padding: 10px 8px; border: 1.5px solid #e2e8f0; border-radius: 8px; background: #fff; color: #64748b; font-size: 0.85rem; font-weight: 600; cursor: pointer; transition: all 0.18s; font-family: 'Noto Sans KR', sans-serif; text-align: center; }
     .tab-btn:hover { border-color: #2563eb; color: #2563eb; }
@@ -107,6 +111,16 @@
 </header>
 <div class="ad-banner ad-top"></div>
 <main>
+
+  <details class="help-banner">
+    <summary>세법 기준 안내</summary>
+    <div class="help-content">
+      <p>• 2026년 최저시급: 10,030원 (최저임금법 기준)</p>
+      <p>• 주휴수당: 주 15시간 이상 근무 시 1일분 추가 지급</p>
+      <p>• 연장·야간·휴일 가산: 통상임금의 50% 가산</p>
+    </div>
+  </details>
+
   <div class="card">
     <h2>계산 유형 선택</h2>
     <div class="tab-group">

@@ -44,6 +44,10 @@
     main { max-width: 680px; margin: 24px auto; padding: 0 16px 48px; }
     .card { background: #fff; border-radius: 12px; box-shadow: 0 2px 12px rgba(37,99,235,0.08); padding: 28px 24px; margin-bottom: 20px; border: 1px solid #e2e8f0; }
     .card h2 { font-size: 1.05rem; font-weight: 700; color: #2563eb; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid #eff6ff; }
+    .help-banner { background: #eff6ff; border-radius: 10px; padding: 14px 16px; margin-bottom: 20px; border: 1px solid #bfdbfe; }
+    .help-banner summary { font-size: 0.85rem; font-weight: 700; color: #2563eb; cursor: pointer; list-style: none; display: flex; align-items: center; gap: 6px; }
+    .help-banner summary::before { content: 'ℹ️'; }
+    .help-banner .help-content { margin-top: 10px; font-size: 0.82rem; color: #475569; line-height: 1.8; }
     .section-label { font-size: 0.8rem; font-weight: 700; color: #2563eb; letter-spacing: 0.5px; text-transform: uppercase; margin-bottom: 14px; padding: 6px 10px; background: #eff6ff; border-radius: 6px; display: inline-block; }
     .section-divider { border: none; border-top: 1px dashed #e2e8f0; margin: 20px 0; }
     .form-group { margin-bottom: 18px; }
@@ -107,6 +111,16 @@
 </header>
 <div class="ad-banner ad-top"></div>
 <main>
+
+  <details class="help-banner">
+    <summary>세법 기준 안내</summary>
+    <div class="help-content">
+      <p>• 일괄공제: 5억원 (기초공제 2억 + 인적공제 vs 일괄 5억 중 큰 금액 선택)</p>
+      <p>• 배우자공제: 최소 5억원 (최대 30억원)</p>
+      <p>• 신고세액공제: 신고기한 내 신고 시 3% 공제</p>
+    </div>
+  </details>
+
   <div class="card">
     <h2>상속 정보 입력</h2>
 

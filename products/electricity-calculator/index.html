@@ -45,6 +45,10 @@
 
     .card { background: #fff; border-radius: 14px; box-shadow: 0 2px 12px rgba(0,0,0,0.07); padding: 28px 24px; margin-bottom: 20px; }
     .card h2 { font-size: 1.05rem; font-weight: 700; color: #2563eb; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid #dbeafe; }
+    .help-banner { background: #eff6ff; border-radius: 10px; padding: 14px 16px; margin-bottom: 20px; border: 1px solid #bfdbfe; }
+    .help-banner summary { font-size: 0.85rem; font-weight: 700; color: #2563eb; cursor: pointer; list-style: none; display: flex; align-items: center; gap: 6px; }
+    .help-banner summary::before { content: 'ℹ️'; }
+    .help-banner .help-content { margin-top: 10px; font-size: 0.82rem; color: #475569; line-height: 1.8; }
 
     .season-tabs { display: flex; gap: 8px; margin-bottom: 18px; }
     .season-tab { flex: 1; padding: 10px; border: 1.5px solid #e2e8f0; border-radius: 8px; background: #fff; font-size: 0.88rem; font-weight: 600; font-family: 'Noto Sans KR', sans-serif; cursor: pointer; text-align: center; color: #64748b; transition: all 0.2s; }
@@ -101,6 +105,16 @@
 <div class="ad-banner ad-top">[광고 영역 - AdSense 상단 배너]</div>
 
 <main>
+
+  <details class="help-banner">
+    <summary>요금 기준 안내</summary>
+    <div class="help-content">
+      <p>• 누진 3단계: 200kWh 이하 88.3원/kWh, 201~400 182.9원, 초과 275.6원</p>
+      <p>• 기후환경요금: 9원/kWh</p>
+      <p>• 연료비조정액: 5원/kWh</p>
+    </div>
+  </details>
+
   <div class="card">
     <h2>사용 정보 입력</h2>
 
@@ -130,6 +144,8 @@
     <div class="result-detail">
       <div class="result-row"><span class="lbl">기본요금</span><span class="val" id="rBase">-</span></div>
       <div class="result-row"><span class="lbl">전력량요금</span><span class="val" id="rEnergy">-</span></div>
+      <div class="result-row"><span class="lbl">기후환경요금 (9원/kWh)</span><span class="val" id="rClimate">-</span></div>
+      <div class="result-row"><span class="lbl">연료비조정액 (5원/kWh)</span><span class="val" id="rFuel">-</span></div>
       <div class="result-row"><span class="lbl">부가가치세 (10%)</span><span class="val" id="rVat">-</span></div>
       <div class="result-row"><span class="lbl">전력산업기반기금 (3.7%)</span><span class="val" id="rFund">-</span></div>
       <div class="result-row"><span class="lbl">최종 납부액</span><span class="val" id="rFinal">-</span></div>
@@ -225,17 +241,21 @@
       remaining -= applied;
     }
 
-    const subtotal  = baseFee + energyFee;
+    const climateFee = Math.round(usage * 9.0);
+    const fuelFee    = Math.round(usage * 5.0);
+    const subtotal  = baseFee + energyFee + climateFee + fuelFee;
     const vat       = Math.round(subtotal * 0.1);
     const fund      = Math.round(subtotal * 0.037);
     const total     = Math.round(subtotal + vat + fund);
 
     document.getElementById('rTotal').innerHTML  = fmt(total) + ' <span>원</span>';
-    document.getElementById('rBase').textContent   = fmt(baseFee) + '원';
-    document.getElementById('rEnergy').textContent = fmt(Math.round(energyFee)) + '원';
-    document.getElementById('rVat').textContent    = fmt(vat) + '원';
-    document.getElementById('rFund').textContent   = fmt(fund) + '원';
-    document.getElementById('rFinal').textContent  = fmt(total) + '원';
+    document.getElementById('rBase').textContent    = fmt(baseFee) + '원';
+    document.getElementById('rEnergy').textContent  = fmt(Math.round(energyFee)) + '원';
+    document.getElementById('rClimate').textContent = fmt(climateFee) + '원';
+    document.getElementById('rFuel').textContent    = fmt(fuelFee) + '원';
+    document.getElementById('rVat').textContent     = fmt(vat) + '원';
+    document.getElementById('rFund').textContent    = fmt(fund) + '원';
+    document.getElementById('rFinal').textContent   = fmt(total) + '원';
 
     const tbody = document.getElementById('tierBody');
     tbody.innerHTML = tierRows.filter(t => t.applied > 0).map(t =>
