@@ -14,7 +14,7 @@
 - AdSense 코드 (<head>에 필수):
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8616886611208474" crossorigin="anonymous"></script>
 
-## 배포된 계산기 21개
+## 배포된 계산기 23개
 
 ### 금융·노무 (14개)
 - 퇴직금: /products/severance-calculator/
@@ -43,6 +43,10 @@
 ### 세금 통합 (1개)
 - 증여세·상속세 통합탭: /products/gift-tax-calculator/
 
+### 금융 소득세·해외 (2개)
+- 금융소득세: /products/financial-income-tax-calculator/
+- 해외주식 양도세: /products/overseas-stock-tax-calculator/
+
 ## 주요 계산 로직 (검증 완료)
 - 연차수당: 통상임금 ÷ 209 × 8 × 잔여일수
 - 4대보험: 국민연금 4.5%, 건강보험 3.545%, 장기요양 건강보험료×12.95%, 고용보험 0.9%
@@ -60,12 +64,9 @@
 - GitHub Actions: claude-code-issue.yml 세팅 완료
 
 ## 미완료 작업
-1. Search Console 색인 요청 13개 (직접 입력 필요):
-   vat / annual-leave / midterm-leave / dday / compound-interest /
-   capital-gains-tax / income-tax / calorie / insurance / savings /
-   inheritance-tax / hourly-wage / korean-age
-2. GitHub Secrets에 ANTHROPIC_API_KEY 등록
-3. Issues에 claude 라벨 생성
+1. ~~Search Console 색인 요청 15개~~ ✅ 완료 (2026-04-14)
+2. ~~GitHub Secrets에 ANTHROPIC_API_KEY 등록~~ ❌ 미진행 (GitHub 자동화 사용 안 함)
+3. ~~Issues에 claude 라벨 생성~~ ❌ 미진행 (GitHub 자동화 사용 안 함)
 4. AdSense 승인 후 광고 단위 설정
 
 ## 새 계산기 추가 시 체크리스트
