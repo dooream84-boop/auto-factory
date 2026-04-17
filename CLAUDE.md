@@ -15,7 +15,7 @@
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8616886611208474" crossorigin="anonymous"></script>
 - GA4 측정 ID: G-S9RMP4C91R (모든 페이지 <head>에 삽입 완료)
 
-## 배포된 계산기 23개
+## 배포된 계산기 26개
 
 ### 금융·노무 (14개)
 - 퇴직금: /products/severance-calculator/
@@ -47,6 +47,11 @@
 ### 금융 소득세·해외 (2개)
 - 금융소득세: /products/financial-income-tax-calculator/
 - 해외주식 양도세: /products/overseas-stock-tax-calculator/
+
+### 부동산·차량 (3개, 2026-04-18 추가)
+- 자동차세: /products/automobile-tax-calculator/
+- 취득세: /products/acquisition-tax-calculator/
+- DSR(주택담보대출): /products/dsr-calculator/
 
 ## 주요 계산 로직 (검증 완료)
 - 연차수당: 통상임금 ÷ 209 × 8 × 잔여일수
