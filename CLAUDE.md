@@ -13,6 +13,7 @@
 - 페이지 구조: header → hero(파란 그라데이션) → ad-banner → 입력카드 → 결과카드 → 설명카드 → footer
 - AdSense 코드 (<head>에 필수):
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8616886611208474" crossorigin="anonymous"></script>
+- GA4 측정 ID: G-S9RMP4C91R (모든 페이지 <head>에 삽입 완료)
 
 ## 배포된 계산기 23개
 
