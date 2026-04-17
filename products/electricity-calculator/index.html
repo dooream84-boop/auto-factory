@@ -4,12 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="google-site-verification" content="OyvdhFUwC-wAD4ZSdgejG5A1ch3hPGNN6Tt0UUsyzqk" />
-  <title>전기요금 계산기 2026 - 한전 누진세 전기세 계산</title>
-  <meta name="description" content="월 전기 사용량을 입력하면 한전 누진 3단계 기준으로 기본요금, 전력량요금, 부가세, 기반기금을 포함한 납부액을 계산합니다.">
-  <meta name="keywords" content="전기요금 계산기, 전기세 계산, 한전 누진세, 전기세 얼마, 전력량요금 계산">
+  <title>전기요금 계산기 2026 최신 | 한전 누진세 3초 계산 - CocoFlow</title>
+  <meta name="description" content="kWh 사용량만 입력하면 한전 누진 3단계(88.3/182.9/275.6원) 기준으로 기본요금·전력량요금·부가세·기반기금까지 포함한 전기세를 3초 안에 계산합니다. 2026년 최신 요금제 반영. 100% 무료.">
+  <meta name="keywords" content="전기 계산기, 전기요금 계산기, 전기세 계산, 한전 누진세, 전기세 얼마, 전력량요금 계산, 2026 전기요금">
   <meta name="robots" content="index, follow">
-  <meta property="og:title" content="전기요금 계산기 - 한전 누진세 전기세 계산">
-  <meta property="og:description" content="월 사용량 입력으로 기본요금·전력량요금·부가세 포함 최종 납부액을 계산합니다.">
+  <meta property="og:title" content="전기요금 계산기 2026 최신 | 한전 누진세 3초 계산">
+  <meta property="og:description" content="kWh 사용량만 입력하면 한전 누진 3단계 기준으로 최종 납부액을 3초 안에 계산. 2026년 최신 요금제 반영. 100% 무료.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://cocoflow.xyz/products/electricity-calculator/">
   <meta property="og:image" content="https://cocoflow.xyz/og-electricity-calculator.png">
@@ -314,5 +314,35 @@
 
   function fmt(n) { return Math.round(n).toLocaleString('ko-KR'); }
 </script>
+<!-- GA4 맞춤 이벤트 추적 -->
+<script>
+(function(){
+  if (typeof gtag !== 'function') return;
+  var path = location.pathname.match(/\/products\/([^\/]+)\//);
+  var calcName = path ? path[1] : 'unknown';
+  document.addEventListener('click', function(e){
+    var t = e.target.closest('.btn-calc');
+    if (t) {
+      gtag('event', 'calculate_click', {
+        calculator_name: calcName,
+        button_text: (t.textContent || '').trim().slice(0, 50)
+      });
+      return;
+    }
+    var link = e.target.closest('a[href^="/products/"]');
+    if (link) {
+      var href = link.getAttribute('href') || '';
+      var target = href.match(/\/products\/([^\/]+)\//);
+      if (target && target[1] !== calcName) {
+        gtag('event', 'related_calculator_click', {
+          from_calculator: calcName,
+          to_calculator: target[1]
+        });
+      }
+    }
+  }, true);
+})();
+</script>
+
 </body>
 </html>

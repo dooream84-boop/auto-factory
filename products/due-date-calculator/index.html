@@ -4,12 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="google-site-verification" content="OyvdhFUwC-wAD4ZSdgejG5A1ch3hPGNN6Tt0UUsyzqk" />
-  <title>출산예정일 계산기 2026 - 임신 주수 출산일 무료 계산</title>
-  <meta name="description" content="마지막 생리일 또는 수정일을 입력하면 출산예정일, 임신 주수, 남은 일수를 즉시 계산합니다. 임신 마일스톤 일정표 포함.">
-  <meta name="keywords" content="출산예정일 계산기, 임신 주수 계산, 분만예정일, 임신 계산기, 출산일 계산">
+  <title>출산예정일 계산기 | 임신 주수·남은 일수 1초 확인 2026 - CocoFlow</title>
+  <meta name="description" content="마지막 생리일 1개만 입력하면 출산예정일·현재 임신 주수·남은 일수를 1초 만에 계산합니다. 네겔레 공식(280일) 기반 정확한 계산, 주수별 태아 발달 마일스톤 일정표 자동 생성. 2026년 최신 버전. 100% 무료.">
+  <meta name="keywords" content="출산 예정일 계산기, 출산예정일 계산기, 임신 주수 계산, 분만예정일, 임신 계산기, 출산일 계산, 네겔레 공식">
   <meta name="robots" content="index, follow">
-  <meta property="og:title" content="출산예정일 계산기 - 임신 주수 출산일 무료 계산">
-  <meta property="og:description" content="마지막 생리일 또는 수정일 입력으로 출산예정일과 임신 주수를 즉시 계산합니다.">
+  <meta property="og:title" content="출산예정일 계산기 | 임신 주수·남은 일수 1초 확인 2026">
+  <meta property="og:description" content="마지막 생리일 1개만 입력하면 출산예정일·현재 임신 주수·남은 일수를 1초 만에 계산. 주수별 태아 발달 마일스톤 포함. 100% 무료.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://cocoflow.xyz/products/due-date-calculator/">
   <meta property="og:image" content="https://cocoflow.xyz/og-due-date-calculator.png">
@@ -320,5 +320,35 @@
     document.getElementById('resultCard').scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 </script>
+<!-- GA4 맞춤 이벤트 추적 -->
+<script>
+(function(){
+  if (typeof gtag !== 'function') return;
+  var path = location.pathname.match(/\/products\/([^\/]+)\//);
+  var calcName = path ? path[1] : 'unknown';
+  document.addEventListener('click', function(e){
+    var t = e.target.closest('.btn-calc');
+    if (t) {
+      gtag('event', 'calculate_click', {
+        calculator_name: calcName,
+        button_text: (t.textContent || '').trim().slice(0, 50)
+      });
+      return;
+    }
+    var link = e.target.closest('a[href^="/products/"]');
+    if (link) {
+      var href = link.getAttribute('href') || '';
+      var target = href.match(/\/products\/([^\/]+)\//);
+      if (target && target[1] !== calcName) {
+        gtag('event', 'related_calculator_click', {
+          from_calculator: calcName,
+          to_calculator: target[1]
+        });
+      }
+    }
+  }, true);
+})();
+</script>
+
 </body>
 </html>

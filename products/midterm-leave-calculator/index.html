@@ -4,12 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="google-site-verification" content="OyvdhFUwC-wAD4ZSdgejG5A1ch3hPGNN6Tt0UUsyzqk" />
-  <title>중도퇴사 연차 계산기 2026 - 퇴사 시 잔여 연차 무료 계산</title>
-  <meta name="description" content="입사일과 퇴사일을 입력하면 중도퇴사 시 발생한 연차일수와 잔여 연차를 계산합니다. 근로기준법 기준.">
-  <meta name="keywords" content="중도퇴사 연차, 퇴사 연차 계산기, 연차 일수 계산, 비례 연차, 연차수당">
+  <title>중도퇴사 연차 계산기 2026 | 잔여 연차수당 1분 확인 - CocoFlow</title>
+  <meta name="description" content="입사일·퇴사일 2개만 입력하면 중도퇴사 시 발생 연차 일수와 미사용 연차수당(통상임금÷209×8×잔여일수)을 근로기준법 기준으로 1분 만에 자동 계산합니다. 2026년 최신 판례 반영. 100% 무료.">
+  <meta name="keywords" content="중도 퇴사 자 연차 계산, 중도퇴사 연차, 퇴사 연차 계산기, 연차 일수 계산, 비례 연차, 연차수당, 미사용 연차수당">
   <meta name="robots" content="index, follow">
-  <meta property="og:title" content="중도퇴사 연차 계산기 - 퇴사 시 잔여 연차 계산">
-  <meta property="og:description" content="입사일과 퇴사일로 중도퇴사 시 발생한 연차와 잔여 연차를 계산합니다.">
+  <meta property="og:title" content="중도퇴사 연차 계산기 2026 | 잔여 연차수당 1분 확인">
+  <meta property="og:description" content="입사일·퇴사일만 입력하면 중도퇴사 시 발생 연차와 미사용 연차수당을 근로기준법 기준으로 1분 만에 자동 계산. 2026년 최신 판례 반영.">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://cocoflow.xyz/og-midterm-leave-calculator.png">
   <meta property="og:url" content="https://cocoflow.xyz/products/midterm-leave-calculator/">
@@ -282,5 +282,35 @@
     document.getElementById('resultCard').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   }
 </script>
+<!-- GA4 맞춤 이벤트 추적 -->
+<script>
+(function(){
+  if (typeof gtag !== 'function') return;
+  var path = location.pathname.match(/\/products\/([^\/]+)\//);
+  var calcName = path ? path[1] : 'unknown';
+  document.addEventListener('click', function(e){
+    var t = e.target.closest('.btn-calc');
+    if (t) {
+      gtag('event', 'calculate_click', {
+        calculator_name: calcName,
+        button_text: (t.textContent || '').trim().slice(0, 50)
+      });
+      return;
+    }
+    var link = e.target.closest('a[href^="/products/"]');
+    if (link) {
+      var href = link.getAttribute('href') || '';
+      var target = href.match(/\/products\/([^\/]+)\//);
+      if (target && target[1] !== calcName) {
+        gtag('event', 'related_calculator_click', {
+          from_calculator: calcName,
+          to_calculator: target[1]
+        });
+      }
+    }
+  }, true);
+})();
+</script>
+
 </body>
 </html>

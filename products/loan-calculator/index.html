@@ -350,5 +350,35 @@
   function fmt(n) { return n.toLocaleString('ko-KR'); }
 </script>
 
+<!-- GA4 맞춤 이벤트 추적 -->
+<script>
+(function(){
+  if (typeof gtag !== 'function') return;
+  var path = location.pathname.match(/\/products\/([^\/]+)\//);
+  var calcName = path ? path[1] : 'unknown';
+  document.addEventListener('click', function(e){
+    var t = e.target.closest('.btn-calc');
+    if (t) {
+      gtag('event', 'calculate_click', {
+        calculator_name: calcName,
+        button_text: (t.textContent || '').trim().slice(0, 50)
+      });
+      return;
+    }
+    var link = e.target.closest('a[href^="/products/"]');
+    if (link) {
+      var href = link.getAttribute('href') || '';
+      var target = href.match(/\/products\/([^\/]+)\//);
+      if (target && target[1] !== calcName) {
+        gtag('event', 'related_calculator_click', {
+          from_calculator: calcName,
+          to_calculator: target[1]
+        });
+      }
+    }
+  }, true);
+})();
+</script>
+
 </body>
 </html>
