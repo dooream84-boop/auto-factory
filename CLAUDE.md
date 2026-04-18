@@ -74,6 +74,25 @@
 2. ~~GitHub Secrets에 ANTHROPIC_API_KEY 등록~~ ❌ 미진행 (GitHub 자동화 사용 안 함)
 3. ~~Issues에 claude 라벨 생성~~ ❌ 미진행 (GitHub 자동화 사용 안 함)
 4. AdSense 승인 후 광고 단위 설정
+5. 제휴 가입 (coco 직접): 디비디비딥 → 애드픽 → 핀다 → 삼쩜삼 (REVENUE_CHANNELS.md 참고)
+6. 네이버 서치어드바이저 등록 (coco 직접)
+
+## 2026-04-18 감사·개선 완료 (CONTENT_AUDIT.md 참고)
+- 12개 페이지 중복 info-section 228라인 제거
+- 26개 페이지 관련 계산기 카테고리 매칭 재큐레이션
+- 26개 페이지 E-E-A-T 박스 (업데이트일·근거·면책·연락처) 일괄 삽입
+- 26개 페이지 Floating 공유 바(카톡 공유·링크복사·인쇄) 삽입
+- 26개 페이지 제휴 슬롯 placeholder (카테고리별) 삽입
+- 전기요금: 2024→2026 데이터 일관성, 여름 탭 안내, 한전 공식 링크
+- 중도퇴사: 통상임금 입력 + 연차수당 원단위 결과 추가
+- HTML 구조 정상화 (info-section을 </main> 안으로)
+- /disclosure/ 광고·제휴 고지 페이지 신설 + 전 페이지 footer 링크
+- sitemap.xml 28 URL (+disclosure)
+
+## 주요 문서
+- CONTENT_AUDIT.md: 검색 유입 관점 콘텐츠 감사 리포트
+- REVENUE_CHANNELS.md: 수익 채널 다변화 제휴사 리서치·가입 가이드
+- UX_ANALYSIS.md: iOS 앱 UX 분석 (앱 프로젝트)
 
 ## 새 계산기 추가 시 체크리스트
 1. products/[name]-calculator/index.html 생성
