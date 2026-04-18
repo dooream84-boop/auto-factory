@@ -136,6 +136,7 @@
         <button class="season-tab active" id="tab-normal" onclick="selectSeason('normal')">일반 (9월~6월)</button>
         <button class="season-tab" id="tab-summer" onclick="selectSeason('summer')">여름 (7월~8월)</button>
       </div>
+      <p class="hint" style="margin-top:8px;">※ 2026년 현재 여름·일반 기간 단가는 동일 적용됩니다 (기후환경요금·연료비조정액 분기 변동 반영 기준).</p>
     </div>
 
     <div class="form-group">
@@ -173,6 +174,12 @@
     <div class="notice">※ 2026년 한전 주택용(저압) 기준. 필수사용공제, TV수신료 등은 미반영. 실제 고지서와 차이가 있을 수 있습니다.</div>
   </div>
 
+  <!-- 제휴 슬롯 (현재 비활성, 제휴 가입 후 활성화) -->
+  <div class="affiliate-slot" data-category="utility" style="display:none;">
+    <!-- 추후 카테고리별 제휴 서비스 카드가 JS로 주입됩니다 -->
+  </div>
+
+
   <div class="ad-banner" style="min-height:100px;margin-bottom:20px;border-radius:8px;">[광고 영역 - AdSense 중간]</div>
 
   <div class="card">
@@ -183,7 +190,11 @@
     </div>
     <div class="faq-item">
       <div class="faq-q">Q. 여름 요금이 따로 있는 이유는?</div>
-      <div class="faq-a">7~8월은 냉방 수요 급증으로 전력 부족이 우려되어 별도 누진 구간을 적용합니다. 일반 기간보다 구간 기준이 달라질 수 있습니다.</div>
+      <div class="faq-a">과거에는 7~8월 냉방 수요 급증으로 별도 누진 완화 구간이 운영됐지만, 2024년 이후 한전 주택용(저압)은 연중 동일 단가가 적용됩니다. 본 계산기의 여름 탭은 향후 요금제 변동 시 확장을 위한 구조이며, 현재는 일반과 동일 결과가 나옵니다.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Q. 고지서 금액과 차이가 나는 이유는?</div>
+      <div class="faq-a">필수사용공제·복지할인·TV수신료·미납이자 등은 본 계산기에 반영되지 않습니다. 정확한 금액은 한전 사이버지점(<a href="https://cyber.kepco.co.kr" target="_blank" rel="noopener">cyber.kepco.co.kr</a>)에서 확인하세요.</div>
     </div>
     <div class="faq-item">
       <div class="faq-q">Q. 기본요금은 어떻게 결정되나요?</div>
@@ -195,18 +206,18 @@
   <div class="card" style="background:#fff;border-radius:12px;padding:24px;margin-top:20px;box-shadow:0 2px 12px rgba(37,99,235,0.08);">
     <h2 style="font-size:1.15rem;color:#1e293b;margin-bottom:16px;">관련 계산기</h2>
     <div style="display:flex;flex-wrap:wrap;gap:10px;">
+      <a href="/products/loan-calculator/" style="display:inline-block;background:#eff6ff;color:#2563eb;padding:8px 16px;border-radius:8px;text-decoration:none;font-size:0.95rem;font-weight:500;border:1px solid #dbeafe;transition:all 0.2s;">대출이자 계산기</a>
+      <a href="/products/compound-interest-calculator/" style="display:inline-block;background:#eff6ff;color:#2563eb;padding:8px 16px;border-radius:8px;text-decoration:none;font-size:0.95rem;font-weight:500;border:1px solid #dbeafe;transition:all 0.2s;">복리 계산기</a>
       <a href="/products/vat-calculator/" style="display:inline-block;background:#eff6ff;color:#2563eb;padding:8px 16px;border-radius:8px;text-decoration:none;font-size:0.95rem;font-weight:500;border:1px solid #dbeafe;transition:all 0.2s;">부가세 계산기</a>
-      <a href="/products/dday-calculator/" style="display:inline-block;background:#eff6ff;color:#2563eb;padding:8px 16px;border-radius:8px;text-decoration:none;font-size:0.95rem;font-weight:500;border:1px solid #dbeafe;transition:all 0.2s;">D-Day 계산기</a>
-      <a href="/products/korean-age-calculator/" style="display:inline-block;background:#eff6ff;color:#2563eb;padding:8px 16px;border-radius:8px;text-decoration:none;font-size:0.95rem;font-weight:500;border:1px solid #dbeafe;transition:all 0.2s;">만나이 계산기</a>
-      <a href="/products/bmi-calculator/" style="display:inline-block;background:#eff6ff;color:#2563eb;padding:8px 16px;border-radius:8px;text-decoration:none;font-size:0.95rem;font-weight:500;border:1px solid #dbeafe;transition:all 0.2s;">BMI 계산기</a>
+      <a href="/products/salary-calculator/" style="display:inline-block;background:#eff6ff;color:#2563eb;padding:8px 16px;border-radius:8px;text-decoration:none;font-size:0.95rem;font-weight:500;border:1px solid #dbeafe;transition:all 0.2s;">실수령액 계산기</a>
     </div>
   </div>
 
-</main>
+
 
   <div class="card info-section">
     <h2>전기요금 계산기 완벽 가이드</h2>
-    <p>한국전력공사(한전)의 주택용 전기요금은 누진제를 적용하여 사용량이 많을수록 단가가 높아집니다. 2024년 기준 3단계 누진제(200kWh 이하 / 201~400kWh / 400kWh 초과)가 적용되며, 기본요금과 전력량 요금에 기후환경요금·연료비조정액·부가세가 추가됩니다. 본 계산기로 월간 전기 사용량을 입력하면 예상 전기요금을 바로 확인할 수 있습니다.</p>
+    <p>한국전력공사(한전)의 주택용 전기요금은 누진제를 적용하여 사용량이 많을수록 단가가 높아집니다. 2026년 기준 3단계 누진제(200kWh 이하 88.3원/kWh · 201~400kWh 182.9원 · 400kWh 초과 275.6원)가 적용되며, 기본요금과 전력량 요금에 기후환경요금(9원/kWh)·연료비조정액(5원/kWh)·부가세(10%)·전력산업기반기금(3.7%)이 추가됩니다. 본 계산기로 월간 전기 사용량을 입력하면 예상 전기요금을 바로 확인할 수 있습니다.</p>
     <h3>주택용 전기요금 구성</h3>
     <p>전기요금 = 기본요금 + 전력량 요금 + 기후환경요금 + 연료비조정액 → 부가세 10% + 전력산업기반기금 3.7% 추가</p>
     <h3>이런 분께 유용합니다</h3>
@@ -221,7 +232,15 @@
       <li>복지할인(기초수급자·장애인 등)을 받으면 월 최대 2만 원까지 요금이 감면됩니다</li>
       <li>에어컨 온도 1℃ 높이면 약 7%의 전력 절약 효과가 있습니다</li>
     </ul>
+    <div class="eeat-box" style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:16px 18px;margin-top:22px;font-size:0.82rem;color:#475569;line-height:1.75;">
+      <p style="margin-bottom:6px;"><strong>📅 최종 업데이트</strong>: 2026-04-18</p>
+      <p style="margin-bottom:6px;"><strong>📚 근거</strong>: 한국전력공사 주택용 전기요금표 (<a href="https://cyber.kepco.co.kr" target="_blank" rel="noopener" style="color:#2563eb;">cyber.kepco.co.kr</a>)</p>
+      <p style="margin-bottom:6px;"><strong>⚠️ 참고 사항</strong>: TV수신료·복지할인·필수사용공제·미납이자 등은 반영되지 않습니다. 정확한 금액은 고지서 기준.</p>
+      <p><strong>✉️ 의견·제보</strong>: <a href="mailto:cocoflow.contact@gmail.com" style="color:#2563eb;">cocoflow.contact@gmail.com</a></p>
+    </div>
   </div>
+
+</main>
 
 <div class="ad-banner ad-bottom">[광고 영역 - AdSense 하단]</div>
 
@@ -229,7 +248,7 @@
   <p>본 계산기는 참고용이며, 정확한 요금은 한국전력 고지서를 확인하세요.</p>
   <p style="margin-top:6px;">
     <a href="../index.html">← 계산기 목록</a> &nbsp;|&nbsp;
-    <a href="../privacy-policy.html">개인정보처리방침</a>
+    <a href="../privacy-policy.html">개인정보처리방침</a> &nbsp;|&nbsp; <a href="/disclosure/">광고·제휴 고지</a>
   </p>
   <p style="margin-top:4px;">© 2026 CocoFlow. All rights reserved.</p>
 </footer>
@@ -341,6 +360,59 @@
       }
     }
   }, true);
+})();
+</script>
+
+<!-- Floating Share Bar -->
+<style>
+  @media print {
+    .cf-share-bar { display: none !important; }
+  }
+</style>
+<script>
+(function(){
+  if (window.__cfShareBarInit) return;
+  window.__cfShareBarInit = true;
+  var bar = document.createElement('div');
+  bar.className = 'cf-share-bar';
+  bar.innerHTML =
+    '<button type="button" data-act="share" aria-label="공유하기">📤 공유</button>' +
+    '<button type="button" data-act="copy" aria-label="링크 복사">🔗 링크복사</button>' +
+    '<button type="button" data-act="print" aria-label="인쇄">🖨 인쇄</button>';
+  bar.style.cssText = 'position:fixed;bottom:16px;right:16px;display:flex;gap:6px;z-index:9999;';
+  var btnStyle = 'padding:9px 12px;border-radius:10px;border:1px solid #bfdbfe;background:#fff;color:#2563eb;font-weight:700;font-size:0.82rem;cursor:pointer;box-shadow:0 4px 12px rgba(37,99,235,0.18);font-family:inherit;';
+  Array.prototype.forEach.call(bar.querySelectorAll('button'), function(b){ b.style.cssText = btnStyle; });
+  if (document.body) document.body.appendChild(bar);
+  else document.addEventListener('DOMContentLoaded', function(){ document.body.appendChild(bar); });
+  bar.addEventListener('click', function(e){
+    var btn = e.target.closest('button[data-act]');
+    if (!btn) return;
+    var act = btn.getAttribute('data-act');
+    var url = location.href;
+    var title = document.title;
+    if (act === 'share') {
+      if (navigator.share) {
+        navigator.share({ title: title, url: url }).catch(function(){});
+      } else if (navigator.clipboard) {
+        navigator.clipboard.writeText(url).then(function(){ alert('링크가 복사되었습니다. 카톡·문자에 붙여넣기 하세요.'); });
+      } else {
+        prompt('주소를 복사하세요', url);
+      }
+      if (typeof gtag === 'function') gtag('event', 'share', { method: navigator.share ? 'native' : 'clipboard', page: location.pathname });
+    } else if (act === 'copy') {
+      var done = function(){
+        var prev = btn.textContent;
+        btn.textContent = '✔ 복사됨';
+        setTimeout(function(){ btn.textContent = prev; }, 1500);
+      };
+      if (navigator.clipboard) navigator.clipboard.writeText(url).then(done).catch(function(){ prompt('주소를 복사하세요', url); });
+      else prompt('주소를 복사하세요', url);
+      if (typeof gtag === 'function') gtag('event', 'share', { method: 'copy', page: location.pathname });
+    } else if (act === 'print') {
+      window.print();
+      if (typeof gtag === 'function') gtag('event', 'print_click', { page: location.pathname });
+    }
+  });
 })();
 </script>
 

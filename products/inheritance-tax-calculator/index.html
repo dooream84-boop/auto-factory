@@ -117,7 +117,7 @@
   <h1>상속세 계산기</h1>
   <p>채무·금융재산·미성년자 공제 반영 → 상속세 납부세액 즉시 계산</p>
   <nav>
-    <a href="/privacy/">개인정보처리방침</a>
+    <a href="/privacy/">개인정보처리방침</a> &nbsp;|&nbsp; <a href="/disclosure/">광고·제휴 고지</a>
     <a href="/contact/">문의하기</a>
   </nav>
 </header>
@@ -270,6 +270,12 @@
     <div class="notice">※ 실제 세액은 개인 상황에 따라 달라질 수 있습니다. 본 계산기는 참고용이며 법적 효력이 없습니다.</div>
   </div>
 
+  <!-- 제휴 슬롯 (현재 비활성, 제휴 가입 후 활성화) -->
+  <div class="affiliate-slot" data-category="tax" style="display:none;">
+    <!-- 추후 카테고리별 제휴 서비스 카드가 JS로 주입됩니다 -->
+  </div>
+
+
   <div class="card">
     <h2>상속세 세율표 (2026)</h2>
     <table class="rate-table">
@@ -325,27 +331,14 @@
       <li>상속세가 1,000만 원 초과 시 최대 5년까지 분납(연납)이 가능합니다</li>
       <li>상속 개시 전 10년 이내 증여재산은 상속세 과세가액에 합산됩니다</li>
     </ul>
+    <div class="eeat-box" style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:16px 18px;margin-top:22px;font-size:0.82rem;color:#475569;line-height:1.75;">
+      <p style="margin-bottom:6px;"><strong>📅 최종 업데이트</strong>: 2026-04-18</p>
+      <p style="margin-bottom:6px;"><strong>📚 근거</strong>: 상속세 및 증여세법 (<a href="https://www.law.go.kr" target="_blank" rel="noopener" style="color:#2563eb;">law.go.kr</a>), 국세청</p>
+      <p style="margin-bottom:6px;"><strong>⚠️ 참고 사항</strong>: 세대생략 가산·가업상속공제·금융재산공제 등 특례가 다양합니다. 세무사 상담을 강력히 권장합니다.</p>
+      <p><strong>✉️ 의견·제보</strong>: <a href="mailto:cocoflow.contact@gmail.com" style="color:#2563eb;">cocoflow.contact@gmail.com</a></p>
+    </div>
   </div>
 
-    <div class="card info-section">
-    <h2>상속세 완벽 가이드</h2>
-    <p>상속세는 피상속인(사망자)의 재산이 상속인에게 이전될 때 부과되는 세금으로, 한국은 세계적으로도 높은 수준의 상속세율(10~50%)을 가지고 있습니다. 상속재산에서 각종 공제를 제한 후 과세표준을 산출하며, 신고는 사망일로부터 6개월(해외 거주 시 9개월) 이내에 해야 합니다.</p>
-    <h3>상속세 주요 공제</h3>
-    <p>기초공제 2억 원 + 인적공제 합산액 vs. 일괄공제 5억 원 중 큰 금액 선택</p>
-    <p>배우자 공제: 실제 상속분과 법정상속분 한도 내에서 최소 5억 원 ~ 최대 30억 원</p>
-    <h3>이런 분께 유용합니다</h3>
-    <ul>
-      <li>부모님 재산 상속 시 예상 상속세를 미리 파악하려는 분</li>
-      <li>상속세 절세를 위한 사전 증여 계획을 수립하려는 분</li>
-      <li>상속 재산 분할 협의 전 세금 부담을 확인하려는 분</li>
-    </ul>
-    <h3>알아두면 좋은 정보</h3>
-    <ul>
-      <li>상속세를 자진신고하면 산출세액의 3%를 공제받을 수 있습니다</li>
-      <li>상속세가 1,000만 원 초과 시 최대 5년까지 분납(연납)이 가능합니다</li>
-      <li>상속 개시 전 10년 이내 증여재산은 상속세 과세가액에 합산됩니다</li>
-    </ul>
-  </div>
 
 <div class="ad-banner ad-bottom"></div>
 
@@ -355,8 +348,8 @@
     <div style="display:flex;flex-wrap:wrap;gap:10px;">
       <a href="/products/gift-tax-calculator/" style="display:inline-block;background:#eff6ff;color:#2563eb;padding:8px 16px;border-radius:8px;text-decoration:none;font-size:0.95rem;font-weight:500;border:1px solid #dbeafe;transition:all 0.2s;">증여세·상속세 계산기</a>
       <a href="/products/capital-gains-tax-calculator/" style="display:inline-block;background:#eff6ff;color:#2563eb;padding:8px 16px;border-radius:8px;text-decoration:none;font-size:0.95rem;font-weight:500;border:1px solid #dbeafe;transition:all 0.2s;">양도소득세 계산기</a>
-      <a href="/products/income-tax-calculator/" style="display:inline-block;background:#eff6ff;color:#2563eb;padding:8px 16px;border-radius:8px;text-decoration:none;font-size:0.95rem;font-weight:500;border:1px solid #dbeafe;transition:all 0.2s;">종합소득세 계산기</a>
-      <a href="/products/overseas-stock-tax-calculator/" style="display:inline-block;background:#eff6ff;color:#2563eb;padding:8px 16px;border-radius:8px;text-decoration:none;font-size:0.95rem;font-weight:500;border:1px solid #dbeafe;transition:all 0.2s;">해외주식 양도세 계산기</a>
+      <a href="/products/financial-income-tax-calculator/" style="display:inline-block;background:#eff6ff;color:#2563eb;padding:8px 16px;border-radius:8px;text-decoration:none;font-size:0.95rem;font-weight:500;border:1px solid #dbeafe;transition:all 0.2s;">금융소득세 계산기</a>
+      <a href="/products/acquisition-tax-calculator/" style="display:inline-block;background:#eff6ff;color:#2563eb;padding:8px 16px;border-radius:8px;text-decoration:none;font-size:0.95rem;font-weight:500;border:1px solid #dbeafe;transition:all 0.2s;">취득세 계산기</a>
     </div>
   </div>
 
@@ -530,6 +523,59 @@
       }
     }
   }, true);
+})();
+</script>
+
+<!-- Floating Share Bar -->
+<style>
+  @media print {
+    .cf-share-bar { display: none !important; }
+  }
+</style>
+<script>
+(function(){
+  if (window.__cfShareBarInit) return;
+  window.__cfShareBarInit = true;
+  var bar = document.createElement('div');
+  bar.className = 'cf-share-bar';
+  bar.innerHTML =
+    '<button type="button" data-act="share" aria-label="공유하기">📤 공유</button>' +
+    '<button type="button" data-act="copy" aria-label="링크 복사">🔗 링크복사</button>' +
+    '<button type="button" data-act="print" aria-label="인쇄">🖨 인쇄</button>';
+  bar.style.cssText = 'position:fixed;bottom:16px;right:16px;display:flex;gap:6px;z-index:9999;';
+  var btnStyle = 'padding:9px 12px;border-radius:10px;border:1px solid #bfdbfe;background:#fff;color:#2563eb;font-weight:700;font-size:0.82rem;cursor:pointer;box-shadow:0 4px 12px rgba(37,99,235,0.18);font-family:inherit;';
+  Array.prototype.forEach.call(bar.querySelectorAll('button'), function(b){ b.style.cssText = btnStyle; });
+  if (document.body) document.body.appendChild(bar);
+  else document.addEventListener('DOMContentLoaded', function(){ document.body.appendChild(bar); });
+  bar.addEventListener('click', function(e){
+    var btn = e.target.closest('button[data-act]');
+    if (!btn) return;
+    var act = btn.getAttribute('data-act');
+    var url = location.href;
+    var title = document.title;
+    if (act === 'share') {
+      if (navigator.share) {
+        navigator.share({ title: title, url: url }).catch(function(){});
+      } else if (navigator.clipboard) {
+        navigator.clipboard.writeText(url).then(function(){ alert('링크가 복사되었습니다. 카톡·문자에 붙여넣기 하세요.'); });
+      } else {
+        prompt('주소를 복사하세요', url);
+      }
+      if (typeof gtag === 'function') gtag('event', 'share', { method: navigator.share ? 'native' : 'clipboard', page: location.pathname });
+    } else if (act === 'copy') {
+      var done = function(){
+        var prev = btn.textContent;
+        btn.textContent = '✔ 복사됨';
+        setTimeout(function(){ btn.textContent = prev; }, 1500);
+      };
+      if (navigator.clipboard) navigator.clipboard.writeText(url).then(done).catch(function(){ prompt('주소를 복사하세요', url); });
+      else prompt('주소를 복사하세요', url);
+      if (typeof gtag === 'function') gtag('event', 'share', { method: 'copy', page: location.pathname });
+    } else if (act === 'print') {
+      window.print();
+      if (typeof gtag === 'function') gtag('event', 'print_click', { page: location.pathname });
+    }
+  });
 })();
 </script>
 

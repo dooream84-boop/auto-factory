@@ -111,7 +111,7 @@
   <h1>연말정산 환급액 계산기</h1>
   <p>총급여 · 공제항목 입력 → 예상 환급액 즉시 계산</p>
   <nav>
-    <a href="/privacy/">개인정보처리방침</a>
+    <a href="/privacy/">개인정보처리방침</a> &nbsp;|&nbsp; <a href="/disclosure/">광고·제휴 고지</a>
     <a href="/contact/">문의하기</a>
   </nav>
 </header>
@@ -279,6 +279,12 @@
     <div class="notice">※ 본 계산기는 주요 항목을 반영한 근사값입니다. 정확한 연말정산은 국세청 홈택스 연말정산 미리보기를 이용하세요.</div>
   </div>
 
+  <!-- 제휴 슬롯 (현재 비활성, 제휴 가입 후 활성화) -->
+  <div class="affiliate-slot" data-category="tax" style="display:none;">
+    <!-- 추후 카테고리별 제휴 서비스 카드가 JS로 주입됩니다 -->
+  </div>
+
+
   <div class="card">
     <h2>자주 묻는 질문</h2>
     <div class="faq-item">
@@ -315,26 +321,14 @@
       <li>신용카드 소득공제는 총급여의 25% 초과분부터 적용되며, 전통시장·대중교통 사용분은 공제율이 높습니다</li>
       <li>의료비·교육비 세액공제는 영수증 누락이 많으니 국세청 간소화 서비스에서 반드시 확인하세요</li>
     </ul>
+    <div class="eeat-box" style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:16px 18px;margin-top:22px;font-size:0.82rem;color:#475569;line-height:1.75;">
+      <p style="margin-bottom:6px;"><strong>📅 최종 업데이트</strong>: 2026-04-18</p>
+      <p style="margin-bottom:6px;"><strong>📚 근거</strong>: 국세청 연말정산 종합안내 (<a href="https://www.nts.go.kr" target="_blank" rel="noopener" style="color:#2563eb;">nts.go.kr</a>), 홈택스</p>
+      <p style="margin-bottom:6px;"><strong>⚠️ 참고 사항</strong>: 부양가족·의료비·기부금 등 공제 항목에 따라 환급액이 크게 달라집니다.</p>
+      <p><strong>✉️ 의견·제보</strong>: <a href="mailto:cocoflow.contact@gmail.com" style="color:#2563eb;">cocoflow.contact@gmail.com</a></p>
+    </div>
   </div>
 
-    <div class="card info-section">
-    <h2>연말정산 완벽 가이드</h2>
-    <p>연말정산은 근로소득자가 매월 원천징수로 낸 소득세를 연말에 실제 소득 및 공제 내역을 기준으로 재계산하여, 과납 시 환급받고 부족 시 추가 납부하는 절차입니다. '13월의 월급'이라고도 불리며, 각종 소득공제·세액공제를 꼼꼼히 챙길수록 환급액이 커집니다.</p>
-    <h3>연말정산 계산 순서</h3>
-    <p>총급여 − 근로소득공제 = 근로소득금액 → 종합소득공제(인적·특별·기타) 차감 → 과세표준 → 세율 적용 → 산출세액 → 세액공제(근로·자녀·교육비·의료비 등) 차감 → 결정세액 → 기납부 세액 비교 → 환급 or 추납</p>
-    <h3>이런 분께 유용합니다</h3>
-    <ul>
-      <li>연말정산 전에 예상 환급액 또는 추가 납부액을 확인하려는 분</li>
-      <li>공제 항목을 추가·변경했을 때 세금 차이가 궁금한 분</li>
-      <li>절세를 위해 연금저축·IRP 추가 납입을 고려하는 분</li>
-    </ul>
-    <h3>알아두면 좋은 정보</h3>
-    <ul>
-      <li>IRP·연금저축 납입액은 연간 900만 원 한도로 16.5%의 세액공제(총급여 5,500만 원 이하) 혜택이 있습니다</li>
-      <li>신용카드 소득공제는 총급여의 25% 초과분부터 적용되며, 전통시장·대중교통 사용분은 공제율이 높습니다</li>
-      <li>의료비·교육비 세액공제는 영수증 누락이 많으니 국세청 간소화 서비스에서 반드시 확인하세요</li>
-    </ul>
-  </div>
 
 <div class="ad-banner ad-bottom"></div>
 
@@ -343,15 +337,15 @@
     <h2 style="font-size:1.15rem;color:#1e293b;margin-bottom:16px;">관련 계산기</h2>
     <div style="display:flex;flex-wrap:wrap;gap:10px;">
       <a href="/products/income-tax-calculator/" style="display:inline-block;background:#eff6ff;color:#2563eb;padding:8px 16px;border-radius:8px;text-decoration:none;font-size:0.95rem;font-weight:500;border:1px solid #dbeafe;transition:all 0.2s;">종합소득세 계산기</a>
-      <a href="/products/salary-calculator/" style="display:inline-block;background:#eff6ff;color:#2563eb;padding:8px 16px;border-radius:8px;text-decoration:none;font-size:0.95rem;font-weight:500;border:1px solid #dbeafe;transition:all 0.2s;">실수령액 계산기</a>
       <a href="/products/insurance-calculator/" style="display:inline-block;background:#eff6ff;color:#2563eb;padding:8px 16px;border-radius:8px;text-decoration:none;font-size:0.95rem;font-weight:500;border:1px solid #dbeafe;transition:all 0.2s;">4대보험 계산기</a>
-      <a href="/products/capital-gains-tax-calculator/" style="display:inline-block;background:#eff6ff;color:#2563eb;padding:8px 16px;border-radius:8px;text-decoration:none;font-size:0.95rem;font-weight:500;border:1px solid #dbeafe;transition:all 0.2s;">양도소득세 계산기</a>
+      <a href="/products/salary-calculator/" style="display:inline-block;background:#eff6ff;color:#2563eb;padding:8px 16px;border-radius:8px;text-decoration:none;font-size:0.95rem;font-weight:500;border:1px solid #dbeafe;transition:all 0.2s;">실수령액 계산기</a>
+      <a href="/products/financial-income-tax-calculator/" style="display:inline-block;background:#eff6ff;color:#2563eb;padding:8px 16px;border-radius:8px;text-decoration:none;font-size:0.95rem;font-weight:500;border:1px solid #dbeafe;transition:all 0.2s;">금융소득세 계산기</a>
     </div>
   </div>
 
 </main>
 <footer>
-  <p><a href="/">← 홈으로</a> &nbsp;|&nbsp; <a href="/privacy/">개인정보처리방침</a></p>
+  <p><a href="/">← 홈으로</a> &nbsp;|&nbsp; <a href="/privacy/">개인정보처리방침</a> &nbsp;|&nbsp; <a href="/disclosure/">광고·제휴 고지</a></p>
   <p style="margin-top:8px;">© 2026 CocoFlow. 본 계산기는 참고용이며 법적 효력이 없습니다.</p>
 </footer>
 <script>
@@ -515,6 +509,59 @@
       }
     }
   }, true);
+})();
+</script>
+
+<!-- Floating Share Bar -->
+<style>
+  @media print {
+    .cf-share-bar { display: none !important; }
+  }
+</style>
+<script>
+(function(){
+  if (window.__cfShareBarInit) return;
+  window.__cfShareBarInit = true;
+  var bar = document.createElement('div');
+  bar.className = 'cf-share-bar';
+  bar.innerHTML =
+    '<button type="button" data-act="share" aria-label="공유하기">📤 공유</button>' +
+    '<button type="button" data-act="copy" aria-label="링크 복사">🔗 링크복사</button>' +
+    '<button type="button" data-act="print" aria-label="인쇄">🖨 인쇄</button>';
+  bar.style.cssText = 'position:fixed;bottom:16px;right:16px;display:flex;gap:6px;z-index:9999;';
+  var btnStyle = 'padding:9px 12px;border-radius:10px;border:1px solid #bfdbfe;background:#fff;color:#2563eb;font-weight:700;font-size:0.82rem;cursor:pointer;box-shadow:0 4px 12px rgba(37,99,235,0.18);font-family:inherit;';
+  Array.prototype.forEach.call(bar.querySelectorAll('button'), function(b){ b.style.cssText = btnStyle; });
+  if (document.body) document.body.appendChild(bar);
+  else document.addEventListener('DOMContentLoaded', function(){ document.body.appendChild(bar); });
+  bar.addEventListener('click', function(e){
+    var btn = e.target.closest('button[data-act]');
+    if (!btn) return;
+    var act = btn.getAttribute('data-act');
+    var url = location.href;
+    var title = document.title;
+    if (act === 'share') {
+      if (navigator.share) {
+        navigator.share({ title: title, url: url }).catch(function(){});
+      } else if (navigator.clipboard) {
+        navigator.clipboard.writeText(url).then(function(){ alert('링크가 복사되었습니다. 카톡·문자에 붙여넣기 하세요.'); });
+      } else {
+        prompt('주소를 복사하세요', url);
+      }
+      if (typeof gtag === 'function') gtag('event', 'share', { method: navigator.share ? 'native' : 'clipboard', page: location.pathname });
+    } else if (act === 'copy') {
+      var done = function(){
+        var prev = btn.textContent;
+        btn.textContent = '✔ 복사됨';
+        setTimeout(function(){ btn.textContent = prev; }, 1500);
+      };
+      if (navigator.clipboard) navigator.clipboard.writeText(url).then(done).catch(function(){ prompt('주소를 복사하세요', url); });
+      else prompt('주소를 복사하세요', url);
+      if (typeof gtag === 'function') gtag('event', 'share', { method: 'copy', page: location.pathname });
+    } else if (act === 'print') {
+      window.print();
+      if (typeof gtag === 'function') gtag('event', 'print_click', { page: location.pathname });
+    }
+  });
 })();
 </script>
 

@@ -101,7 +101,7 @@
   <h1>중도퇴사 연차 계산기</h1>
   <p>입사일 · 퇴사일 입력 → 발생 연차 및 잔여 연차 계산</p>
   <nav>
-    <a href="/privacy/">개인정보처리방침</a>
+    <a href="/privacy/">개인정보처리방침</a> &nbsp;|&nbsp; <a href="/disclosure/">광고·제휴 고지</a>
     <a href="/contact/">문의하기</a>
   </nav>
 </header>
@@ -139,7 +139,15 @@
       </div>
       <p class="hint">사용한 연차가 없으면 0 입력</p>
     </div>
-    <button class="btn-calc" onclick="calculate()">연차 계산하기</button>
+    <div class="form-group">
+      <label for="monthlyPay">월 통상임금 <span style="font-weight:400;color:#94a3b8;font-size:0.78rem;">(선택 — 수당 원단위 계산)</span></label>
+      <div class="input-wrap" style="position:relative;">
+        <input type="number" id="monthlyPay" placeholder="예: 3,000,000" min="0" style="padding-right:48px;">
+        <span style="position:absolute;right:14px;top:50%;transform:translateY(-50%);font-size:0.85rem;color:#94a3b8;">원</span>
+      </div>
+      <p class="hint">기본급·고정수당 포함 월급. 비우면 잔여 연차일만 표시됩니다.</p>
+    </div>
+    <button class="btn-calc" onclick="calculate()">연차·수당 계산하기</button>
   </div>
 
   <div class="result-card" id="resultCard">
@@ -157,10 +165,20 @@
         <div class="r-label">잔여 연차</div>
         <div class="r-value" id="resRemain">-<span>일</span></div>
       </div>
+      <div class="result-box highlight" id="resPayBox" style="display:none;">
+        <div class="r-label">예상 연차수당</div>
+        <div class="r-value" id="resPay">-<span>원</span></div>
+      </div>
     </div>
     <div id="detailSection" style="margin-top:16px;border-top:1px solid #bfdbfe;padding-top:14px;"></div>
-    <div class="notice">※ 1년 미만: 1개월 개근 시 1일 발생 (최대 11일). 1년 이상: 15일 기준, 2년마다 1일 추가 (최대 25일).</div>
+    <div class="notice">※ 1년 미만: 1개월 개근 시 1일 발생 (최대 11일). 1년 이상: 15일 기준, 2년마다 1일 추가 (최대 25일). 수당 = 통상임금 ÷ 209 × 8 × 잔여연차일수.</div>
   </div>
+
+  <!-- 제휴 슬롯 (현재 비활성, 제휴 가입 후 활성화) -->
+  <div class="affiliate-slot" data-category="labor" style="display:none;">
+    <!-- 추후 카테고리별 제휴 서비스 카드가 JS로 주입됩니다 -->
+  </div>
+
 
   <div class="card">
     <h2>자주 묻는 질문</h2>
@@ -195,27 +213,14 @@
       <li>사용자가 연차 사용을 적극 권장했음을 증명하면 미사용 연차수당 지급 의무가 면제될 수 있습니다</li>
       <li>5인 미만 사업장은 연차 유급휴가 규정이 적용되지 않습니다</li>
     </ul>
+    <div class="eeat-box" style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:16px 18px;margin-top:22px;font-size:0.82rem;color:#475569;line-height:1.75;">
+      <p style="margin-bottom:6px;"><strong>📅 최종 업데이트</strong>: 2026-04-18</p>
+      <p style="margin-bottom:6px;"><strong>📚 근거</strong>: 근로기준법 제60조 (<a href="https://www.law.go.kr" target="_blank" rel="noopener" style="color:#2563eb;">law.go.kr</a>), 고용노동부</p>
+      <p style="margin-bottom:6px;"><strong>⚠️ 참고 사항</strong>: 미사용 연차수당 청구권의 소멸시효는 3년입니다. 구체 사안은 노무사 상담을 권장합니다.</p>
+      <p><strong>✉️ 의견·제보</strong>: <a href="mailto:cocoflow.contact@gmail.com" style="color:#2563eb;">cocoflow.contact@gmail.com</a></p>
+    </div>
   </div>
 
-    <div class="card info-section">
-    <h2>중도퇴사 연차수당 계산기 완벽 가이드</h2>
-    <p>근무 기간이 1년 미만이거나 연도 중간에 퇴직하는 경우, 발생한 연차휴가 중 미사용분에 대해 연차수당을 받을 수 있습니다. 1년 미만 근로자는 매월 개근 시 1일의 연차가 발생(최대 11일)하며, 퇴직 시 미사용 연차에 대한 수당 청구권이 생깁니다. 입사일과 퇴사일을 입력하면 발생 연차와 수당을 자동으로 계산합니다.</p>
-    <h3>중도퇴사 연차 계산 방식</h3>
-    <p>근무 기간 1년 미만: 매월 만근 시 1일 연차 발생 (최대 11일)</p>
-    <p>1년 이상 근무 후 퇴직: 해당 연도 비례 연차 = 15일 × (해당 연도 근무일수 ÷ 365)</p>
-    <h3>이런 분께 유용합니다</h3>
-    <ul>
-      <li>퇴직 예정이라 미사용 연차수당이 얼마인지 확인하려는 분</li>
-      <li>입사 1년 미만으로 발생한 연차 일수가 궁금한 분</li>
-      <li>연차 정산 합의 전 기준 금액을 파악하려는 분</li>
-    </ul>
-    <h3>알아두면 좋은 정보</h3>
-    <ul>
-      <li>연차수당은 퇴직금과 별도로 청구할 수 있으며, 소멸시효는 3년입니다</li>
-      <li>사용자가 연차 사용을 적극 권장했음을 증명하면 미사용 연차수당 지급 의무가 면제될 수 있습니다</li>
-      <li>5인 미만 사업장은 연차 유급휴가 규정이 적용되지 않습니다</li>
-    </ul>
-  </div>
 
 <div class="ad-banner ad-bottom"></div>
 
@@ -226,13 +231,13 @@
       <a href="/products/annual-leave-calculator/" style="display:inline-block;background:#eff6ff;color:#2563eb;padding:8px 16px;border-radius:8px;text-decoration:none;font-size:0.95rem;font-weight:500;border:1px solid #dbeafe;transition:all 0.2s;">연차수당 계산기</a>
       <a href="/products/severance-calculator/" style="display:inline-block;background:#eff6ff;color:#2563eb;padding:8px 16px;border-radius:8px;text-decoration:none;font-size:0.95rem;font-weight:500;border:1px solid #dbeafe;transition:all 0.2s;">퇴직금 계산기</a>
       <a href="/products/salary-calculator/" style="display:inline-block;background:#eff6ff;color:#2563eb;padding:8px 16px;border-radius:8px;text-decoration:none;font-size:0.95rem;font-weight:500;border:1px solid #dbeafe;transition:all 0.2s;">실수령액 계산기</a>
-      <a href="/products/hourly-wage-calculator/" style="display:inline-block;background:#eff6ff;color:#2563eb;padding:8px 16px;border-radius:8px;text-decoration:none;font-size:0.95rem;font-weight:500;border:1px solid #dbeafe;transition:all 0.2s;">시급 계산기</a>
+      <a href="/products/insurance-calculator/" style="display:inline-block;background:#eff6ff;color:#2563eb;padding:8px 16px;border-radius:8px;text-decoration:none;font-size:0.95rem;font-weight:500;border:1px solid #dbeafe;transition:all 0.2s;">4대보험 계산기</a>
     </div>
   </div>
 
 </main>
 <footer>
-  <p><a href="/">← 홈으로</a> &nbsp;|&nbsp; <a href="/privacy/">개인정보처리방침</a></p>
+  <p><a href="/">← 홈으로</a> &nbsp;|&nbsp; <a href="/privacy/">개인정보처리방침</a> &nbsp;|&nbsp; <a href="/disclosure/">광고·제휴 고지</a></p>
   <p style="margin-top:8px;">© 2026 CocoFlow. 본 계산기는 참고용이며 법적 효력이 없습니다.</p>
 </footer>
 <script>
@@ -275,9 +280,28 @@
     document.getElementById('resDays').innerHTML      = totalDays.toLocaleString() + '<span>일</span>';
     document.getElementById('resGenerated').innerHTML = generated + '<span>일</span>';
     document.getElementById('resRemain').innerHTML    = remain    + '<span>일</span>';
+
+    // 수당 원단위 계산: 통상임금 ÷ 209 × 8 × 잔여일수
+    const monthlyPay = parseInt(document.getElementById('monthlyPay').value) || 0;
+    const payBox = document.getElementById('resPayBox');
+    if (monthlyPay > 0 && remain > 0) {
+      const hourlyWage = monthlyPay / 209;
+      const dailyWage  = hourlyWage * 8;
+      const totalPay   = Math.round(dailyWage * remain);
+      document.getElementById('resPay').innerHTML = totalPay.toLocaleString('ko-KR') + '<span>원</span>';
+      payBox.style.display = '';
+    } else {
+      payBox.style.display = 'none';
+    }
+
     document.getElementById('detailSection').innerHTML = detail +
       `<div class="detail-row"><span>사용한 연차</span><span>-${used}일</span></div>
-       <div class="detail-row"><span>잔여 연차</span><span>${remain}일</span></div>`;
+       <div class="detail-row"><span>잔여 연차</span><span>${remain}일</span></div>` +
+      (monthlyPay > 0 && remain > 0
+        ? `<div class="detail-row"><span>시간당 통상임금</span><span>${Math.round(monthlyPay/209).toLocaleString('ko-KR')}원</span></div>
+           <div class="detail-row"><span>1일 통상임금 (8시간)</span><span>${Math.round(monthlyPay/209*8).toLocaleString('ko-KR')}원</span></div>
+           <div class="detail-row" style="font-weight:700;color:#1d4ed8;"><span>예상 연차수당</span><span>${Math.round(monthlyPay/209*8*remain).toLocaleString('ko-KR')}원</span></div>`
+        : '');
     document.getElementById('resultCard').classList.add('show');
     document.getElementById('resultCard').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   }
@@ -309,6 +333,59 @@
       }
     }
   }, true);
+})();
+</script>
+
+<!-- Floating Share Bar -->
+<style>
+  @media print {
+    .cf-share-bar { display: none !important; }
+  }
+</style>
+<script>
+(function(){
+  if (window.__cfShareBarInit) return;
+  window.__cfShareBarInit = true;
+  var bar = document.createElement('div');
+  bar.className = 'cf-share-bar';
+  bar.innerHTML =
+    '<button type="button" data-act="share" aria-label="공유하기">📤 공유</button>' +
+    '<button type="button" data-act="copy" aria-label="링크 복사">🔗 링크복사</button>' +
+    '<button type="button" data-act="print" aria-label="인쇄">🖨 인쇄</button>';
+  bar.style.cssText = 'position:fixed;bottom:16px;right:16px;display:flex;gap:6px;z-index:9999;';
+  var btnStyle = 'padding:9px 12px;border-radius:10px;border:1px solid #bfdbfe;background:#fff;color:#2563eb;font-weight:700;font-size:0.82rem;cursor:pointer;box-shadow:0 4px 12px rgba(37,99,235,0.18);font-family:inherit;';
+  Array.prototype.forEach.call(bar.querySelectorAll('button'), function(b){ b.style.cssText = btnStyle; });
+  if (document.body) document.body.appendChild(bar);
+  else document.addEventListener('DOMContentLoaded', function(){ document.body.appendChild(bar); });
+  bar.addEventListener('click', function(e){
+    var btn = e.target.closest('button[data-act]');
+    if (!btn) return;
+    var act = btn.getAttribute('data-act');
+    var url = location.href;
+    var title = document.title;
+    if (act === 'share') {
+      if (navigator.share) {
+        navigator.share({ title: title, url: url }).catch(function(){});
+      } else if (navigator.clipboard) {
+        navigator.clipboard.writeText(url).then(function(){ alert('링크가 복사되었습니다. 카톡·문자에 붙여넣기 하세요.'); });
+      } else {
+        prompt('주소를 복사하세요', url);
+      }
+      if (typeof gtag === 'function') gtag('event', 'share', { method: navigator.share ? 'native' : 'clipboard', page: location.pathname });
+    } else if (act === 'copy') {
+      var done = function(){
+        var prev = btn.textContent;
+        btn.textContent = '✔ 복사됨';
+        setTimeout(function(){ btn.textContent = prev; }, 1500);
+      };
+      if (navigator.clipboard) navigator.clipboard.writeText(url).then(done).catch(function(){ prompt('주소를 복사하세요', url); });
+      else prompt('주소를 복사하세요', url);
+      if (typeof gtag === 'function') gtag('event', 'share', { method: 'copy', page: location.pathname });
+    } else if (act === 'print') {
+      window.print();
+      if (typeof gtag === 'function') gtag('event', 'print_click', { page: location.pathname });
+    }
+  });
 })();
 </script>
 
