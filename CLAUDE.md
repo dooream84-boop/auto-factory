@@ -77,6 +77,16 @@
 5. 제휴 가입 (coco 직접): 디비디비딥 → 애드픽 → 핀다 → 삼쩜삼 (REVENUE_CHANNELS.md 참고)
 6. 네이버 서치어드바이저 등록 (coco 직접)
 
+## 2026-04-18 SEO 1단계 — 클릭수 증대 기반 (신규)
+- 26개 페이지 JSON-LD 3종 일괄 삽입: BreadcrumbList + HowTo + FAQPage
+  · 검색결과 리치 스니펫(FAQ 아코디언·HowTo 단계·경로) 노출 준비
+- 26개 페이지 타이틀·메타 디스크립션 재작성
+  · "| CocoFlow" 브랜드 suffix 일관화
+  · 메타 120~160자 CTR 최적화, OG 태그 동기화
+- 26개 페이지 FAQ 대폭 확장 (총 228개, 페이지당 평균 8~10개)
+  · 롱테일 검색 쿼리 진입점 대폭 확대 (이전 2~4 → 8~10)
+- 기대 효과: CTR +30%, 롱테일 진입점 228배 증가, 브랜드 인지도 강화
+
 ## 2026-04-18 감사·개선 완료 (CONTENT_AUDIT.md 참고)
 - 12개 페이지 중복 info-section 228라인 제거
 - 26개 페이지 관련 계산기 카테고리 매칭 재큐레이션
@@ -89,10 +99,21 @@
 - /disclosure/ 광고·제휴 고지 페이지 신설 + 전 페이지 footer 링크
 - sitemap.xml 28 URL (+disclosure)
 
+## 2026-04-18 SEO 2단계 — 블로그 30편 초안 (신규)
+- blog-drafts/ 폴더에 30편 초안 작성 (네이버 15 + 티스토리 15)
+  · naver-blog-drafts-1~3.md: 친근한 후기 톤 (네이버 VIEW 탭 공략)
+  · tistory-drafts-1~3.md: 정중한 가이드 톤 (구글 SEO 공략)
+  · BLOG_INDEX.md: 발행 스케줄·체크리스트·태그 리스트
+- 각 글 말미·섹션마다 cocoflow.xyz 계산기 링크 삽입
+- 동일 주제(예: 퇴직금)도 네이버·티스토리 완전히 다른 관점 → 중복 콘텐츠 회피
+- 운영: 주 3~5편 발행 (7주 분량)
+- 기대 유입: 3개월 후 월 1,000~5,000 추가 (검색 유입 다각화)
+
 ## 주요 문서
 - CONTENT_AUDIT.md: 검색 유입 관점 콘텐츠 감사 리포트
 - REVENUE_CHANNELS.md: 수익 채널 다변화 제휴사 리서치·가입 가이드
 - UX_ANALYSIS.md: iOS 앱 UX 분석 (앱 프로젝트)
+- blog-drafts/BLOG_INDEX.md: 블로그 30편 발행 가이드
 
 ## 새 계산기 추가 시 체크리스트
 1. products/[name]-calculator/index.html 생성
