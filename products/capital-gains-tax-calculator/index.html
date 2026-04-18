@@ -528,7 +528,7 @@
   </div>
   <div class="card info-section">
     <h2>양도소득세 완벽 가이드</h2>
-    <p>양도소득세는 토지·건물·부동산에 관한 권리·주식 등 자산을 양도(매도)하여 발생한 이익에 부과되는 세금입니다. 2024년 이후 기본세율은 과세표준 구간에 따라 6~45%의 누진세율이 적용되며, 보유 기간과 용도에 따라 장기보유특별공제, 비과세 혜택 등이 달라집니다.</p>
+    <p>양도소득세는 토지·건물·부동산에 관한 권리·주식 등 자산을 양도(매도)하여 발생한 이익에 부과되는 세금입니다. 현행 세법상 기본세율은 과세표준 구간에 따라 6~45%의 누진세율이 적용되며, 보유 기간과 용도에 따라 장기보유특별공제, 비과세 혜택 등이 달라집니다.</p>
     <h3>양도소득세 계산 순서</h3>
     <p>양도가액 − 취득가액 − 필요경비 = 양도차익 → 장기보유특별공제 적용 → 양도소득금액 → 기본공제(250만 원) 차감 → 과세표준 → 세율 적용 → 산출세액</p>
     <h3>이런 분께 유용합니다</h3>
@@ -602,16 +602,17 @@
     return 0;
   }
 
-  // 장기보유특별공제율 (일반)
+  // 장기보유특별공제율 (일반) - 소득세법 제95조의2
+  // 3년 6% / 4년 8% / ... / 15년 이상 30%
   function getLTHoldRate(years) {
     if (years < 3) return 0;
-    return Math.min((years - 2) * 0.02, 0.30);
+    return Math.min(years * 0.02, 0.30);
   }
 
-  // 1주택 거주공제율
+  // 1세대 1주택 거주공제율 - 2년 8% / ... / 10년 이상 40%
   function getLTLiveRate(liveYears) {
     if (liveYears < 2) return 0;
-    return Math.min((liveYears - 1) * 0.04, 0.40);
+    return Math.min(liveYears * 0.04, 0.40);
   }
 
   function calculate() {
@@ -639,6 +640,7 @@
             <div class="exempt-sub">양도가액 12억원 이하 + 2년 이상 보유 조건 충족<br>양도차익 ${fmt(gain)}원에 대해 세금 없음</div>
            </div>`;
         document.getElementById('resultNotice').textContent = '※ 조정대상지역의 경우 2년 이상 실거주 요건이 추가됩니다. 정확한 비과세 여부는 세무사 확인을 권장합니다.';
+        rc.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         return;
       }
 
@@ -731,6 +733,7 @@
            <div class="detail-row"><span>양도소득세 + 지방소득세</span><span>${fmt(baseTax + localTax)}원</span></div>
          </div>`;
       document.getElementById('resultNotice').textContent = '※ 다주택자 중과세율은 정부 정책에 따라 한시 배제될 수 있습니다. 장기보유특별공제는 중과 대상에 미적용됩니다.';
+      rc.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     }
   }
 
@@ -755,6 +758,7 @@
          <div class="detail-row"><span>양도소득세 + 지방소득세</span><span>${fmt(tax + localTax)}원</span></div>
        </div>`;
     document.getElementById('resultNotice').textContent = '※ 실제 세액은 개인 상황(취득 시기, 지역, 다주택 여부 등)에 따라 달라질 수 있습니다. 정확한 계산은 세무사 상담을 권장합니다.';
+    document.getElementById('resultCard').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   }
 
   document.addEventListener('keydown', e => { if (e.key === 'Enter') calculate(); });

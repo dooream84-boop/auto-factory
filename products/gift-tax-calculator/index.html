@@ -345,14 +345,14 @@
         <div class="result-row"><span class="lbl">증여재산 공제</span><span class="val" id="rDeduct">-</span></div>
         <div class="result-row"><span class="lbl">과세표준</span><span class="val" id="rBase">-</span></div>
         <div class="result-row"><span class="lbl">산출세액</span><span class="val" id="rTax">-</span></div>
-        <div class="result-row"><span class="lbl">지방교육세 (10%)</span><span class="val" id="rLocal">-</span></div>
+        <div class="result-row"><span class="lbl">신고세액공제 (3%)</span><span class="val" id="rLocal">-</span></div>
         <div class="result-row"><span class="lbl">최종 납부세액</span><span class="val" id="rFinal">-</span></div>
       </div>
       <table class="rate-table" style="margin-top:16px;">
         <thead><tr><th>과세표준</th><th>세율</th><th>누진공제</th></tr></thead>
         <tbody id="giftRateTbody"></tbody>
       </table>
-      <div class="notice">※ 2026년 상속세 및 증여세법 기준. 신고세액공제(3%), 세대생략 할증(30%), 창업자금 특례 등은 미반영. 정확한 세액은 세무사에게 문의하세요.</div>
+      <div class="notice">※ 2026년 상속세 및 증여세법 기준. 신고세액공제 3%는 자동 반영. 세대생략 할증(30%), 창업자금 특례 등은 미반영. 정확한 세액은 세무사에게 문의하세요.</div>
     </div>
 
   <!-- 제휴 슬롯 (현재 비활성, 제휴 가입 후 활성화) -->
@@ -614,8 +614,9 @@
       }
     }
     tax = Math.max(0, Math.round(tax));
-    const localTax = Math.round(tax * 0.1);
-    const total    = tax + localTax;
+    // 신고기한(증여일 속한 달 말일~3개월) 내 자진신고 시 신고세액공제 3% 적용 (상증법 제69조)
+    const filingCredit = Math.round(tax * 0.03);
+    const total = Math.max(0, tax - filingCredit);
 
     const mainEl = document.getElementById('giftResultMain');
     mainEl.innerHTML = total === 0
@@ -626,7 +627,7 @@
     document.getElementById('rDeduct').textContent = '- ' + fmt(deduction) + '원 (' + REL_NAMES[selectedRel] + ')';
     document.getElementById('rBase').textContent   = fmt(taxBase) + '원';
     document.getElementById('rTax').textContent    = fmt(tax) + '원';
-    document.getElementById('rLocal').textContent  = fmt(localTax) + '원';
+    document.getElementById('rLocal').textContent  = '- ' + fmt(filingCredit) + '원';
     document.getElementById('rFinal').textContent  = fmt(total) + '원';
 
     document.getElementById('giftRateTbody').innerHTML = TAX_BRACKETS.map((b, i) => {

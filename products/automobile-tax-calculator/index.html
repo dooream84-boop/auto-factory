@@ -106,7 +106,7 @@
       "name": "연납 할인은 얼마나?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "1월 납부 시 연세액의 약 7% 할인(2024년 기준)입니다. 3월·6월·9월도 할인율이 다르게 적용됩니다."
+        "text": "1월 납부 시 연세액의 약 9.15% 할인(2026년 기준)입니다. 3월·6월·9월도 할인율이 순차적으로 낮아지며 적용됩니다."
       }
     },
     {
@@ -286,13 +286,13 @@
       <div class="input-wrap">
         <select id="prepay" onchange="clearResult()">
           <option value="0">미적용 (반기 분납)</option>
-          <option value="1">1월 연납 (-7%)</option>
-          <option value="2">3월 연납 (-5%)</option>
-          <option value="3">6월 연납 (-3%)</option>
-          <option value="4">9월 연납 (-2%)</option>
+          <option value="1">1월 연납 (-9.15%)</option>
+          <option value="2">3월 연납 (-7.5%)</option>
+          <option value="3">6월 연납 (-5%)</option>
+          <option value="4">9월 연납 (-2.5%)</option>
         </select>
       </div>
-      <p class="hint">1월에 1년치를 미리 납부하면 약 7% 할인됩니다(2026년 기준).</p>
+      <p class="hint">1월에 1년치를 미리 납부하면 약 9.15% 할인됩니다(2026년 기준).</p>
     </div>
 
     <button class="btn-calc" onclick="calculate()">자동차세 계산하기</button>
@@ -354,7 +354,7 @@
       </div>
       <div class="faq-item">
         <div class="faq-q">Q. 연납 할인은 얼마나?</div>
-        <div class="faq-a">1월 납부 시 연세액의 약 7% 할인(2024년 기준)입니다. 3월·6월·9월도 할인율이 다르게 적용됩니다.</div>
+        <div class="faq-a">1월 납부 시 연세액의 약 9.15% 할인(2026년 기준)입니다. 3월·6월·9월도 할인율이 순차적으로 낮아지며 적용됩니다.</div>
       </div>
       <div class="faq-item">
         <div class="faq-q">Q. 친환경차(전기·수소) 세금은?</div>
@@ -464,7 +464,9 @@
   function calculate() {
     const agePct    = parseInt(document.getElementById('age').value, 10) || 0;     // 감액 %
     const prepayKey = parseInt(document.getElementById('prepay').value, 10) || 0;
-    const prepayMap = {0:0, 1:7, 2:5, 3:3, 4:2}; // % 할인
+    // 2026년 기준 연납공제율 (지방세법 시행령 제125조의2)
+    // 1월 9.15% / 3월 7.5% / 6월 5.0% / 9월 2.5% (잔여월수 비례)
+    const prepayMap = {0:0, 1:9.15, 2:7.5, 3:5, 4:2.5};
     const prepayPct = prepayMap[prepayKey] || 0;
 
     let mainTax, eduTax;
