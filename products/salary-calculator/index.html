@@ -311,7 +311,7 @@
   <div class="header-inner">
     <a href="/" class="header-brand">COCOFLOW</a>
     <nav class="header-nav">
-      <a href="/privacy/">개인정보처리방침</a>
+      <a href="/privacy/">개인정보처리방침</a> &nbsp;|&nbsp; <a href="/disclosure/">광고·제휴 고지</a>
       <a href="mailto:contact@cocoflow.xyz">문의하기</a>
     </nav>
     <div class="header-title">
@@ -420,6 +420,12 @@
         <strong>※ 참고:</strong> 소득세는 간이세액표 기준 근사값입니다. 실제 수령액은 회사 규정·연말정산 결과에 따라 다를 수 있습니다.
       </div>
     </div>
+
+  <!-- 제휴 슬롯 (현재 비활성, 제휴 가입 후 활성화) -->
+  <div class="affiliate-slot" data-category="labor" style="display:none;">
+    <!-- 추후 카테고리별 제휴 서비스 카드가 JS로 주입됩니다 -->
+  </div>
+
 
     <div class="card-plain">
       <h2>자주 묻는 질문</h2>
@@ -557,6 +563,12 @@
       <li>비과세 식대(월 20만 원)가 포함된 급여는 해당 금액만큼 과세 대상 소득이 줄어듭니다</li>
       <li>연간 총 급여 기준으로 연말정산을 통해 과납 세금을 환급받거나 추가 납부할 수 있습니다</li>
     </ul>
+    <div class="eeat-box" style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:16px 18px;margin-top:22px;font-size:0.82rem;color:#475569;line-height:1.75;">
+      <p style="margin-bottom:6px;"><strong>📅 최종 업데이트</strong>: 2026-04-18</p>
+      <p style="margin-bottom:6px;"><strong>📚 근거</strong>: 국세청 근로소득 간이세액표 (<a href="https://www.nts.go.kr" target="_blank" rel="noopener" style="color:#2563eb;">nts.go.kr</a>), 4대 사회보험 공식 요율 (2026)</p>
+      <p style="margin-bottom:6px;"><strong>⚠️ 참고 사항</strong>: 비과세 항목·부양가족 수·추가공제에 따라 실제 수령액과 차이가 있을 수 있습니다.</p>
+      <p><strong>✉️ 의견·제보</strong>: <a href="mailto:cocoflow.contact@gmail.com" style="color:#2563eb;">cocoflow.contact@gmail.com</a></p>
+    </div>
   </div>
 
 
@@ -566,7 +578,6 @@
     <div style="display:flex;flex-wrap:wrap;gap:10px;">
       <a href="/products/severance-calculator/" style="display:inline-block;background:#eff6ff;color:#2563eb;padding:8px 16px;border-radius:8px;text-decoration:none;font-size:0.95rem;font-weight:500;border:1px solid #dbeafe;transition:all 0.2s;">퇴직금 계산기</a>
       <a href="/products/insurance-calculator/" style="display:inline-block;background:#eff6ff;color:#2563eb;padding:8px 16px;border-radius:8px;text-decoration:none;font-size:0.95rem;font-weight:500;border:1px solid #dbeafe;transition:all 0.2s;">4대보험 계산기</a>
-      <a href="/products/income-tax-calculator/" style="display:inline-block;background:#eff6ff;color:#2563eb;padding:8px 16px;border-radius:8px;text-decoration:none;font-size:0.95rem;font-weight:500;border:1px solid #dbeafe;transition:all 0.2s;">종합소득세 계산기</a>
       <a href="/products/hourly-wage-calculator/" style="display:inline-block;background:#eff6ff;color:#2563eb;padding:8px 16px;border-radius:8px;text-decoration:none;font-size:0.95rem;font-weight:500;border:1px solid #dbeafe;transition:all 0.2s;">시급 계산기</a>
       <a href="/products/tax-refund-calculator/" style="display:inline-block;background:#eff6ff;color:#2563eb;padding:8px 16px;border-radius:8px;text-decoration:none;font-size:0.95rem;font-weight:500;border:1px solid #dbeafe;transition:all 0.2s;">연말정산 계산기</a>
     </div>
@@ -579,7 +590,7 @@
   <p style="margin-top:8px;">
     <a href="/">← 홈으로</a>
     &nbsp;|&nbsp;
-    <a href="/privacy/">개인정보처리방침</a>
+    <a href="/privacy/">개인정보처리방침</a> &nbsp;|&nbsp; <a href="/disclosure/">광고·제휴 고지</a>
     &nbsp;|&nbsp;
     <a href="mailto:contact@cocoflow.xyz">문의하기</a>
   </p>
@@ -758,6 +769,59 @@
       }
     }
   }, true);
+})();
+</script>
+
+<!-- Floating Share Bar -->
+<style>
+  @media print {
+    .cf-share-bar { display: none !important; }
+  }
+</style>
+<script>
+(function(){
+  if (window.__cfShareBarInit) return;
+  window.__cfShareBarInit = true;
+  var bar = document.createElement('div');
+  bar.className = 'cf-share-bar';
+  bar.innerHTML =
+    '<button type="button" data-act="share" aria-label="공유하기">📤 공유</button>' +
+    '<button type="button" data-act="copy" aria-label="링크 복사">🔗 링크복사</button>' +
+    '<button type="button" data-act="print" aria-label="인쇄">🖨 인쇄</button>';
+  bar.style.cssText = 'position:fixed;bottom:16px;right:16px;display:flex;gap:6px;z-index:9999;';
+  var btnStyle = 'padding:9px 12px;border-radius:10px;border:1px solid #bfdbfe;background:#fff;color:#2563eb;font-weight:700;font-size:0.82rem;cursor:pointer;box-shadow:0 4px 12px rgba(37,99,235,0.18);font-family:inherit;';
+  Array.prototype.forEach.call(bar.querySelectorAll('button'), function(b){ b.style.cssText = btnStyle; });
+  if (document.body) document.body.appendChild(bar);
+  else document.addEventListener('DOMContentLoaded', function(){ document.body.appendChild(bar); });
+  bar.addEventListener('click', function(e){
+    var btn = e.target.closest('button[data-act]');
+    if (!btn) return;
+    var act = btn.getAttribute('data-act');
+    var url = location.href;
+    var title = document.title;
+    if (act === 'share') {
+      if (navigator.share) {
+        navigator.share({ title: title, url: url }).catch(function(){});
+      } else if (navigator.clipboard) {
+        navigator.clipboard.writeText(url).then(function(){ alert('링크가 복사되었습니다. 카톡·문자에 붙여넣기 하세요.'); });
+      } else {
+        prompt('주소를 복사하세요', url);
+      }
+      if (typeof gtag === 'function') gtag('event', 'share', { method: navigator.share ? 'native' : 'clipboard', page: location.pathname });
+    } else if (act === 'copy') {
+      var done = function(){
+        var prev = btn.textContent;
+        btn.textContent = '✔ 복사됨';
+        setTimeout(function(){ btn.textContent = prev; }, 1500);
+      };
+      if (navigator.clipboard) navigator.clipboard.writeText(url).then(done).catch(function(){ prompt('주소를 복사하세요', url); });
+      else prompt('주소를 복사하세요', url);
+      if (typeof gtag === 'function') gtag('event', 'share', { method: 'copy', page: location.pathname });
+    } else if (act === 'print') {
+      window.print();
+      if (typeof gtag === 'function') gtag('event', 'print_click', { page: location.pathname });
+    }
+  });
 })();
 </script>
 
