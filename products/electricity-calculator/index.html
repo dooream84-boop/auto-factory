@@ -494,6 +494,17 @@
 
     const card = document.getElementById('resultCard');
     card.classList.add('show');
+    // 인사이트
+    let elIns = document.getElementById('elInsight');
+    if (!elIns) {
+      elIns = document.createElement('div');
+      elIns.id = 'elInsight';
+      elIns.style.cssText = 'background:#f0fdf4;border:1px solid #86efac;border-radius:8px;padding:12px 14px;margin-top:14px;font-size:0.85rem;color:#166534;line-height:1.6;';
+      card.appendChild(elIns);
+    }
+    const perKwh = kwh > 0 ? Math.round(total / kwh) : 0;
+    elIns.innerHTML = '💡 <strong>' + fmt(kwh) + 'kWh</strong> 사용 시 kWh당 평균 단가는 <strong>' + fmt(perKwh) + '원</strong>입니다. ' +
+      '누진제로 인해 사용량이 늘수록 단가가 급격히 올라갑니다.';
     card.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 

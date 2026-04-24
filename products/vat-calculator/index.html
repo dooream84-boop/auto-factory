@@ -501,6 +501,16 @@
     document.getElementById('resVat').innerHTML    = fmt(vat)    + '<span>원</span>';
     document.getElementById('resTotal').innerHTML  = fmt(total)  + '<span>원</span>';
     document.getElementById('resultCard').classList.add('show');
+    // 인사이트
+    let vatIns = document.getElementById('vatInsight');
+    if (!vatIns) {
+      vatIns = document.createElement('div');
+      vatIns.id = 'vatInsight';
+      vatIns.style.cssText = 'background:#f0fdf4;border:1px solid #86efac;border-radius:8px;padding:12px 14px;margin-top:14px;font-size:0.85rem;color:#166534;line-height:1.6;';
+      document.getElementById('resultCard').appendChild(vatIns);
+    }
+    vatIns.innerHTML = '💡 부가가치세율은 <strong>10%</strong>로, 공급가액 <strong>' + fmt(Math.round(supply)) + '원</strong>에 대한 VAT는 <strong>' + fmt(Math.round(vat)) + '원</strong>입니다. ' +
+      '세금계산서 발행 시 공급가액과 세액을 구분하여 기재해야 합니다.';
     document.getElementById('resultCard').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   }
 

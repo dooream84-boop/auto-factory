@@ -460,6 +460,15 @@
     document.getElementById('goalMaintain').innerHTML= Math.round(tdee)       + '<span> kcal</span>';
     document.getElementById('goalGain').innerHTML    = Math.round(tdee + 500) + '<span> kcal</span>';
     document.getElementById('resultCard').classList.add('show');
+    // 인사이트
+    let calIns = document.getElementById('calInsight');
+    if (!calIns) {
+      calIns = document.createElement('div');
+      calIns.id = 'calInsight';
+      calIns.style.cssText = 'background:#f0fdf4;border:1px solid #86efac;border-radius:8px;padding:12px 14px;margin-top:14px;font-size:0.85rem;color:#166534;line-height:1.6;';
+      document.getElementById('resultCard').appendChild(calIns);
+    }
+    calIns.innerHTML = '💡 기초대사량(BMR) <strong>' + Math.round(bmr) + 'kcal</strong>에 활동량을 반영한 하루 총 소비 칼로리는 <strong>' + Math.round(tdee) + 'kcal</strong>입니다. 체중 감량 시 하루 500kcal 적게, 증량 시 500kcal 많이 섭취하세요.';
     document.getElementById('resultCard').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   }
   document.addEventListener('keydown', e => { if (e.key === 'Enter') calculate(); });

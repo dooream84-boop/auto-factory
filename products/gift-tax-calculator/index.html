@@ -655,6 +655,20 @@
     }).join('');
 
     document.getElementById('giftResultCard').classList.add('show');
+    // 인사이트
+    let gIns = document.getElementById('giftInsight');
+    if (!gIns) {
+      gIns = document.createElement('div');
+      gIns.id = 'giftInsight';
+      gIns.style.cssText = 'background:#f0fdf4;border:1px solid #86efac;border-radius:8px;padding:12px 14px;margin-top:14px;font-size:0.85rem;color:#166534;line-height:1.6;';
+      document.getElementById('giftResultCard').appendChild(gIns);
+    }
+    if (total === 0) {
+      gIns.innerHTML = '💡 증여재산 <strong>' + fmt(Math.round(gift)) + '원</strong>은 ' + REL_NAMES[selectedRel] + ' 공제 한도(' + fmt(deduction) + '원) 이내로 <strong>세금이 없습니다</strong>. 10년 단위 합산과세에 유의하세요.';
+    } else {
+      const effR = ((total / gift) * 100).toFixed(1);
+      gIns.innerHTML = '💡 증여세 <strong>실효세율은 약 ' + effR + '%</strong>입니다. 신고세액공제(3%) <strong>' + fmt(filingCredit) + '원</strong>이 적용되었습니다. 10년 이내 동일인 증여는 합산과세됩니다.';
+    }
     document.getElementById('giftResultCard').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   }
 
@@ -712,6 +726,21 @@
        </div>`;
 
     document.getElementById('inhResultCard').classList.add('show');
+    // 상속세 인사이트
+    let iIns = document.getElementById('inhInsight');
+    if (!iIns) {
+      iIns = document.createElement('div');
+      iIns.id = 'inhInsight';
+      iIns.style.cssText = 'background:#f0fdf4;border:1px solid #86efac;border-radius:8px;padding:12px 14px;margin-top:14px;font-size:0.85rem;color:#166534;line-height:1.6;';
+      document.getElementById('inhResultCard').appendChild(iIns);
+    }
+    if (finalTax === 0) {
+      iIns.innerHTML = '💡 상속재산 <strong>' + fmt(estate) + '원</strong>은 공제 한도 이내로 <strong>세금이 없습니다</strong>.';
+    } else {
+      const iEffR = ((finalTax / estate) * 100).toFixed(1);
+      iIns.innerHTML = '💡 상속재산 대비 <strong>실효세율은 약 ' + iEffR + '%</strong>입니다. ' +
+        '총 공제 <strong>' + fmt(totalDeduct) + '원</strong> 적용 후 과세표준 기준 계산됩니다. 신고기한은 상속개시일부터 6개월입니다.';
+    }
     document.getElementById('inhResultCard').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   }
 

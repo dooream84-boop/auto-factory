@@ -608,6 +608,23 @@
 
     const rc = document.getElementById('resultCard');
     rc.classList.add('show');
+    // 인사이트
+    let osIns = document.getElementById('osInsight');
+    if (!osIns) {
+      osIns = document.createElement('div');
+      osIns.id = 'osInsight';
+      osIns.style.cssText = 'background:#f0fdf4;border:1px solid #86efac;border-radius:8px;padding:12px 14px;margin-top:14px;font-size:0.85rem;color:#166534;line-height:1.6;';
+      rc.appendChild(osIns);
+    }
+    if (totalTax > 0) {
+      osIns.style.background = '#f0fdf4'; osIns.style.borderColor = '#86efac'; osIns.style.color = '#166534';
+      osIns.innerHTML = '💡 손익통산 후 <strong>실효세율 ' + effectiveRate.toFixed(1) + '%</strong>가 적용됩니다. 250만원 기본공제 초과분에 22%(지방세 포함) 과세되며, 다음 해 5월에 확정신고해야 합니다.';
+    } else if (netGainLoss < 0) {
+      osIns.style.background = '#fef2f2'; osIns.style.borderColor = '#fca5a5'; osIns.style.color = '#991b1b';
+      osIns.innerHTML = '💡 올해 해외주식 <strong>순손실</strong>이 발생했습니다. 손실이어도 신고하면 향후 이월공제에 유리합니다.';
+    } else {
+      osIns.innerHTML = '💡 양도차익이 기본공제 250만원 이내로 <strong>세금이 없습니다</strong>. 추가 매도 시 공제 잔여분을 확인하세요.';
+    }
     rc.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   }
 </script>

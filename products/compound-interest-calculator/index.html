@@ -453,6 +453,17 @@
     });
 
     document.getElementById('resultCard').classList.add('show');
+    // 인사이트
+    let ciIns = document.getElementById('ciInsight');
+    if (!ciIns) {
+      ciIns = document.createElement('div');
+      ciIns.id = 'ciInsight';
+      ciIns.style.cssText = 'background:#f0fdf4;border:1px solid #86efac;border-radius:8px;padding:12px 14px;margin-top:14px;font-size:0.85rem;color:#166534;line-height:1.6;';
+      document.getElementById('resultCard').appendChild(ciIns);
+    }
+    const doubleYears = r > 0 ? (Math.log(2) / Math.log(1 + r)).toFixed(1) : '∞';
+    ciIns.innerHTML = '💡 연 <strong>' + (r * 100).toFixed(1) + '%</strong> 복리 시, ' + t + '년 후 원금의 <strong>' + rate + '%</strong>가 이자로 쌓입니다. ' +
+      '72의 법칙 기준 원금이 2배가 되려면 약 <strong>' + doubleYears + '년</strong>이 걸립니다.';
     document.getElementById('resultCard').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   }
   document.addEventListener('keydown', e => { if (e.key === 'Enter') calculate(); });

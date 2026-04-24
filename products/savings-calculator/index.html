@@ -460,6 +460,16 @@
        <div class="detail-row"><span>월이율</span><span>${(r * 100).toFixed(4)}%</span></div>
        <div class="detail-row"><span>실효 수익률</span><span>${((netInt / totalPrincipal) * 100).toFixed(2)}%</span></div>`;
     document.getElementById('resultCard').classList.add('show');
+    // 인사이트
+    let svIns = document.getElementById('svInsight');
+    if (!svIns) {
+      svIns = document.createElement('div');
+      svIns.id = 'svInsight';
+      svIns.style.cssText = 'background:#f0fdf4;border:1px solid #86efac;border-radius:8px;padding:12px 14px;margin-top:14px;font-size:0.85rem;color:#166534;line-height:1.6;';
+      document.getElementById('resultCard').appendChild(svIns);
+    }
+    const netPct = ((netInt / totalPrincipal) * 100).toFixed(2);
+    svIns.innerHTML = '💡 ' + (mode === 'simple' ? '단리' : '복리') + ' 기준, 세후 실효수익률은 <strong>' + netPct + '%</strong>이며 이자소득세(15.4%) 차감 후 <strong>순이자 ' + fmt(Math.round(netInt)) + '원</strong>을 받습니다.';
     document.getElementById('resultCard').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   }
   document.addEventListener('keydown', e => { if (e.key === 'Enter') calculate(); });

@@ -641,6 +641,21 @@
       <div class="detail-row"><span>기납부 세액</span><span>${fmt(withheld)}원</span></div>
       <div class="detail-row ${dtype}"><span>${isRefund ? '환급액' : '추가납부액'}</span><span>${fmt(Math.abs(diff))}원</span></div>`;
 
+    // 인사이트
+    let trIns = document.getElementById('trInsight');
+    if (!trIns) {
+      trIns = document.createElement('div');
+      trIns.id = 'trInsight';
+      trIns.style.cssText = 'border-radius:8px;padding:12px 14px;margin-top:14px;font-size:0.85rem;line-height:1.6;';
+      card.appendChild(trIns);
+    }
+    if (isRefund) {
+      trIns.style.cssText += 'background:#f0fdf4;border:1px solid #86efac;color:#166534;';
+      trIns.innerHTML = '💡 올해 <strong>' + fmt(Math.abs(diff)) + '원 환급</strong> 예상입니다. 연말정산 환급금은 보통 2~3월 급여에 포함되어 지급됩니다.';
+    } else {
+      trIns.style.cssText += 'background:#fef2f2;border:1px solid #fca5a5;color:#991b1b;';
+      trIns.innerHTML = '⚠️ <strong>' + fmt(Math.abs(diff)) + '원 추가납부</strong> 예상입니다. IRP·연금저축 납입, 월세 세액공제 등으로 절세 여지가 있는지 확인해보세요.';
+    }
     card.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 

@@ -502,6 +502,17 @@
     document.getElementById('resTotal').innerHTML = fmt(total)   + '<span>원</span>';
 
     document.getElementById('resultCard').classList.add('show');
+    // 인사이트
+    let atIns = document.getElementById('atInsight');
+    if (!atIns) {
+      atIns = document.createElement('div');
+      atIns.id = 'atInsight';
+      atIns.style.cssText = 'background:#f0fdf4;border:1px solid #86efac;border-radius:8px;padding:12px 14px;margin-top:14px;font-size:0.85rem;color:#166534;line-height:1.6;';
+      document.getElementById('resultCard').appendChild(atIns);
+    }
+    const totalPct = ((total / price) * 100).toFixed(2);
+    atIns.innerHTML = '💡 취득가 <strong>' + fmt(Math.round(price / 10000)) + '만원</strong> 기준, 취득세·교육세·농특세 합계 <strong>' + fmt(total) + '원</strong>(실효 <strong>' + totalPct + '%</strong>)입니다.' +
+      (largeArea ? ' 85㎡ 초과로 농어촌특별세가 포함되었습니다.' : '');
     document.getElementById('resultCard').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   }
 

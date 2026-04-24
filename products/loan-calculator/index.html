@@ -524,6 +524,22 @@
     document.getElementById('rTerm').textContent          = termStr + ' (' + n + '개월)';
     document.getElementById('rRate').textContent          = annualRate + '%';
 
+    // 결과 인사이트
+    const interestRatio = ((totalInterest / P) * 100).toFixed(1);
+    const monthlyIncome = P > 100000000 ? 5000000 : 3000000; // 추정 소득 기준
+    const dti = ((firstMonthly / monthlyIncome) * 100).toFixed(0);
+    let insight = document.getElementById('loanInsight');
+    if (!insight) {
+      insight = document.createElement('div');
+      insight.id = 'loanInsight';
+      insight.style.cssText = 'background:#f0fdf4;border:1px solid #86efac;border-radius:8px;padding:12px 14px;margin-top:14px;font-size:0.85rem;color:#166534;line-height:1.6;';
+      document.getElementById('resultCard').appendChild(insight);
+    }
+    const methodName = method === 'equal' ? '원리금균등' : '원금균등';
+    insight.innerHTML = '💡 ' + methodName + ' 상환 시, 총 이자는 원금의 <strong>' + interestRatio + '%</strong>입니다. ' +
+      '월 상환액 <strong>' + fmt(Math.round(firstMonthly)) + '원</strong>' + (method === 'principal' ? ' (첫 달 기준)' : '') +
+      '이며, 대출 기간이 길수록 월 부담은 줄지만 총 이자는 늘어납니다.';
+
     const card = document.getElementById('resultCard');
     card.classList.add('show');
     card.scrollIntoView({ behavior: 'smooth', block: 'start' });

@@ -416,6 +416,16 @@
     document.getElementById('resDaily').innerHTML  = fmt(daily)  + '<span>원</span>';
     document.getElementById('resTotal').innerHTML  = fmt(total)  + '<span>원</span>';
     document.getElementById('resultCard').classList.add('show');
+    // 인사이트
+    let alIns = document.getElementById('alInsight');
+    if (!alIns) {
+      alIns = document.createElement('div');
+      alIns.id = 'alInsight';
+      alIns.style.cssText = 'background:#f0fdf4;border:1px solid #86efac;border-radius:8px;padding:12px 14px;margin-top:14px;font-size:0.85rem;color:#166534;line-height:1.6;';
+      document.getElementById('resultCard').appendChild(alIns);
+    }
+    alIns.innerHTML = '💡 잔여 연차 <strong>' + days + '일</strong> × 1일 통상임금 <strong>' + fmt(daily) + '원</strong> = 총 <strong>' + fmt(total) + '원</strong>입니다. ' +
+      '미사용 연차수당은 퇴직 시 평균임금 산정에도 포함됩니다.';
     document.getElementById('resultCard').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   }
   document.addEventListener('keydown', e => { if (e.key === 'Enter') calculate(); });

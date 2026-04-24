@@ -810,6 +810,19 @@
            <div class="detail-row"><span>양도소득세 + 지방소득세</span><span>${fmt(baseTax + localTax)}원</span></div>
          </div>`;
       document.getElementById('resultNotice').textContent = '※ 다주택자 중과세율은 정부 정책에 따라 한시 배제될 수 있습니다. 장기보유특별공제는 중과 대상에 미적용됩니다.';
+      // 중과 경로 인사이트
+      const totalTaxM = baseTax + localTax;
+      const effRateM = gain > 0 ? ((totalTaxM / gain) * 100).toFixed(1) : '0';
+      let insM = document.getElementById('cgtInsight');
+      if (!insM) {
+        insM = document.createElement('div');
+        insM.id = 'cgtInsight';
+        insM.style.cssText = 'background:#fef2f2;border:1px solid #fca5a5;border-radius:8px;padding:12px 14px;margin-top:14px;font-size:0.85rem;color:#991b1b;line-height:1.6;';
+        rc.appendChild(insM);
+      }
+      insM.style.background = '#fef2f2'; insM.style.borderColor = '#fca5a5'; insM.style.color = '#991b1b';
+      insM.innerHTML = '⚠️ 다주택 중과로 <strong>실효세율이 약 ' + effRateM + '%</strong>입니다. ' +
+        '합계 세금 <strong>' + fmt(totalTaxM) + '원</strong>이 발생합니다. 중과 한시 배제 여부를 반드시 확인하세요.';
       rc.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     }
   }
@@ -835,6 +848,18 @@
          <div class="detail-row"><span>양도소득세 + 지방소득세</span><span>${fmt(tax + localTax)}원</span></div>
        </div>`;
     document.getElementById('resultNotice').textContent = '※ 실제 세액은 개인 상황(취득 시기, 지역, 다주택 여부 등)에 따라 달라질 수 있습니다. 정확한 계산은 세무사 상담을 권장합니다.';
+    // 결과 인사이트
+    const totalTax2 = tax + localTax;
+    const effRate2 = gain > 0 ? ((totalTax2 / gain) * 100).toFixed(1) : '0';
+    let ins2 = document.getElementById('cgtInsight');
+    if (!ins2) {
+      ins2 = document.createElement('div');
+      ins2.id = 'cgtInsight';
+      ins2.style.cssText = 'background:#f0fdf4;border:1px solid #86efac;border-radius:8px;padding:12px 14px;margin-top:14px;font-size:0.85rem;color:#166534;line-height:1.6;';
+      document.getElementById('resultCard').appendChild(ins2);
+    }
+    ins2.innerHTML = '💡 양도차익 대비 <strong>실효세율은 약 ' + effRate2 + '%</strong>입니다. ' +
+      '장기보유특별공제로 <strong>' + fmt(ltDeduct) + '원</strong>이 공제되었습니다. 보유·거주 기간이 길수록 공제율이 높아집니다.';
     document.getElementById('resultCard').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   }
 

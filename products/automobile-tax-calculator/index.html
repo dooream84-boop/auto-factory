@@ -510,6 +510,18 @@
     document.getElementById('resTotal').innerHTML      = fmt(finalTax)          + '<span>원</span>';
 
     document.getElementById('resultCard').classList.add('show');
+    // 인사이트
+    let autoIns = document.getElementById('autoInsight');
+    if (!autoIns) {
+      autoIns = document.createElement('div');
+      autoIns.id = 'autoInsight';
+      autoIns.style.cssText = 'background:#f0fdf4;border:1px solid #86efac;border-radius:8px;padding:12px 14px;margin-top:14px;font-size:0.85rem;color:#166534;line-height:1.6;';
+      document.getElementById('resultCard').appendChild(autoIns);
+    }
+    const halfYear = Math.round(finalTax / 2);
+    autoIns.innerHTML = '💡 연간 자동차세 <strong>' + fmt(finalTax) + '원</strong>(교육세 포함)이며, 6월·12월 <strong>각 ' + fmt(halfYear) + '원씩</strong> 납부합니다.' +
+      (agePct > 0 ? ' 차령 경감 ' + agePct + '%가 적용되었습니다.' : '') +
+      (prepayPct > 0 ? ' 연납 할인 ' + prepayPct + '%가 적용되었습니다.' : '');
     document.getElementById('resultCard').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   }
 

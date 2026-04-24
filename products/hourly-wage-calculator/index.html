@@ -555,6 +555,21 @@
       hasHoliday
         ? `✅ 주 ${weeklyHours}시간 근무 → 주휴수당 발생 (주 ${fmt(weeklyPay)}원)`
         : `⚠️ 주 ${weeklyHours}시간 근무 → 주 15시간 미만으로 주휴수당 미발생`;
+    // 인사이트
+    let hwIns = document.getElementById('hwInsight');
+    if (!hwIns) {
+      hwIns = document.createElement('div');
+      hwIns.id = 'hwInsight';
+      hwIns.style.cssText = 'background:#f0fdf4;border:1px solid #86efac;border-radius:8px;padding:12px 14px;margin-top:14px;font-size:0.85rem;color:#166534;line-height:1.6;';
+      rc.appendChild(hwIns);
+    }
+    if (wage < MIN_WAGE) {
+      hwIns.style.background = '#fef2f2'; hwIns.style.borderColor = '#fca5a5'; hwIns.style.color = '#991b1b';
+      hwIns.innerHTML = '⚠️ 시급 <strong>' + fmt(wage) + '원</strong>은 2026년 최저시급 <strong>' + fmt(MIN_WAGE) + '원</strong> 미만입니다. 사업장에 확인이 필요합니다.';
+    } else {
+      hwIns.style.background = '#f0fdf4'; hwIns.style.borderColor = '#86efac'; hwIns.style.color = '#166534';
+      hwIns.innerHTML = '💡 시급 <strong>' + fmt(wage) + '원</strong>, 주 ' + weeklyHours + '시간 기준 <strong>월 예상 수입은 ' + fmt(monthly) + '원</strong>입니다' + (hasHoliday ? ' (주휴수당 포함).' : '.');
+    }
     rc.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   }
 
@@ -614,6 +629,18 @@
          <div class="detail-row"><span>월급 (52÷12주)</span><span>${fmt(monthly)}원</span></div>
        </div>`;
     document.getElementById('resultNotice').textContent = '※ 5인 미만 사업장은 연장·야간·휴일 가산수당(50%)이 적용되지 않습니다. 주휴수당은 5인 미만에도 적용됩니다.';
+    // 인사이트 (가산수당 탭)
+    let hwIns2 = document.getElementById('hwInsight');
+    if (!hwIns2) {
+      hwIns2 = document.createElement('div');
+      hwIns2.id = 'hwInsight';
+      hwIns2.style.cssText = 'background:#f0fdf4;border:1px solid #86efac;border-radius:8px;padding:12px 14px;margin-top:14px;font-size:0.85rem;color:#166534;line-height:1.6;';
+      rc.appendChild(hwIns2);
+    }
+    hwIns2.style.background = '#f0fdf4'; hwIns2.style.borderColor = '#86efac'; hwIns2.style.color = '#166534';
+    const extraPct = basicWeekly > 0 ? ((extraTotal / basicWeekly) * 100).toFixed(0) : 0;
+    hwIns2.innerHTML = '💡 가산수당이 기본급의 <strong>' + extraPct + '%</strong>에 해당합니다. ' +
+      '주휴수당 포함 <strong>월 예상 수입은 ' + fmt(monthly) + '원</strong>입니다.';
     rc.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   }
 

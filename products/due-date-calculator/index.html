@@ -501,6 +501,20 @@
 
     document.getElementById('resultCard').classList.add('show');
     document.getElementById('milestoneCard').style.display = 'block';
+    // 인사이트
+    let ddcIns = document.getElementById('ddcInsight');
+    if (!ddcIns) {
+      ddcIns = document.createElement('div');
+      ddcIns.id = 'ddcInsight';
+      ddcIns.style.cssText = 'background:#f0fdf4;border:1px solid #86efac;border-radius:8px;padding:12px 14px;margin-top:14px;font-size:0.85rem;color:#166534;line-height:1.6;';
+      document.getElementById('resultCard').appendChild(ddcIns);
+    }
+    const remainWeeks = 40 - weeks;
+    if (remainWeeks > 0) {
+      ddcIns.innerHTML = '💡 현재 <strong>' + weeks + '주 ' + days + '일</strong>(진행률 ' + pct + '%)이며, 출산 예정일까지 약 <strong>' + remainWeeks + '주</strong> 남았습니다.';
+    } else {
+      ddcIns.innerHTML = '💡 출산 예정일이 지났습니다. 현재 <strong>' + weeks + '주 ' + days + '일</strong>차입니다. 담당 의료기관과 상의하세요.';
+    }
     document.getElementById('resultCard').scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 </script>

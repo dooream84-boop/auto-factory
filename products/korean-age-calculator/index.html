@@ -498,6 +498,16 @@
        <div class="detail-row"><span>다음 생일 (${birth.getMonth()+1}월 ${birth.getDate()}일)</span><span>${isBirthday ? '🎉 오늘!' : daysToNext + '일 후'}</span></div>`;
 
     document.getElementById('resultCard').classList.add('show');
+    // 인사이트
+    let kaIns = document.getElementById('kaInsight');
+    if (!kaIns) {
+      kaIns = document.createElement('div');
+      kaIns.id = 'kaInsight';
+      kaIns.style.cssText = 'background:#f0fdf4;border:1px solid #86efac;border-radius:8px;padding:12px 14px;margin-top:14px;font-size:0.85rem;color:#166534;line-height:1.6;';
+      document.getElementById('resultCard').appendChild(kaIns);
+    }
+    kaIns.innerHTML = '💡 2023년 6월부터 법적·행정적으로 <strong>만나이(' + age + '세)</strong>가 통일 적용됩니다. ' +
+      '지금까지 <strong>' + daysLived.toLocaleString() + '일</strong>을 살았으며, ' + zod.icon + ' ' + zod.name + '띠 · ' + star.icon + ' ' + star.name + '자리입니다.';
     document.getElementById('resultCard').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   }
 </script>

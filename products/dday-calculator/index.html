@@ -462,6 +462,23 @@
     }
 
     document.getElementById('resultCard').classList.add('show');
+    // 인사이트
+    let ddIns = document.getElementById('ddInsight');
+    if (!ddIns) {
+      ddIns = document.createElement('div');
+      ddIns.id = 'ddInsight';
+      ddIns.style.cssText = 'background:#f0fdf4;border:1px solid #86efac;border-radius:8px;padding:12px 14px;margin-top:14px;font-size:0.85rem;color:#166534;line-height:1.6;';
+      document.getElementById('resultCard').appendChild(ddIns);
+    }
+    const weeks = Math.floor(Math.abs(diffDays) / 7);
+    const remDays = Math.abs(diffDays) % 7;
+    if (diffDays > 0) {
+      ddIns.innerHTML = '💡 D-Day까지 <strong>' + weeks + '주 ' + remDays + '일</strong> 남았습니다. 약 <strong>' + (Math.abs(diffDays) / 30).toFixed(1) + '개월</strong>입니다.';
+    } else if (diffDays === 0) {
+      ddIns.innerHTML = '🎉 오늘이 바로 <strong>D-Day</strong>입니다!';
+    } else {
+      ddIns.innerHTML = '💡 D-Day로부터 <strong>' + weeks + '주 ' + remDays + '일</strong> 지났습니다.';
+    }
     document.getElementById('resultCard').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   }
 </script>

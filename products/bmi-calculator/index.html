@@ -468,6 +468,24 @@
     document.getElementById('rDiff').textContent  = diff > 0 ? '+' + diff + 'kg (표준체중 초과)' : diff + 'kg (표준체중 미달)';
     document.getElementById('bmiPointer').style.left = pct + '%';
 
+    // 인사이트
+    let bmiIns = document.getElementById('bmiInsight');
+    if (!bmiIns) {
+      bmiIns = document.createElement('div');
+      bmiIns.id = 'bmiInsight';
+      bmiIns.style.cssText = 'border-radius:8px;padding:12px 14px;margin-top:14px;font-size:0.85rem;line-height:1.6;';
+      card.appendChild(bmiIns);
+    }
+    if (bmi < 18.5) {
+      bmiIns.style.cssText += 'background:#eff6ff;border:1px solid #93c5fd;color:#1e40af;';
+      bmiIns.innerHTML = '💡 BMI <strong>' + bmiFixed + '</strong>으로 저체중 범위입니다. 정상 체중이 되려면 <strong>' + (parseFloat(minW) - w).toFixed(1) + 'kg</strong> 증량이 필요합니다.';
+    } else if (bmi <= 23) {
+      bmiIns.style.cssText += 'background:#f0fdf4;border:1px solid #86efac;color:#166534;';
+      bmiIns.innerHTML = '💡 BMI <strong>' + bmiFixed + '</strong>으로 정상 범위입니다. 현재 체중을 유지하는 것이 건강에 좋습니다.';
+    } else {
+      bmiIns.style.cssText += 'background:#fef2f2;border:1px solid #fca5a5;color:#991b1b;';
+      bmiIns.innerHTML = '💡 BMI <strong>' + bmiFixed + '</strong>으로 ' + label + ' 범위입니다. 정상 범위 상한(' + maxW + 'kg)까지 <strong>' + (w - parseFloat(maxW)).toFixed(1) + 'kg</strong> 감량이 권장됩니다.';
+    }
     card.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 </script>

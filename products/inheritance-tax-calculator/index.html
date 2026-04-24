@@ -653,6 +653,21 @@
     document.getElementById('detailSection').innerHTML = detailHTML;
     const rc = document.getElementById('resultCard');
     rc.classList.add('show');
+    // 인사이트
+    let ihIns = document.getElementById('ihInsight');
+    if (!ihIns) {
+      ihIns = document.createElement('div');
+      ihIns.id = 'ihInsight';
+      ihIns.style.cssText = 'background:#f0fdf4;border:1px solid #86efac;border-radius:8px;padding:12px 14px;margin-top:14px;font-size:0.85rem;color:#166534;line-height:1.6;';
+      rc.appendChild(ihIns);
+    }
+    if (finalTax === 0) {
+      ihIns.innerHTML = '💡 상속재산이 공제 한도 이내로 <strong>납부할 세금이 없습니다</strong>.';
+    } else {
+      const ihEffR = estate > 0 ? ((finalTax / estate) * 100).toFixed(1) : '0';
+      ihIns.innerHTML = '💡 상속재산 대비 <strong>실효세율은 약 ' + ihEffR + '%</strong>입니다. ' +
+        '신고기한(상속개시일로부터 6개월) 내 신고 시 3% 세액공제가 적용됩니다.';
+    }
     rc.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   }
 </script>
