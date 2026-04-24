@@ -552,6 +552,18 @@
 
     document.getElementById('sumEmployee').innerHTML = fmt(totalEmp) + '<span>원</span>';
     document.getElementById('sumEmployer').innerHTML = fmt(totalEr)  + '<span>원</span>';
+
+    // 인사이트 한줄 해설
+    const pct = ((totalEmp / sal) * 100).toFixed(1);
+    let insight = document.getElementById('insInsight');
+    if (!insight) {
+      insight = document.createElement('div');
+      insight.id = 'insInsight';
+      insight.style.cssText = 'background:#f0fdf4;border:1px solid #86efac;border-radius:8px;padding:12px 14px;margin-top:14px;font-size:0.85rem;color:#166534;line-height:1.6;';
+      document.getElementById('workerResult').appendChild(insight);
+    }
+    insight.innerHTML = '💡 월급 <strong>' + fmt(Math.round(sal/10000)) + '만원</strong> 기준, 4대보험 근로자 부담은 급여의 <strong>' + pct + '%</strong>입니다. 사업주도 동일하게 <strong>' + fmt(Math.round(totalEr)) + '원</strong>을 부담합니다.';
+
     const rc = document.getElementById('workerResult');
     rc.classList.add('show');
     rc.scrollIntoView({ behavior: 'smooth', block: 'nearest' });

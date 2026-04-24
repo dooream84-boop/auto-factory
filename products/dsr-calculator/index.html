@@ -147,6 +147,30 @@
         "@type": "Answer",
         "text": "기존 대출 상환, 상환 기간 연장(월 상환액 감소), 소득 증빙 추가(배우자 합산 등)로 DSR을 낮출 수 있습니다."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "신용대출 1억 있는데 주담대 추가로 받을 수 있나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "기존 신용대출의 월 상환액이 DSR에 포함됩니다. 연소득 6,000만원이고 신용대출 월 상환 50만원이면, 남은 DSR 여력은 연 1,800만원이며 이 범위 내에서 주담대 가능합니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "전세자금대출도 DSR에 포함되나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "전세대출은 DSR 산정 시 포함됩니다. 단, 보증금 반환 목적의 전세대출은 일부 금융기관에서 우대 적용이 있을 수 있습니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "카드론·마이너스통장도 DSR에 들어가나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "카드론은 잔액 기준 연간 원리금 상환액이 DSR에 포함됩니다. 마이너스통장은 한도가 아닌 실제 사용액 기준으로 산정되는 경우가 많습니다."
+      }
     }
   ]
 }
@@ -531,6 +555,22 @@
       box.classList.add('danger');
     } else {
       box.classList.add('success');
+    }
+
+    // 인사이트 한줄 해설
+    let insight = document.getElementById('dsrInsight');
+    if (!insight) {
+      insight = document.createElement('div');
+      insight.id = 'dsrInsight';
+      insight.style.cssText = 'background:#f0fdf4;border:1px solid #86efac;border-radius:8px;padding:12px 14px;margin-top:14px;font-size:0.85rem;color:#166534;line-height:1.6;';
+      document.getElementById('resultCard').appendChild(insight);
+    }
+    if (dsr > limitPct) {
+      insight.style.background = '#fef2f2'; insight.style.borderColor = '#fca5a5'; insight.style.color = '#991b1b';
+      insight.innerHTML = '⚠️ DSR <strong>' + dsr.toFixed(1) + '%</strong>로 한도(<strong>' + limitPct + '%</strong>)를 초과합니다. 대출 기간을 늘리거나 기존 대출을 상환하면 여력이 확보됩니다.';
+    } else {
+      insight.style.background = '#f0fdf4'; insight.style.borderColor = '#86efac'; insight.style.color = '#166534';
+      insight.innerHTML = '💡 DSR <strong>' + dsr.toFixed(1) + '%</strong>로 한도 이내입니다. 추가 대출 여력은 연간 약 <strong>' + fmt(room) + '원</strong>입니다.';
     }
 
     document.getElementById('resultCard').classList.add('show');
