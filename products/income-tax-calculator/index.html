@@ -832,6 +832,17 @@
     document.getElementById('resFinal').innerHTML    = fmt(finalTax) + '<span>원</span>';
     document.getElementById('detailSection').innerHTML =
       rows.map(r => `<div class="detail-row${r.sub ? ' sub' : ''}"><span>${r.l}</span><span>${r.v}</span></div>`).join('');
+    // 인사이트 한줄 해설
+    const effRate = income > 0 ? ((finalTax / income) * 100).toFixed(1) : '0';
+    let insight = document.getElementById('taxInsight');
+    if (!insight) {
+      insight = document.createElement('div');
+      insight.id = 'taxInsight';
+      insight.style.cssText = 'background:#f0fdf4;border:1px solid #86efac;border-radius:8px;padding:12px 14px;margin-top:14px;font-size:0.85rem;color:#166534;line-height:1.6;';
+      document.getElementById('resultCard').appendChild(insight);
+    }
+    insight.innerHTML = '💡 소득 ' + fmt(Math.round(income/10000)) + '만원 기준, <strong>실효세율은 약 ' + effRate + '%</strong>입니다. ' + (finalTax > 0 ? '5월 31일까지 홈택스에서 신고·납부하세요.' : '공제 후 납부세액이 없습니다.');
+
     document.getElementById('resultCard').classList.add('show');
     document.getElementById('resultCard').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   }

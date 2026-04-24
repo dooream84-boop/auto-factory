@@ -926,6 +926,18 @@
     document.getElementById('t1Daily').textContent   = fmt(Math.round(dailyWage)) + '원';
     document.getElementById('t1Monthly').textContent = fmt(Math.round(monthlyAvg)) + '원';
 
+    // 인사이트 한줄 해설
+    const years = (diffDays / 365).toFixed(1);
+    const monthsOfPay = (severance / monthlyAvg).toFixed(1);
+    let insight = document.getElementById('t1Insight');
+    if (!insight) {
+      insight = document.createElement('div');
+      insight.id = 't1Insight';
+      insight.style.cssText = 'background:#f0fdf4;border:1px solid #86efac;border-radius:8px;padding:12px 14px;margin-top:14px;font-size:0.85rem;color:#166534;line-height:1.6;';
+      document.getElementById('t1Result').appendChild(insight);
+    }
+    insight.innerHTML = '💡 약 <strong>' + years + '년</strong> 근속 기준, 퇴직금은 월급의 약 <strong>' + monthsOfPay + '개월분</strong>에 해당합니다. 퇴직 후 14일 이내 미지급 시 연 20% 지연이자가 발생합니다.';
+
     const card = document.getElementById('t1Result');
     card.classList.add('show');
     card.scrollIntoView({ behavior: 'smooth', block: 'start' });
