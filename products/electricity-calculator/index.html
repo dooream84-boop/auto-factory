@@ -433,7 +433,7 @@
     summer: {
       base:   [910, 1600, 7300],
       energy: [88.3, 182.9, 275.6],       // 여름도 동일 단가 적용 (2026 기준)
-      limits: [200, 400, Infinity]
+      limits: [300, 450, Infinity]         // 7~8월 누진 완화: 300kWh·450kWh로 확대
     }
   };
 
@@ -503,8 +503,8 @@
       elIns.style.cssText = 'background:#f0fdf4;border:1px solid #86efac;border-radius:8px;padding:12px 14px;margin-top:14px;font-size:0.85rem;color:#166534;line-height:1.6;';
       card.appendChild(elIns);
     }
-    const perKwh = kwh > 0 ? Math.round(total / kwh) : 0;
-    elIns.innerHTML = '💡 <strong>' + fmt(kwh) + 'kWh</strong> 사용 시 kWh당 평균 단가는 <strong>' + fmt(perKwh) + '원</strong>입니다. ' +
+    const perKwh = usage > 0 ? Math.round(total / usage) : 0;
+    elIns.innerHTML = '💡 <strong>' + fmt(usage) + 'kWh</strong> 사용 시 kWh당 평균 단가는 <strong>' + fmt(perKwh) + '원</strong>입니다. ' +
       '누진제로 인해 사용량이 늘수록 단가가 급격히 올라갑니다.';
     card.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
